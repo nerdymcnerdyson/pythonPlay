@@ -1,11 +1,23 @@
 import time
+
+# import sys
+# sys.path.append('/usr/local/lib/python2.7/site-packages/')
+
+# from graph_tool.all import *
+
+GLOBAL_GRAPH = None
+
 class TrieNode:
+    nodeIDnum = 0
     def __init__(self, letter, parent):
         self.letter = letter
         self.parent = parent
         self.id = None
         self.children = {}
         self.kids = 0
+        self.nodeId = TrieNode.nodeIDnum
+        TrieNode.nodeIDnum += 1
+
     def processString(self, stringIn, stringId):
         if len(stringIn) == 0:
             self.id = stringId
@@ -83,6 +95,9 @@ class Trie:
     
 
 
+
+
+
 def getMysqlDatabaseEmails():
     import MySQLdb
 
@@ -101,8 +116,24 @@ def getMysqlDatabaseEmails():
     return cur
 
 
+# def drawTreeWithGraphTool():
+#     print 'drawing graph with', TrieNode.nodeIDnum, 'nodes'
 
-    
+#     global GLOBAL_GRAPH
+#     GLOBAL_GRAPH = Graph()
+#     #GLOBAL_GRAPH.add_vertex(TrieNode.nodeIDnum)
+#     GLOBAL_GRAPH.add_vertex(12)
+#     label = GLOBAL_GRAPH.new_edge_property("string")
+#     e = GLOBAL_GRAPH.add_edge(0, 1)
+#     label[e] = "A"
+#     e = GLOBAL_GRAPH.add_edge(2, 3)
+#     label[e] = "foo"
+#     e = GLOBAL_GRAPH.add_edge(3, 1)
+#     label[e] = "bar"
+#     e = GLOBAL_GRAPH.add_edge(0, 3)
+#     label[e] = "gnat"
+
+#     graph_draw(GLOBAL_GRAPH, edge_text=label, edge_font_size=40, edge_text_distance=20, edge_marker_size=40, output="output.png")
 
 
 
@@ -134,16 +165,17 @@ def getMysqlDatabaseEmails():
 #             count += 1
 #         print 'processing records took', (time.time() - ts)
 
+#     drawTreeWithGraphTool()
         
             
 
-#     print 'this trie has processed', myTrie.stringsIndexed, 'strings'
+# #     print 'this trie has processed', myTrie.stringsIndexed, 'strings'
         
-#     print 'getting ID for emailAddress bigdaddy200698@yahoo.com', myTrie.getIdForString('bigdaddy200698@yahoo.com')
-#     print 'getting ID for emailAddress pizza', myTrie.getIdForString('pizza')
+# #     print 'getting ID for emailAddress bigdaddy200698@yahoo.com', myTrie.getIdForString('bigdaddy200698@yahoo.com')
+# #     print 'getting ID for emailAddress pizza', myTrie.getIdForString('pizza')
 
 
-#     myTrie.printRootReport(2,2)
+# #     myTrie.printRootReport(2,2)
     
         
 # if __name__ == '__main__':

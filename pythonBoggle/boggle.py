@@ -118,28 +118,48 @@ class Boggle:
 
 
         for word in allWords[-10:]:
-            print word, self.board.foundWords[word]
+            path = []
+            for spot in self.board.foundWords[word]:
+                path.append([spot/self.n, spot%self.n])
+            print word, path
 
     def prettyPrintBoard(self):
         if not self.board:
             return
-        for i in xrange(self.n):
+        for i in xrange(-1,self.n):
+            if i != -1:
+                spaces = '  '
+                if i < 10:
+                    spaces += ' '
+                print i,spaces,
+            else:
+                print '     ',
             for j in xrange(self.n):
-                letter = self.board.letters[i*self.n+j]
-                if len(letter) == 1:
-                    letter += " "
-                print letter,
-            print ''
+                if i == -1:
+                    spaces = '  '
+                    if j < 10:
+                        spaces += ' '
+                    print j,spaces,
+                else:
+                    letter = self.board.letters[i*self.n+j]
+                    if len(letter) == 1:
+                        letter += " "
+                    print letter,'  ',
+            print '\n'
 
 def main():
 
-    myTrie = pythonTrie.trie.Trie()
+    myTrie = pythonTrie.Trie()
     myTrie.processDict()
 
     boggleGame = Boggle(20, myTrie)
-    boggleGame.createBoard()
-    boggleGame.walkBoard()
-    boggleGame.prettyPrintBoard()
+
+    for i in xrange(4):
+        ts = time.time()
+        boggleGame.createBoard()
+        boggleGame.walkBoard()
+        boggleGame.prettyPrintBoard()
+        print 'processing records took', (time.time() - ts)
 
 if __name__ == '__main__':
     main()

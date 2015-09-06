@@ -1,1 +1,1 @@
-import trie
+from trie import *
