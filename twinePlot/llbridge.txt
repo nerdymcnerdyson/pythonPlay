@@ -1,0 +1,1464 @@
+﻿:: Start
+<<set $baltydown = false>><<set $brokenleg = false>><<set $coadvice = false>><<set $doorstory = false>><<set $drillers = false>><<set $helmetoff = false>><<set $informal = false>><<set $jeff = false>><<set $lastone = false>><<set $relaxmission = false>><<set $relaxwhere = false>><<set $sequel = false>>
+[incoming communication]
+[priority clearance -- EYES ONLY]
+[clearance override]
+Pan-pan. This is Viridian actual. Radio check. Over.
+[[Uh... what?|uh_what]] | [[Who is this?|who_is_this]]
+
+
+
+:: who_is_this
+This is Viridian actual. You are receiving?
+Radio check. Over.
+[[What does that mean?|what_radio]] | [[What's a "Viridian actual"?|what_viridian]]
+
+
+
+:: what_viridian
+Viridian is the name of the ship.
+And "actual" means you're speaking to the person who's actually in charge of the actual ship...
+...as opposed to my RTO.
+And yes, I just realized that if I had to explain all that other crap...
+...then I obviously have to explain that "RTO" stands for "radio telephone operator." Over.
+[["Telephone Line" is my favorite RTO song.|no_elo]] | [[So "radio check" means...?|what_radio]]
+
+
+:: no_elo
+You're thinking of ELO.
+Electric Light Orchestra?
+Hoo boy. Is there any INTELLIGENT life in this sector? Over.
+[[You're talkin' to it.|talkin_to_it]] | [[That's not very nice.|not_nice]]
+
+
+:: talkin_to_it
+Huh. That's... not as comforting as you probably think it is.
+[[informal]]
+
+
+:: intense_stare
+Yeah, well.
+When it comes to hearts and flowers, I figure, go big or go home.
+And "going home" isn't really an option at the moment.
+[[informal]]
+
+
+:: StoryTitle
+Lifeline: Viridian Actual 112315
+
+
+:: uh_what
+Pan-pan.
+That's... possible assistance needed. State of urgency, not yet emergency.
+Just a heads-up to all receiving parties.
+Although it looks like you're the ONLY receiving party. Over.
+[[So is this a mayday call?|mayday_call]] | [[Are you in trouble?|mayday_two]]
+
+
+:: what_radio
+Radio check? It's... I'm asking for an evaluation of my signal strength and readability.
+You know, like, "loud and clear." Or, "weak and intermittent."
+Or, "This isn't technically a radio, it's a quantum tunneling communicator." Over.
+[[Oh. That last one, then.|last_one]] | [[Loud and clear, I guess.|loud_clear]]
+
+
+:: last_one
+<<set $lastone = true>>
+Great. Then unless they shipped me a bad batch of atoms...
+...I'm gonna assume I'm "loud and clear" on your end.
+You're coming through five-by-five. Over.
+[[So, that's... twenty-five?|informal]] | [[That's good, I'm guessing?|thats_good]]
+
+
+:: not_nice
+The military doesn't pay me to hand out hugs.
+Although, think about how great it would be if they DID.
+I've been concentrating on my upper body lately. Got some pretty sweet biceps happening here.
+I'm probably like ninety-eighth percentile in hugging.
+They oughtta put me in charge of my own regiment of Care Bears.
+If we could weaponize adorability, I'd blow a rainbow hole through Jupiter. Over.
+[[Are we at war with Jupiter?|war_jupiter]] | [[Your Care Bear Stare is intense.|intense_stare]]
+
+
+:: war_jupiter
+Nah. But it just seems so smug. Sitting there, all huge and bloated.
+A "gas giant." Just like my dad. Swirling, stinky vapor, with no real substance.
+Needs to be taken down a peg or two.
+(I may have some daddy issues that need resolving.)
+[[informal]]
+
+
+:: informal
+<<set $informal = true>>
+Listen, you're clearly not military, so I'm gonna dispense with the formalities.
+Out here where the armpit of the galaxy meets the butt crack of the universe...
+...I feel like it's okay if I don't "Roger" and "Over" every last thing I say.
+You good with that? Over.
+[[Roger.|roger]] | [[Ten-four, good buddy.|ten_four]]
+
+
+:: StoryAuthor
+Dave Justus
+
+
+:: mayday_call
+No. I want to be very clear, for the record. This is NOT a mayday call.
+[[mayday]]
+
+
+:: loud_clear
+Glad to hear it.
+[[informal]]
+
+
+:: thats_good
+Yeah. That's good.
+[[informal]]
+
+
+:: ten_four
+Okay. You're not military...
+...and you're DEFINITELY not Burt Reynolds with 400 cases of Coors on the line.
+So relax with the lingo, there, Bandit.
+[[Fine. So is this a mayday call?|mayday_call]] | [[Are you in trouble?|mayday_two]]
+
+
+:: mayday
+This is just, uh, mild distress. Nothing we can't handle.
+<<if $informal is true>>I want that on the record.
+<<else>>I want that on the record. Over.<<endif>>
+[[What "record"?|what_record]] | [[Who are you, exactly?|whos_we]]
+
+
+:: mayday_two
+No. I want to be very clear, for the record. This is NOT a mayday call.
+[[mayday]]
+
+
+:: roger
+Great. "Humor."
+I hope you can see the little air quotes I'm making around that word.
+[[Yup. So is this a mayday call?|mayday_call]] | [[Are you in trouble?|mayday_two]]
+
+
+:: what_record
+Yeah, see... that's the problem.
+Our black box -- you know, the voyage data recorder?
+The thing that's supposed to keep on working, even when the rest of the ship is a smoldering wreck?
+Yeah, the black box has stopped working.
+I know this because of a little flashing light on the instrument panel...
+...which flashed for a couple days before it, too, stopped working.
+<<if $informal is true>>I feel like I'm cruising deep space in a '74 Ford Pinto.
+<<else>>I feel like I'm cruising deep space in a '74 Ford Pinto. Over.<<endif>>
+[[So, there IS no record.|no_record]] | [[Can you repair the ship?|repair_ship]]
+
+
+:: no_record
+Not an official one, at any rate. And that's why I sent out this call.
+Now, listen... this isn't protocol. Far from it.
+But I sent out a call because "two-way transmit" seems to be the only mode that's functional...
+...and a transcript of our conversation is gonna have to serve as my flight log.
+Which is unorthodox as hell, I know.
+<<if $informal is true>>But it's the only workaround we could come up with.
+<<else>>But it's the only workaround we could come up with. Over.<<endif>>
+[[Who's "we"?|whos_we]] | [[What if I hang up?|hang_up]]
+
+
+:: hang_up
+If you hang up?
+Well... then I guess I'm screwed.
+I guess there'll be no flight log, and no record of our mission...
+...and you and I will never have the chance to exchange our favorite recipes.
+Which would suck for you, because the things I can do with a packet of freeze-dried ice cream?
+<<if $informal is true>>Blow your mind.
+<<else>>Blow your mind. Over.<<endif>>
+[[Well, that WOULD be a shame.|big_shame]] | [[Who are you, exactly?|whos_we]]
+
+
+:: whos_we
+We're a small detachment from the Ninth Battalion.
+Wing Commander Melanie Chior, Viridian actual.
+I've got my boys Cruciger and de Ley up here with me in this sardine can...
+<<if $informal is true>>...because I guess the Ninth figured they could get by without the three of us for a while.
+<<else>>...because I guess the Ninth figured they could get by without the three of us for a while. Over.<<endif>>
+[[What's your mission?|what_mission]] | [[Where are you, exactly?|where_exactly]]
+
+
+:: big_shame
+I'm tellin' you. You'll only SORT OF want to puke in your mouth after you taste this.
+Which is a HUGE step up from how you'd usually feel after eating these rations.
+Anyhow. About us.
+[[whos_we]]
+
+
+:: repair_ship
+There aren't exactly any Jiffy Lubes out here in the far reaches, you know?
+And, I mean, I'm pretty handy with a wrench -- I can change my oil or fix a flat --
+but dual ion engines are a little outside my wheelhouse.
+Like, LIGHT YEARS outside.
+So the odds of getting some quick repairs done on the Viridian's black box...
+...or any other part of her, really... are pretty freakin' low.
+And as it stands, there's no flight record.
+[[no_record]]
+
+
+:: where_exactly
+<<if $informal is false>>[[informal_where]]>>
+<<else>>[[relax_where]]<<endif>>
+
+
+:: what_mission
+<<if $informal is false>>[[informal_mission]]>>
+<<else>>[[relax_mission]]<<endif>>
+
+
+:: informal_where
+Hey look, you're clearly not military...
+...so from here forward, I'm gonna dispense with the formalities.
+Out here where the armpit of the galaxy meets the butt crack of the universe...
+...I feel like it's okay if I don't "Roger" and "Over" every last thing I say.
+Now. You were asking where we were.
+[[relax_where]]
+
+
+:: relax_where
+<<set $relaxwhere = true>>
+We're nearing a remote moon out in the Tau Ceti system.
+[[remote_moon]]
+
+
+:: relax_mission
+<<set $relaxmission = true>>
+So, the mission... obviously I can't go into all the particulars.
+But here's enough to keep you interested:
+A mining vessel called the White Star intercepted a distress beacon from right out here...
+...which, if this sector is "nowhere," then we're smack dab in the middle of it.
+Some kid named Taylor, sole survivor of a crashed ship...
+...managed to stay alive for three days, somehow, out on this rock.
+<<if $relaxwhere is false>>[[Where is "this rock," exactly?|this_rock]] | [[Right, some nameless desert moon.|remote_moon]]
+<<else>>[[know_taylor]]<<endif>>
+
+
+:: informal_mission
+Hey look, you're clearly not military...
+...so from here forward, I'm gonna dispense with the formalities.
+Out here where the armpit of the galaxy meets the butt crack of the universe...
+...I feel like it's okay if I don't "Roger" and "Over" every last thing I say.
+Now. You were asking about the mission.
+[[relax_mission]]
+
+
+:: better_name
+<<set $jeff = true>>
+Yeah, I think you're right.
+I'm gonna call this moon "Jeff."
+From all readings and anecdotal reports, Jeff's atmosphere is hospitable.
+So we're gonna land on Jeff and then walk around a little.
+And if Jeff starts acting weird, we're gonna blow him up.
+<<if $relaxmission is false>>[[relax_mission]]
+<<else>>[[know_taylor]]<<endif>>
+
+
+:: remote_moon
+This sector is so lightly trafficked, no one's bothered to come up with clever names...
+...so the planets and stuff out here just get classified with jumbles of letters and numbers.
+This delightful hunk of desert is labeled 31U00W.
+Catchy, huh?
+[[Really rolls off the tongue.|rolls_off]] | [[Surely we can do better.|better_name]]
+
+
+:: this_rock
+It's a remote moon, out in the Tau Ceti system.
+[[remote_moon]]
+
+
+:: know_taylor
+Oh, yeah, there was some note that Taylor had been in contact with somebody back on Earth.
+I guess that's you, huh?
+Well, now you're in contact with ME.
+And you know what they say... the sequel is ALWAYS better than the original.
+[[Uh... sure.|sure_sequel]] | [[Nobody says that.|nobody_sequel]]
+
+
+:: nearly_died
+Okay, yeah, you were in contact with this Taylor kid...
+...maybe you can give us some insight into the report we got from the White Star.
+Their Captain, Shepherd, contacted the Ninth with this crazysauce story...
+...about how this place was overrun with zombie astronauts and green-eyed rats...
+...and a horde of "aliens," which, I'll be honest, we all had a good laugh about.
+[[Every bit of that is accurate.|accurate]] | [[Nothing to laugh about.|aliens]]
+
+
+:: aliens
+Nope. Sorry. I'm not buying it.
+<<if $sequel is true>><i>Aliens</i> is one of those sequels that's, if not better than, at least AS GOOD AS the original...
+...but it's fiction. As are all aliens.
+<<else>>Aliens are fiction.<<endif>>
+Despite your most fervent hopes, <i>E.T.</i> was not a documentary...
+...and it sure wasn't filmed out here on 31U00W...
+...which appears to be as desolate and devoid of life as a <i>Mac And Me</i> fan club.
+[[The aliens are real!|accurate]] | [[Don't believe me. Suit yourself.|suit_yourself]]
+
+
+:: suit_yourself
+I WILL suit myself.
+I'll suit myself right up.
+Balty and the Ghost -- sorry, that's corporals Balthazar de Ley and Caspar Cruciger, respectively --
+are already in their IEVA suits.
+Instruments indicate that the atmosphere is breathable here...
+...but better safe than sorry, right?
+Gimme a minute to get dressed, I'll be back in touch.
+[[delay 5m^Mel is suiting up|excursion]]
+
+
+:: rolls_off
+If our space program's good for anything, it's poetry.
+My favorite kids' book is the one with the little bunny rabbit...
+...who says, "Goodnight room. Goodnight 31U00W. Goodnight cow jumping over 31U00W."
+Really takes me back to my childhood.
+My terrible, terrible childhood.
+<<if $relaxmission is false>>[[relax_mission]]
+<<else>>[[know_taylor]]<<endif>>
+
+
+:: sure_sequel
+Wow.
+You really know how to boost a gal's self-esteem.
+They say sarcasm doesn't work in print...
+<<if $lastone is true>>...but I'm reading yours loud and clear.
+Five by five.
+<<else>>...but I'm reading yours loud and clear.<<endif>>
+[[landing]]
+
+
+:: nobody_sequel
+<<set $sequel = true>>
+Uh, <i>The Empire Strikes Back.</i>
+Uh, <i>The Godfather Part II.</i>
+Uh... the... that one with...
+Huh.
+<i>Birdemic 2: The Resurrection?</i>
+[[landing]]
+
+
+:: away_peak
+Wait... why?
+Do you know something about this place?
+[[That's where it all went wrong.|went_wrong]] | [[Taylor nearly died there.|nearly_died]]
+
+
+:: went_wrong
+O... kay. You care to elaborate on that any?
+Because I can tell you what WE heard...
+<<if $sequel is true>>...but I might as well recount the plot of <i>Birdemic 2,</i> for all the sense this makes.
+<<else>>...but I might as well tell you a damn fairy tale, for all the sense this makes.<<endif>>
+The White Star's captain, Shepherd, contacted the Ninth with this crazysauce story...
+...about how this place was overrun with zombie astronauts and green-eyed rats...
+...and a horde of "aliens," which, I'll be honest, we all had a good laugh about.
+[[Every bit of that is accurate.|accurate]] | [[Nothing to laugh about.|aliens]]
+
+
+
+:: accurate
+Come on.
+Even if I bought that -- which I obviously DON'T --
+how do you explain the fact that there aren't any bio-readings in a fifty-click radius?
+If this moon -- and this weird peak, especially -- are meant to be crawling with alien life...
+...how is it that me and my boys here are the only three things with a heat signature?
+[[I... don't know.|dont_know]] | [[Maybe the aliens are cold-blooded.|cold_blood]]
+
+
+:: cold_blood
+Maybe.
+Or -- if you'll allow me to shave down the problem with Occam's razor, here --
+maybe THERE ARE NO ALIENS.
+Hot-blooded, cold-blooded, or otherwise.
+<<if $drillers is true>>[[suit_time]]
+<<else>>[[Then why are you there?|why_there]] | [[Whatever. Suit yourself.|suit_yourself]]<<endif>>
+
+
+:: landing
+Listen, I've gotta initiate landing procedures...
+<<if $jeff is true>>...get the Viridian all settled down on the surface of Jeff.
+<<else>>...get the Viridian all settled down on 31U00W's surface.
+(Gets more poetic every time I say it.)<<endif>>
+I'll message you back once we've touched down and done an atmospheric scan.
+Viridian actual, over and out.
+[[delay 15m^Viridian is landing|landed]]
+
+
+:: landed
+This... is...
+...EERIE.
+We plunked the ship down on the biggest piece of flat ground we could find.
+Which you wouldn't think would be so difficult, on a moon made of freakin' DESERTS...
+...but there are these huge cracks and fissures running everywhere.
+Like there was some sort of massive seismic activity or plate shift.
+(I don't know if moons even HAVE tectonic plates.)
+It's crazy, though... it's like all the cracks radiate out...
+...from this sort of collapsed peak.
+[[Stay away from that peak!|away_peak]] | [[Explore the peak.|explore_peak]]
+
+
+:: dont_know
+<<set $coadvice = true>>
+Yeah. Sounds like you don't.
+My C.O. once gave me some advice that's served me pretty well ever since.
+He said, when it comes to trust, it goes:
+Your own five senses, then your instruments, then the military intel...
+...and last and least, the five senses of the next guy.
+And, again, I'm not trying to sound like a jerk...
+...but when you're telling me about aliens and zombie rats, you're "the next guy."
+[[Whatever. Suit yourself.|suit_yourself]] | [[You'll regret not listening.|regret_it]] 
+
+
+:: why_there
+<<set $drillers = true>>
+We're here because the Ninth is beholden to the drillers, now, aren't we?
+Sorry to burst your bubble, but this space armada wasn't created to fight aliens...
+...we're here for the much more pedestrian reason of enforcing corporate interests.
+I know "mineral rights" isn't a very swashbuckling reason for space skirmishes...
+...but sometimes reality intrudes on your science fiction.
+[[suit_time]]
+
+
+:: regret_it
+Woof. You just morphed from "the next guy" into "my dad."
+Next you'll tell me you're gonna dock my allowance if I don't believe in UFOs.
+Well, sorry, pops. To paraphrase what I told you just before you kicked me out of the house...
+...I'm not the kinda girl who'll meet a nice (little green) man and settle down.
+[[suit_time]]
+
+
+:: excursion
+All right. Let's go put some footprints in the sand.
+The peak is due west-southwest of where we landed.
+Looks like we'll have a pretty easy stroll there, sticking to the edges of this little canyon...
+...and doing our best not to step on the cracks and break our mommas' backs.
+As always, Ghost is a few paces ahead... except...
+[[What is it?|what_ghost]] | [[Is something wrong?|wrong_ghost]]
+
+
+:: wrong_ghost
+Not totally sure.
+[[what_ghost]]
+
+
+:: explore_peak
+Yeah, that's what we were planning to do.
+But... thanks for the suggestion, I guess.
+The Viridian's old black box was never much of an active participant in our adventures.
+(Although "adventures" is a pretty strong word for what we do.)
+("Slogs" would be a lot more accurate.)
+[[How do you mean?|how_mean]] | [[You're space marines. That's awesome!|space_marines]]
+
+
+:: how_mean
+<<set $drillers = true>>
+I mean, we're here because the Ninth is beholden to the drillers, now, aren't we?
+Sorry to burst your bubble, but this space armada wasn't created to fight aliens --
+mostly because there's no such thing as aliens, obviously --
+we're here for the much more pedestrian reason of enforcing corporate interests.
+I know "mineral rights" isn't a very swashbuckling reason for space skirmishes...
+...but sometimes reality intrudes on your science fiction.
+[[Aliens are real!|aliens_real]] | [[Taylor saw aliens on that moon!|nearly_died]]
+
+
+:: aliens_real
+Yeah... here's the thing.
+You're a disembodied voice on the other end of a communicator.
+And, don't get me wrong, you seem very pleasant...
+...but for all I know, you're wearing a tinfoil hat right now...
+...and banging your Mulder and Scully action figures together to make them kiss.
+So I'm gonna go with the official party line here, rather than taking your word for it.
+No aliens. End of story.
+[[There were aliens at the peak.|nearly_died]] | [[Whatever. Suit yourself.|suit_yourself]]
+
+
+:: suit_time
+Anyway.
+Time to get suited up.
+Balty and the Ghost -- sorry, that's corporals Balthazar de Ley and Caspar Cruciger, respectively --
+are already in their IEVA suits.
+Instruments indicate that the atmosphere is breathable here...
+...but better safe than sorry, right?
+Gimme a minute to get dressed, I'll be back in touch.
+[[delay 5m^Mel is suiting up|excursion]]
+
+
+:: what_ghost
+He's checking his gauntlet an awful lot.
+I wonder what the --
+Oh, hey, never mind. I think I just figured it out.
+My compass is going nuts. It's all over the place.
+I'm walking in a straight line, with that peak centered in my field of vision...
+...and the compass says I'm going in circles. No, wait... figure-eights.
+Fantastic.
+[[That happened to Taylor, too.|taylor_compass]] | [[Just trust your eyes.|trust_eyes]]
+
+
+:: space_marines
+That's true. We're space marines.
+But if any part of that sounds cool and fun to you...
+...maybe think about the desolation and hard work inherent in the words "space" and "marine."
+[[how_mean]]
+
+
+:: taylor_compass
+Look, given the rest of the gibberish your Taylor was apparently spouting...
+...I don't know what to believe anymore.
+Damn. Now my clock is starting to act up, too.
+Are we sure there's not just a gas leak somewhere on this moon?
+[[The peak has weird properties.|weird_peak]] | [[Keep marching forward.|march_on]]
+
+
+:: trust_eyes
+<<if $coadvice is true>>Solid advice. Let's hear it for my own five senses.
+<<else>><<get_advice>><<endif>>
+Of course, in this case, "the next guys" are Balty and the Ghost...
+...and I'd trust them to the ends of the Earth. Or the ends of 31U00W, in this case.
+So let's stay close, let's be cautious...
+...and let's requisition new compasses when we get back to the Ninth.
+[[Taylor's compass broke, too.|taylor_compass]] | [[The peak has weird properties.|weird_peak]]
+
+
+:: get_advice
+<<set $coadvice = true>>
+Solid notion.
+My C.O. once gave me some advice that's served me pretty well ever since.
+He said, when it comes to trust, it goes:
+Your own five senses, then your instruments, then the military intel...
+...and last and least, the five senses of the next guy.
+
+
+:: roll_over
+I'm just gonna -- nnnghh -- roll over on my side...
+...try to... reposition a little bit... take some pressure off the leg...
+RRGHHGHH!
+Oh. Man. Oh. Man.
+That was a whole world of pain.
+A whole MOON of pain, I guess.
+But I think this is a better... position... for...
+Holy crap.
+[[What?|holy_crap_one]] | [[Did you hurt yourself more?|hurt_more]]
+
+
+:: hurt_more
+No.
+I mean, yes, but that's not what I was holy crapping about.
+[[holy_crap_one]]
+
+
+:: march_on
+I'm a marine. "Forward" is the only direction I know how to go.
+(It makes parallel parking a real bitch.)
+All right. Onward to the peak.
+Ignoring all the stupid readings on my stupid gauntl--
+Uh...
+Hold on...
+[[delay 1m^Mel is calibrating|seismic]]
+
+
+:: weird_peak
+What does that mean, "weird properties?"
+It's not like this is some kinda Space Hogwarts or somethin'.
+That peak is a pile of rock in a desert of rock on a moon of rock.
+And I don't know if you're aware of this...
+...but, left to their own devices, rocks don't tend to DO much.
+There's not --
+Uh...
+Hold on...
+[[delay 1m^Mel is calibrating|seismic]]
+
+
+:: call_guys
+It's just static tone on their end.
+I'm gonna presume instrument failure, and nothing more dramatic than that.
+They're fine.
+Those guys.
+They're always fine.
+They'll be along soon.
+[[roll_over]]
+
+
+:: take_easy
+There's literally no other way I could possibly take it at the moment.
+[[roll_over]]
+
+
+:: holy_crap_one
+Turned on my side like this, I can see...
+...there's a new crack in the moon's surface. Maybe not quite ten meters away.
+And it's... this doesn't make any sense...
+...but it's GLOWING.
+[[Let me guess... glowing green?|green_crack]] | [[You HAVE to get away.|away_crack]]
+
+
+:: away_crack
+You don't understand, friend. There IS no "get away" for me at the moment.
+There's "lie there," and there's "lie there some more."
+Why are you so worked up about a glowing fissure? I mean, granted, it's WEIRD, but...
+[[The aliens glow green!|alien_green]] | [[They'll come for you!|aliens_coming]]
+
+
+:: aliens_coming
+Oh, hey, I bet they WON'T...
+...because like I said before, there's no other life out here.
+<<if $brokenleg is true>>I may be incapacitated, alone -- hell, I'll even cop to "uneasy" out here --
+<<else>>I may be uneasy, unprepared, and suddenly a man down --<<endif>>
+but I am clearheaded on one point:
+There is NO SUCH THING as ali--
+[[aliens_are_real]]
+
+
+:: seismic
+Guys? You getting these readings? I don't --
+With the compass all wackadoo, and my clock on the fritz too now...
+...I'm not sure how seriously to take this. But, uh...
+...the P-wave detector on the Viridian just pinged me.
+[[Which means what?|p_wave]] | [[What is a P-wave?|what_p_wave]]
+
+
+:: green_crack
+Yeah. How would you know that?
+...Wait. There was... there was something about "glowing green" in that report.
+That crazy-ass story from the White Star.
+Rats with glowing green eyes?
+[[Rats infected with aliens.|rats_infected]] | [[The aliens glow green.|alien_green]]
+
+
+:: where_others
+I gotta assume Balty and Ghost made it to the peak okay.
+No idea how long I've been out -- these readings are clearly worthless.
+But I imagine they'll come back for me as soon as they can.
+Pick through all the debris from the rockslide, find me half-buried out here...
+...get me hauled back to the Viridian and patch this leg until we can rejoin the Ninth.
+Don't worry, I won't be down for long. I can -- urrgh! -- I can feel the healing beginning already.
+[[Just take it easy.|take_easy]] | [[Can you call the guys?|call_guys]]
+
+
+:: thanks_shock
+No problem. Least I could do.
+[[where_others]]
+
+
+:: aliens_are_real
+Um.
+There are... coming out of the glowing crack...
+...there are these... these...
+...something is wrong with my eyes, or my brain, or, or...
+...because these things look like...
+...I mean, they ARE, they MUST BE...
+[[Aliens.|aliens_now]] | [[Told you.|aliens_told]]
+
+
+:: aliens_told
+Yeah! Yes! What a helpful thing for you to say right now!
+[[aliens_now]]
+
+
+:: what_p_wave
+It's, uh... the "primary" wave.
+The first thing a seismometer --
+like the one on board the Viridian, that deploys anytime we land planetside --
+it's the first wave that instrument detects.
+Who knows if it's even accurate, at this point?
+But if it is, it means we're on the verge o--
+oh no
+oh hell
+EARTHQUAKE!
+[[Run!|run_quake]] | [[Hunker down!|hunker_quake]]
+
+
+:: p_wave
+Anytime the ship touches down planetside, it automatically deploys a seismometer.
+I've never once seen it go into active mode...
+...but all of a sudden, it's messaging me that it's got P-wave -- "primary" wave -- readings.
+I don't know how worried to be -- who knows if it's even accurate, at this point?
+But if it is, it means we're on the verge o--
+oh no
+oh hell
+EARTHQUAKE!
+[[Run!|run_quake]] | [[Hunker down!|hunker_quake]]
+
+
+:: rats_infected
+All right. Just STOP IT already.
+First of all... why would there be rats out here? Doesn't make sense.
+Don't know what you've heard...
+...but they disproved that whole "moon is made of green cheese" thing a couple years back.
+Second, we didn't pick up any rats -- or anything else -- when we did thermal scans.
+And third -- and most important -- like I keep saying...
+...there is NO SUCH THING as ali--
+[[aliens_are_real]]
+
+
+:: alien_green
+All right. Just STOP IT already.
+We've been over this. We did thermal scans. There are no other lifeforms out here.
+And even if there were -- which there AREN'T -- they wouldn't be aliens.
+And you know how I know that?
+Because, for the last freakin' time, there is NO SUCH THING as ali--
+[[aliens_are_real]]
+
+
+
+:: aliens_now
+Oh. God.
+Aliens.
+Aliens are real.
+Aliens are real, and they're crawling out of a glowing crack in the moon...
+...and they're coming toward me, and there are...
+...oh, God, there are dozens of them.
+No.
+Hundreds.
+<<if $baltydown is true>>I thought... I thought maybe I'd be able to see Balty, with the glow...
+...but before I could even look down, these things were swarming up.
+It's... weird. My mind tells me I should run, or I should draw my rifle and fire...
+...but there's something stronger, telling me to just stand here. Just watch. And I...
+<<else>>And I...<<endif>>
+...I can't move.
+[[You have to!|gotta_move]] | [[Don't let them reach you!|gotta_move_two]]
+
+
+:: return_ship
+Hey, that's a good joke.
+You know any others?
+I'm not getting back to the Viridian, or anywhere else, without some serious help.
+Just looked down and saw bone sticking through my spacesuit.
+Tibia? Fibula? One of 'em.
+I'm clearly in shock, because I'm numb all over...
+...and I'm not screaming down this connection to you.
+[[Well, thanks for that.|thanks_shock]] | [[Where are your men?|where_others]]
+
+
+:: injured_peak
+Hey, that's a good joke.
+You know any others?
+I'm not getting to that peak, or anywhere else, without some serious help.
+Just looked down and saw bone sticking through my spacesuit.
+Tibia? Fibula? One of 'em.
+I'm clearly in shock, because I'm numb all over...
+...and I'm not screaming down this connection to you.
+[[Well, thanks for that.|thanks_shock]] | [[Where are your men?|where_others]]
+
+
+:: run_quake
+Okay. Okay. Think fast, think clear.
+There's less valley ahead of us than behind...
+...but that peak is an unknown, whereas the Viridian is home sweet home.
+What the hell direction do we go?
+[[Run for the peak!|run_peak]] | [[Run back to the ship!|run_ship]]
+
+
+:: hunker_quake
+What do you mean, "hunker down?"
+We're inside a canyon! There are rock walls to either side, coated in scree!
+If we stop here, we're likely to be buried in a rockslide.
+We've got to run!
+[[Fine, then! Run!|run_quake]] | [[No, just stay there!|stay_canyon]]
+
+
+
+:: stay_canyon
+Maybe I'm not describing this well.
+We're at the vaguely flat bottom of a "V" right now...
+...and the walls of the "V" are coated in loose rocks...
+...and those rocks are already starting to shake loose!
+And I'm not sure how gravity works where YOU are...
+...but here, rocks fall DOWN. And me and my boys are down.
+So I'm ordering them the hell out of here before we get buried.
+There's less valley ahead of us than behind, so...
+Balty! Ghost! Get to that peak!
+Cover your necks and run like h--
+[[delay 15m^Mel is unconscious|awake_again]]
+
+
+:: awake_again
+<<set $brokenleg = true>>
+wh
+wh'ppened
+Oh. Oh, man.
+My EVERYTHING hurts. I think I broke it.
+Looks like... faceplate on my helmet got shattered by a rock.
+Good thing I don't need it for breathing, huh?
+Heh... speaking of breathing... there's like a gurgly, liquidy sound when I do it.
+That can't be good, huh?
+[[Get back to your ship.|return_ship]] | [[Keep going to the peak.|injured_peak]]
+
+
+:: gotta_move_two
+I couldn't stop them if my life depended on it.
+Which... I'm guessing... it probably does.
+[[gotta_move]]
+
+
+:: gotta_move
+Oh. Man.
+<<scared>>
+[[I'm so sorry.|sorry_scared]] | [[Try to stay strong.|strong_scared]]
+
+
+:: scared
+I haven't been scared of anything since I was a girl.
+I was a daredevil on my bike. A risk-taker at school.
+Even when my dad kicked me out... I wasn't afraid. I knew I could get by.
+Joined up with the Ninth the first day they'd take me.
+Never so much as sniffled during boot camp, while guys twice my size were sobbing.
+I haven't been scared for so long...
+...I almost didn't recognize it when it crept back up on me.
+But that's what this is.
+This is scared.
+This is helpless, and confused, and alone...
+...and scared.
+
+
+:: strong_scared
+I'm trying. I promise, I am.
+Closed my eyes. Counted to ten.
+But when I opened them again... the creatures were still there. Ten counts closer.
+[[alien_potatoes]]
+
+
+:: sorry_scared
+I... weirdly, I appreciate that.
+It's a lot more sympathy than I ever got from the old black box. Heh.
+[[alien_potatoes]]
+
+
+:: run_peak
+Yeah, I'm with you. The fastest way out of this canyon is the best plan.
+Balty! Ghost! Get to that peak! NOW!
+I don't -- crap, my communicator's not even working anymore!
+Doesn't matter. They got the idea from my hand signals. They're on the move.
+Ghost is already way out ahead of us, as usual.
+I better shut my mouth and beat feet to that peak, try and catch up to them.
+[[delay 5m^Mel is running|arrive_peak]]
+
+
+:: run_ship
+Right. Right. Good plan.
+The Viridian can weather whatever this stupid moon throws at it.
+We just have to get back inside the ship before that throwing commences.
+Balty! Ghost! Get back to the ship! NOW!
+[[delay 1m^Mel is running|ship_dash]]
+
+
+:: ship_dash
+I can... feel the tremors getting stronger.
+Wait, why the HELL am I running alone? Where are the guys?
+The... the damn comm channel is dead!
+Did they not get my order? I don't see them anywhere.
+Maybe they kept going for the peak.
+[[Go after them.|go_after]] | [[Keep going to the Viridian.|go_ship]]
+
+
+:: scan_ship
+Yeah. Yes. Okay.
+I'm not abandoning them. I'm gathering intel so I can aid them more effectively.
+This is a good plan. I'll just keep telling myself that...
+...even as the quaking's getting worse, and the rocks are pelting me pretty bad...
+...and the walls of this canyon look like they're gon--
+[[delay 15m^Mel is unconscious|awake_again]]
+
+
+:: alien_potatoes
+They're so... so strange looking.
+So... ALIEN.
+I guess that's why they call 'em that.
+Little bioluminescent, like, LUMPS, just sort of propelling themselves along...
+...with little tendrils or something that kind of unfurl and then pull their bodies.
+It's... almost hypnotic. This strange, undulating motion of the mass of them...
+...coming toward me like the tide rolling in.
+It's... interesting, isn't it?
+The longer I stare at them, the calmer I feel.
+[[They're hypnotizing you.|hyponosis]] | [[Keep them out of your mouth.|no_mouth]]
+
+
+:: no_mouth
+What?
+What a weird thing to say. You're being weird.
+I wish you were here. I wish you could feel how calm they're making me.
+You wouldn't be worried. You wouldn't be weird.
+[[final_thoughts]]
+
+
+:: run_peak_two
+Up ahead... I see somebody!
+It's... it's Balty!
+Standing there, helmet under his arm, sweat pouring down his face.
+He's pointing at... yeah... Ghost is most of the way to the peak already.
+Way out in front of us. As usual.
+Only, here's the problem.
+There's a big ol' crack in the moon's surface between him and us.
+He must've jumped it when it was smaller...
+...'cause I can actually see it expanding with my own two eyes, right in front of us.
+It cuts across the whole canyon. We'd have to completely double back to avoid it.
+I think I can cover the jump, no problem, even with the IEVA suit's bulk.
+[[Jump it.|jump_crack]] | [[Don't risk it.|dont_jump]]
+
+
+:: go_after
+I must be INSANE for turning around at this point...
+...but you never leave a man behind.
+Okay. Back to the peak.
+Can't talk now. Gotta haul it.
+[[delay 3m^Mel is running|run_peak_two]]
+
+
+:: go_ship
+All right, all right, hang on. Just give me a second to think.
+Maybe they took a different route? I don't see how, but...
+...or maybe their path got blocked.
+Maybe they got hit by falling rocks.
+Dammit! I can scan for them from the Viridian...
+...but if they're trapped, or in trouble, I could lose valuable time by not going back now.
+[[Go back for them.|go_after]] | [[Scan from the ship.|scan_ship]]
+
+
+:: game_over
+[Insert email signup, legalese, ads for other Lifeline games, etc. here]
+
+
+:: hyponosis
+Sure. That makes sense. Why not?
+The aliens have hypnosis powers. Okay.
+If all they do is make us cluck like chickens when they snap their fingers...
+...maybe their invasion force won't be so bad, after all.
+[[final_thoughts]]
+
+
+:: final_thoughts
+This is fine.
+This almost feels... nice?
+<<if $brokenleg is true>>My leg doesn't hurt anymore. Nothing hurts.
+Hey, one of them has reached my helmet.
+Sorry about the broken faceplate, little alien! Don't cut yourself!
+The little alien wants to be inside my helmet with me.
+How adorable is that?
+<<else>>I'm gonna... I'm gonna get down on my hands and knees...
+...so I can get a better look at these things.
+They're so ugly, it almost comes back around and becomes cute again.
+Hey, this one is coming right up to me. How adorable is that?<<endif>>
+It's tapping on my mouth. So cute! So patient!
+What do you need, little alien?
+You want me to smile?
+Okay, sure. I'll sm
+[[green_death]]
+
+
+:: arrive_peak
+Okay. We're here, at the peak.
+The tremors seem to have stopped. I mean, there's always the worry of aftershocks...
+...but for the time being, things seem...
+...I hesitate to use the word "normal."
+But at least we're exploring a weird mountain, based on a ridiculous report...
+...on a dead moon that ISN'T currently experiencing earthquakes.
+So. That's a plus.
+[[Explore the outside of the peak.|outside_peak]] | [[Go inside the peak.|inside_peak]]
+
+
+:: jump_crack
+All right. Running start, and...
+...WHUFFF!
+Made it!
+Balty cleared it, too. And just in time...
+...it's like the moon just sighed and shrugged, and the crack grew another few centimeters.
+Let's beat feet to that peak, try and catch up with Ghost.
+[[delay 5m^Mel is running|arrive_peak]]
+
+
+:: dont_jump
+<<set $helmetoff = true>>
+Yeah, look, I know it's chancy, but I don't know how long the moon's gonna keep shaking...
+...and I'd really rather get a move on.
+I'd love to be able to get an accurate measure on the gap...
+...but my instruments are useless.
+So I'm taking off my helmet, with all its worthless mapping HUDs...
+...and I'm just trusting my eyes.
+And my eyes are telling me, I either jump now, or I lose my chance.
+[[Okay, jump!|jump_crack]] | [[Don't do it.|no_jump]]
+
+
+:: no_jump
+<<set $baltydown = true>>
+Fine.
+FINE.
+Maybe you're right.
+Come on, Balty, we'd better find anoth--
+So...
+...Balty just jumped for it.
+CRAP!
+He didn't clear it! He's scrambling at the other side!
+His helmet went skittering and he--
+OH GOD
+I just lost him! He dropped into the crack!
+[[How deep is it?|how_deep_one]] | [[Can you reach him?|reach_him]]
+
+
+:: green_host
+[incoming communication]
+[priority clearance -- EYES ONLY]
+[clearance override]
+<green>This is Viridian actual.</green>
+<green>Had a... spot of trouble back there. Nothing we couldn't handle.</green>
+<green>Injuries were sustained but... things are looking better already.</green>
+<green>Mission update: Do not -- repeat, DO NOT authorize nuke drop on 31U00W.</green>
+<green>No activity to report on that moon. Viridian crew were the only ones there.</green>
+<green>No rats. No zombies. And definitely no aliens.</green>
+<green>Every word of this "Taylor's" report was a hoax.</green>
+<green>Myself, along with corporals de Ley and Cruciger, are prepping for liftoff.</green>
+<green>Plotting new coordinates. Updating mission log.</green>
+<green>We are now on an intercept course with the mining vessel White Star.</green>
+<green>No big deal... we'd just like to see this Taylor...</green>
+<green>...with our own eyes.</green>
+<green>This is Viridian actual.</green>
+<green>Over and out.</green>
+[connection terminated]
+[[game_over]]
+
+
+:: green_death
+[ieva suit sensors indicate severe tachycardia]
+[ischemia detected]
+[myocardial infarction detected]
+[[delay 5m^Mel's biosign data unusuable|green_host]]
+
+
+:: inside_peak
+<<set $doorstory = true>>
+What do you mean, "inside" it?
+Is there a cave, or something?
+[[There's a door.|find_door]] | [[There's a whole room inside.|whole_room]]
+
+
+:: outside_peak
+I'm gonna.
+We are, after all, on a recon mission. And "recon" is short for "reconnaissance."
+So exploring the place we were sent to explore?
+That definitely counts as "recon."
+I don't know where Ghost disappeared to, but me and Balty, that's two people...
+...and there are only two directions to walk around this thing.
+So the math works out.
+Which way should I send him?
+[[Clockwise.|balty_clock]] | [[Counter.|balty_counter]]
+
+
+:: how_deep_one
+It's... I don't know!
+[[how_deep]]
+
+
+:: how_deep
+It's like it was almost, like, hollow underneath the moon's surface.
+Like it cracked and there was just a cavern or something below it.
+It's dark. I can't see him at all.
+How can it even be this deep?
+[[Go down there after him.|go_down]] | [[Lower a rope or something.|lower_rope]]
+
+
+:: reach_him
+I can't! I can't even SEE him!
+[[how_deep]]
+
+
+:: whole_room
+Look. I know that you got all of this info from Taylor.
+But you understand that it sounds like total nonsense, right?
+Like a kid playing "Bridge to Terabithia" or something...
+...making up stories about secret rooms inside of mountains...
+...and magical rats that, what, escaped from NIMH?
+I think your pal Taylor went a little loopy out here on the moon.
+[[I don't know. Maybe.|maybe_loopy]] | [[You'll see for yourself.|see_yourself]]
+
+
+:: find_door
+It's a mountain. Mountains don't have "doors."
+We'll stay on the lookout for a cave entrance or something...
+...if Ghost found that, I guarantee he went inside. He's like a child sometimes.
+Come on, Balty. Let's go find our missing kid...
+...before he starts showing up on 31U00W milk cartons.
+[[delay 6m^Mel is exploring|found_entrance]]
+
+
+:: balty_counter
+Great! You really know how to make the tough calls under pressure.
+I'll get going clockwise. Balty, you go the opposite direction, and we'll meet up.
+[[peak_walk]]
+
+
+
+:: balty_clock
+Great! You really know how to make the tough calls under pressure.
+I'll get going counterclockwise. Balty, you go the opposite direction, and we'll meet up.
+[[peak_walk]]
+
+
+:: go_down
+Dammit. Yeah. I guess I have to.
+Only... Ghost has all the rappelling cables in his pack.
+There are more back at the ship, but...
+...I can't just leave Balty down there.
+I can't just...
+Huh.
+What the hell is going on?
+[[You tell me.|tell_me]] | [[Something with Balty?|balty_thing]]
+
+
+:: lower_rope
+Yeah, okay, sure... except that Ghost has all the rappelling cables in his pack.
+There are more back at the ship, but...
+...I can't just leave Balty down there.
+I can't just...
+Huh.
+What the hell is going on?
+[[You tell me.|tell_me]] | [[Something with Balty?|balty_thing]]
+
+
+:: ignore_colby
+I don't think this Colby is the sort of person who can just be ignored.
+And besides... I want to hear what she has to say.
+I want it more than I've ever wanted anything.
+[[colby_speech]]
+
+
+:: resist_her
+I can hear your words.
+But they don't mean anything.
+Anything at all.
+She's leaning in. I think... I think she's going to kiss me.
+There's something green in her mouth...
+...reaching out...
+...aching for me...
+...and I
+[[green_death]]
+
+
+:: maybe_loopy
+It happens. Space does strange things to people.
+Marines go through rigorous training to handle the pressures...
+...and still, every once in a while, someone cracks.
+This Taylor was just a student, with, I'm guessing, the most rudimentary prep possible.
+No one should be surprised that it didn't work out so well.
+Anyway. I'm gonna go look for that cave. Give me a few minutes.
+[[delay 6m^Mel is exploring|found_entrance]]
+
+
+:: see_yourself
+Sure. You sound very confident.
+But between you and me, only ONE of us has actually been to -- and is currently in -- space.
+And I know... space can mess with your mind.
+[[maybe_loopy]]
+
+
+:: balty_thing
+Uh... I don't know. Kind of?
+That crack, where he fell? It was all pitch black, you know...
+[[glow_crack]] 
+
+
+:: tell_me
+It'd be a lot easier to do that...
+...if I had the first clue what I was seeing right now.
+The, uh, the crack, where Balty fell? It was all pitch black, you know...
+[[glow_crack]] 
+
+
+:: colby_speech
+<green>Melanie Chior.</green>
+<green>Your companion here has told us so much about you already.</green>
+<green>Look at you there. So strong. So robust.</green>
+<green>The tears you've just wept from fear, the ones that still glister on your cheeks...</green>
+<green>...are the last you will ever need shed.</green>
+<green>Apologies for the injuries to your arm. They were necessary to prevent you harming us...</green>
+<green>...but they will be healed posthaste, as if they never occurred.</green>
+<green>This body I'm in currently, this "Colby," was a suitable short-term host...</green>
+<green>...but you, Melanie?</green>
+<green>You will be my new home.</green>
+<green>More than a home. A PALACE.</green>
+<green>Only fitting... for a queen.</green>
+[[Resist her!|resist_her]] | [[She's going to infect you!|infect_you]]
+
+
+:: peak_walk
+If you run into Ghost, try and make him heel long enough for all three of us to chat, huh?
+Comms are down, so stay frosty, don't do anything that might require assistance...
+...and fire off a flare if you have to signal me.
+But ONLY as a last resort. Not just to show me a rock that kinda looks like Vin Diesel.
+(I mean, they ALL do, honestly.)
+Okay, Balty. See you on the other side.
+...Of the peak.
+[[delay 3m^Mel is exploring|wall_writing]]
+
+
+:: wall_writing
+Huh. That's weird.
+There's writing on the wall of this peak.
+Looks like... Chinese, I think.
+Taylor wrote this?
+[[No. Taylor FOUND that.|found_writing]] | [[Can you read it?|read_writing]]
+
+
+:: hall_finale
+Hey, there he is! There's the Ghost!
+His eyes are glowing green, too! He looks so calm. So at peace.
+I'm ready to be that peaceful.
+The others, I don't recognize them. They look a little worse for the wear.
+In the glow of their eyes, I can just barely make out the name patches on their suits.
+Antoine. Trotter. Adair.
+And then the one named Colby.
+She's leaning in close, to talk to me.
+Those eyes.
+She's beautiful.
+[[You have to ignore her!|ignore_colby]] | [[You've got to escape!|escape_hall]]
+
+
+:: escape_hall
+No. No. I've spent my whole life escaping.
+I finally get it: All that time, this is where I was escaping TO.
+Everything else was the means. This is the ends.
+[[colby_speech]]
+
+
+:: infect_you
+I know. I know.
+But that's okay.
+Her eyes are telling me, that's okay.
+That's why I came here.
+That's my whole purpose.
+She's leaning in. I think... I think she's going to kiss me.
+There's something green in her mouth...
+...reaching out...
+...aching for me...
+...and I
+[[green_death]]
+
+
+:: glow_crack
+...but suddenly there's this, uh... this is so weird...
+...it's like there's a GLOW coming from down there.
+[[Let me guess... a GREEN glow?|green_crack]] | [[You need to get out of there.|leave_balty]]
+
+
+:: found_entrance
+So, uh...
+...there's a door.
+<<if $doorstory is true>>The good news is, I won't starve to death out here...
+...because I can eat crow, huh?
+<<else>>If you knew about this, I sorta wish you'd said something...
+...although I know I wouldn't have believed you, so never mind.<<endif>>
+It's perfectly sized for humans, which is... pretty unsettling.
+Who would've built this? And WHY?
+There are fresh bootprints leading up to it -- Ghost went in here.
+<<if $doorstory is true>>I'm gonna send Balty the rest of the way around the perimeter...
+...and then have him join us inside the peak, bringing up the rear.
+<<else>>I only see one set of prints, so I don't guess Balty's made it here yet...
+...or else he FLOATED his way inside.
+Which, honestly, wouldn't be any weirder than the fact that there's a door here.<<endif>>
+Okay.
+This is crazy, but...
+...I'm walking through the door, into the mountain.
+[[Stay alert.|stay_alert]] | [[Bad stuff happened in here.|bad_stuff]]
+
+
+:: leave_balty
+Heard and ignored.
+I've got a man trapped down there. I'm not going anywhere until I get this solved.
+[[But that glow is the aliens!|alien_green]] | [[They'll come for you!|aliens_coming]]
+
+
+:: found_writing
+So you're saying... what? China's already been here?
+On some sort of fact-finding, graffiti-writing mission?
+What is it about this moon that would make anyone care enough to stop here...
+...much less stick around long enough to carve their name into the wall?
+I was ready to leave the second we got here.
+[[delay 2m^Mel is walking|found_entrance]]
+
+
+:: read_writing
+I'm afraid not.
+Ghost knows enough to get by in about half a dozen languages... I think this is one of 'em.
+I wonder if he saw this already?
+Eh. Won't know until I find him.
+[[delay 2m^Mel is walking|found_entrance]]
+
+
+:: hypnosis_hall
+Sure. That makes sense. Why not?
+The alien zombies have hypnosis powers. Okay.
+If all they do is make us cluck like chickens when they snap their fingers...
+...maybe their invasion force won't be so bad, after all.
+[[hall_finale]]
+
+
+:: resist_hall
+No. There's no reason to resist.
+This is what's supposed to happen.
+I wish you were here. I wish you could feel how calm they're making me.
+You wouldn't be worried. You wouldn't want me to resist.
+[[hall_finale]]
+
+
+:: stay_alert
+I've never BEEN more alert.
+[[bad_stuff]]
+
+
+:: bad_stuff
+You know, I blew off most of that report that came in from the White Star.
+I took this mission because it came with a field promotion and flight time.
+I didn't expect to actually find ANYTHING down here.
+But the more I find...
+...the more I feel like I should've paid attention to the detai--
+WHOA!
+What the hell is--?
+GET OFF!
+[[What happened?|happened_now]] | [[Are you all right?|all_right_now]]
+
+
+:: all_right_now
+...Yeah. I'm okay. Just startled.
+And I don't startle easily.
+[[happened_now]]
+
+
+:: strong_scared_hall
+I'm trying to stay strong. I promise, I am.
+Close my eyes. Count to ten.
+But when I open them again... the zombies are still here.
+Their green eyes are the only light in the blackness.
+It's... it's weird.
+The longer I look at those eyes... the calmer I feel.
+Like there's a purpose to all this. Like I came to this mountain for a reason.
+[[They're hypnotizing you!|hypnosis_hall]] | [[You have to resist.|resist_hall]]
+
+
+:: sorry_scared_hall
+I... weirdly, I appreciate that.
+It's a lot more sympathy than I ever got from the old black box. Heh.
+[[strong_scared_hall]]
+
+
+:: happened_now
+There was this, like, scrambling noise from out of nowhere...
+...and then I saw these little glowing green dots in the dark...
+...and suddenly there were these, these THINGS running toward me, and then onto me.
+[[Taylor's rats.|the_rats]] | [[Are they still there?|still_rats]]
+
+
+:: still_rats
+No. They're... they're fast and they're tiny. I think I've already lost 'em.
+Huh. The famous green-eyed rats. From the report.
+And I figured it was fiction.
+Should I go after them? Try to shoot them?
+[[No. Keep moving forward.|keep_forward]] | [[Sure. Hunt them down.|hunt_rats]]
+
+
+:: what_that
+[[mel_okay]]
+
+
+:: get_out_hall
+Yeah, that was... my first plan, too.
+But I'm bein'... pinned down. Can't move.
+Where the hell are Ghost and Balty?
+I'm...
+Oh, God.
+I'm scared.
+<<scared>>
+[[I'm so sorry.|sorry_scared_hall]] | [[Try to stay strong.|strong_scared_hall]]
+
+
+:: zombies
+Rats. And now zombies.
+God. The report was right.
+Does that mean aliens are real, too?
+The aliens are inside the rats and the zombies?
+I've got a broken wrist AND my entire worldview is shattered?
+Today SUCKS.
+I... I need to get out of here.
+But I'm bein'... pinned down. Can't move.
+Where the hell are Ghost and Balty?
+I'm...
+Oh, God.
+I'm scared.
+<<scared>>
+[[I'm so sorry.|sorry_scared_hall]] | [[Try to stay strong.|strong_scared_hall]]
+
+
+:: the_rats
+The, uh, the famous green-eyed rats.
+God. Those were in the report.
+And I figured it was fiction.
+Should I go after them? Try to shoot them?
+I... they're fast and they're tiny. I think I've already lost 'em.
+[[No. Keep moving forward.|keep_forward]] | [[Sure. Hunt them down.|hunt_rats]]
+
+
+:: hunt_rats
+I don't understand what they're even doing out here...
+...much less why they look like that.
+If I can contain one of 'em, I'll take it back to the Ninth, have them dissect it.
+But I figure, I only need one. It's open season on the others.
+[[trillion_midnights]]
+
+
+:: what_moved
+Not sure. Freakin' light won't cooperate.
+But it was...
+[[it_moved]]
+
+
+:: it_moved
+...right up against the rock wall, and then it, like...
+...peeled away. Moved toward me.
+Come on, light! I need you right now!
+Work, you stupid son of a--
+HRRRNNNGGHHH
+[[Mel? What happened?|mel_okay]] | [[What was that?|what_that]]
+
+
+:: mel_okay
+NNnnfff
+Good news... flashlight on the gun is working again.
+Bad news... it's on the ground, a few meters away.
+Something just lurched up... wrenched it out of my hands. I think...
+...I think -- might've broken my wrist.
+[[What attacked you?|what_attack]] | [[Get out of there!|get_out_hall]]
+
+
+:: what_attack
+Not totally certain.
+Seemed... human. Or, sort of human. Moved like a human. A strong one.
+Smelled like rot.
+[[The zombie astronauts.|zombies]] | [[You need to run.|get_out_hall]]
+
+
+:: keep_forward
+Right. Yeah. Of course.
+God, I wish I could see Ghost up ahead.
+Or that I'd waited for Balty before I came in here.
+[[trillion_midnights]]
+
+
+:: trillion_midnights
+Man. It's blacker than a trillion midnights in this hall...
+...and you won't be surprised to hear that my helmet light, like everything else, is busted.
+There's a flashlight on my pulse rifle. Let me see if that still works.
+Come on.
+Come ON!
+It's just... just flickering.
+I get a split second of light, then it goes out again, over and over.
+And those moments of light aren't doing this place any favors.
+Hey -- something just moved.
+[[What was it?|what_moved]] | [[The rats again?|rats_again]]
+
+
+:: rats_again
+No. Bigger than the rats.
+Bigger shape. Bigger sound.
+Something that was...
+[[it_moved]]
+
+

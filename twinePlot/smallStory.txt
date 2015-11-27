@@ -1,0 +1,184 @@
+:: Start
+Now... how did that old poem go, again?
+<<set $aries_describe_visited = false>>
+<<set $bos_describe_visited = false>>
+<<set $describe_mari_visited = false>>
+<<set $describe_artesa_visited = false>>
+<<set $wake_no_idea_visited = false>>
+<<set $alone_qtrs_visited = false>>
+<<set $check_shep_visited = false>>
+<<set $wake_after_briefing_visited = false>>
+<<set $go_ready_room_visited = false>>
+<<set $cockpit_now_visited = false>>
+<<set $footsteps_qtrs_visited = false>>
+<<set $artesa_talk_visited = false>>
+<<set $shepherd_talk_visited = false>>
+<<set $key_talk_visited = false>>
+<<set $cockpit_mission_visited = false>>
+<<set $walk_bunk_visited = false>>
+<<set $don_aries_bos_visited = false>>
+<<set $don_aries_visited = false>>
+<<set $break_up_bos_visited = false>>
+<<set $cockpit_no_mission_visited = false>>
+<<set $dive_in_bos_visited = false>>
+<<set $help_navs_visited = false>>
+<<set $nav_code_visited = false>>
+<<set $grab_crystals_visited = false>>
+<<set $no_fix_visited = false>>
+<<set $arrive_ready_first_visited = false>>
+<<set $no_one_knows_visited = false>>
+<<set $footsteps_approaching_visited = false>>
+<<set $its_bos_visited = false>>
+<<set $galley_door_visited = false>>
+<<set $hoping_time_visited = false>>
+<<set $no_other_way_visited = false>>
+<<set $mentioned_again_visited = false>>
+<<set $footsteps_cockpit_visited = false>>
+<<set $change_ready_visited = false>>
+<<set $doctalk = false>>
+
+<<set $aliencaught = false>><<set $alienmention = false>><<set $artesaout = false>><<set $ayainfected = false>><<set $backpack = false>><<set $describeminers = false>><<set $describeothers = false>><<set $docknocked = false>><<set $end = null>><<set $explosive = false>><<set $icepack = false>><<set $ievasuit = false>><<set $maploc = "crewqtrs">><<set $mapmention = false>><<set $marilaunched = false>><<set $marinestrapped = false>><<set $mentionedtunguskite = false>><<set $minerfight = false>><<set $pills = 0>><<set $pulsegun = false>><<set $shotdon = false>><<set $triedlights = false>><<set $tunguskite = false>><<set $turnedgreen = false>>
+[[old_poem]]
+
+
+:: old_poem_test
+THIS IS A TEST ONLY WAYPOINT.. IF YOU ARE TESTING A REAL VERSION OF THIS GAME.. THIS IS A PROBLEM
+[[end of game sequence|goodbye_hell]] | [[I hear voices|vocal_demo]]
+
+:: old_poem
+"'Twas the night before Christmas, and all through the ship,
+We were roused from our sleep by a loud radar blip?"
+[[I don't think that was it.|not_poem]] | [[Uh... who is this?|whos_this]]
+
+:: vocal_demo
+<shep>Shep:Kinda busy here, Tayl--</shep>
+<don>Don: Stay here, Taylor.</don>
+<bos>Bos:Taylor! Are you all right? Where are you going?</bos>
+<aries>Aries: Taylor! Where you wandering off to?</aries>
+<doc>Doc: Taylor! Where do you suppose you're going?</doc>
+<mari>Mari: Hi, Taylor. There's, uh, a marine ship riding piggyback on us...</mari>
+<green>Green:Come now, Taylor.</green>
+
+
+:: lucky_star
+It really WAS.
+I mean, I had to expend some elbow grease to get a distress beacon set up...
+...but yeah, it was pure luck that their mining ship was passing through the sector.
+Because -- after three days out on that godforsaken rock --
+I don't know that I could've lasted another three MINUTES without their intervention.
+But hey. It's Christmastime. The season of miracles, right?
+[[So they say.|alien_talk]] | [[You were alone on that moon?|alone_moon]]
+
+
+:: actual_aliens
+These were... I know how crazy it sounds, but they were real, live, xenobiological organisms.
+Creepy little... I don't know, I've taken to calling them "occupiers."
+Weird green lifeforms that got inside people, or inside rats -- living or dead --
+and just kinda wore them around. Piloted them.
+Made their eyes glow green like something out of a Stephen King story.
+Not <i>Stand By Me,</i> but, like, one of the ones where something has creepy green eyes.
+[[Kiefer Sutherland has creepy green eyes.^He's in <i>Stand By Me,</i> and his eyes are kinda weird.|kiefer]] | [[Aliens. That's... scary.|scary_aliens]]
+//Stand By Me is a film adaptation of a Stephen King story; Kiefer Sutherland is one of the stars.
+
+
+:: unicorn_news
+Not to mention butt rainbows.
+...Huh.
+That's interesting.
+[[What's interesting?|shiny_interest]] | [[Everything okay?|okay_interest]]
+
+
+:: how_long_marooned
+I was stranded out there for three long days.
+I mean, three risings and settings of Tau Ceti. Not totally sure how they mapped to Earth days.
+But it was a good thing the White Star got my distress call and showed up when they did...
+...'cause I don't know that I could've lasted another three MINUTES without their intervention.
+But hey. It's Christmastime. The season of miracles, right?
+[[So they say.|alien_talk]] | [[You were alone on that moon?|alone_moon]]
+
+
+:: alien_talk
+You'd be surprised what you start believing...
+...when a White Star literally drops out of the sky and saves the day.
+It might've been LESS surprising if a unicorn had showed up...
+...and pooped a rainbow bridge back to Earth out of its hindquarters.
+(Hell, once I get back to Earth, I might just tell people that's what DID happen.)
+[[That should go over well.^Folks are always looking for solid news on unicorn sightings, these days.|unicorn_news]] | [[You could probably start a cult.|start_cult]]
+
+
+:: sorry_woke
+Yeah, well. Anytime I'm not dreaming about aliens...
+...it's only because I'm not dreaming about them YET.
+It always happens eventually.
+Speaking of the klaxons, I should really go check on what's happening.
+And speaking of the aliens... I really hope it's not the aliens.
+Lemme just get out of these pajamas and...
+Huh.
+That's interesting.
+[[What's interesting?|shiny_interest]] | [[Everything okay?|okay_interest]]
+
+
+:: how_long_home
+<<set $mentionedtunguskite = true>>
+I don't know exactly how long it'll take until we get back to Earth, honestly.
+Mari -- she's the White Star's navigator -- has the course plotted, obviously.
+I mean, that's her job, and I think she's usually pretty good at it.
+But the problem is, the White Star's payload is throwing everything off.
+I can... I'll try to explain. But later.
+For right now... uh...
+[[shiny_interest]]
+
+
+:: StoryTitle
+Lifeline: Silent Night 110415
+
+
+:: not_poem
+Yeah, well, you'll have to forgive me. I'm a science student, not English lit.
+And while I wasn't exactly dreaming of sugar plums (whatever THOSE are)...
+...I WAS actually enjoying my first solid sleep since I got off that moon.
+This was the first night I hadn't woken up in a cold sweat, thinking about the Varia crew...
+...with those weird green eyes and their supernatural strength...
+...and instead, I damn near fall out of my bunk when the proximity klaxon goes off.
+[[Slow down. Explain.^I have no idea what you're talking about.|slow_down]] | [[Is this who I think it is?^This story sounds familiar. Are you... Taylor?|are_you_taylor]]
+
+
+:: whos_this
+Oh, hey, that was rude of me. Sorry.
+My name's Taylor.
+Student astronaut, formerly of the Varia. Which was formerly a ship.
+Until it got yanked out of the void and smashed to flinders on a desert moon in the Tau Ceti system.
+So I scuttled around like a hermit crab whose shell had been hammered open...
+...until this mining ship, the White Star, was kind enough to swoop in to my rescue.
+[[Well, that was lucky.|lucky_star]] | [[Oh, yeah! Taylor! I know you!|know_taylor]]
+
+
+:: know_taylor
+Cool! I thought your keystrokes sounded familiar.
+Good to be back in touch with you!
+[[You too! How you been?|how_you_been]] | [[How long were you marooned?|how_long_marooned]]
+
+
+:: alone_moon
+Well, I guess I wasn't technically ALONE.
+I had Captain Aya, although she wasn't (and still isn't) conscious...
+...and I had the four lab rats I'd brought with me, to run experiments on.
+Oh, and then, y'know... the aliens.
+Shouldn't forget about the aliens.
+<<if $alienmention is false>>[[What, like, illegal immigrants?|illegal_aliens]] | [[Or do you mean actual ALIENS?|actual_aliens]]
+<<elseif $alienmention is true>>[[Yeah, you'd mentioned that.|mentioned_aliens]] | [[Do you mean actual ALIENS?|actual_aliens]]
+<<else>>
+blash
+[[ooga]]
+<<endif>>
+[[testBide]]
+
+
+:: start_cult
+Heh. Maybe so.
+I always figured, the hardest part would be getting everyone to agree on the shoes.
+A whole roomful of people who have to die in the same style of sneakers?
+Sounds like a LOT of fashion arguments to have to deal w--
+Huh.
+That's interesting.
+[[What's interesting?|shiny_interest]] | [[Everything okay?|okay_interest]]

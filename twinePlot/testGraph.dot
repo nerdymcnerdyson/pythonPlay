@@ -1,0 +1,5 @@
+digraph G {
+start->old_poem
+start->not_poem
+old_poem->who_are_you
+}

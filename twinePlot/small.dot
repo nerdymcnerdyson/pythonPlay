@@ -1,0 +1,37 @@
+digraph G {
+node [shape=record];
+Start [shape=record,label="Start\n$blah = false;\n$blah2=false;"]
+Start -> old_poem;
+old_poem_test -> goodbye_hell;
+old_poem_test -> vocal_demo;
+old_poem -> not_poem;
+old_poem -> whos_this [color=red, label="<<if $blerg is true>>"];
+lucky_star -> alien_talk;
+lucky_star -> alone_moon;
+actual_aliens -> kiefer;
+actual_aliens -> scary_aliens;
+unicorn_news -> shiny_interest;
+unicorn_news -> okay_interest;
+how_long_marooned -> alien_talk;
+how_long_marooned -> alone_moon;
+alien_talk -> unicorn_news;
+alien_talk -> start_cult;
+sorry_woke -> shiny_interest;
+sorry_woke -> okay_interest;
+how_long_home -> shiny_interest;
+not_poem -> slow_down;
+not_poem -> are_you_taylor;
+whos_this -> lucky_star;
+whos_this -> know_taylor;
+know_taylor -> how_you_been;
+know_taylor -> how_long_marooned;
+alone_moon -> illegal_aliens;
+alone_moon -> actual_aliens;
+alone_moon -> mentioned_aliens;
+alone_moon -> actual_aliens;
+start_cult -> shiny_interest;
+start_cult -> okay_interest;
+safe_earth -> how_long_home;
+okay_interest -> shiny_interest;
+old_poem [shape=record,label="old_poem\n$blah = false;\n$blah2=false;"]
+}

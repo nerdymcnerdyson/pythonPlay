@@ -1,0 +1,72 @@
+#!/usr/bin/python3.4
+
+import re
+import sys
+from enum import Enum
+
+#import NodeClasses
+from NodeClasses import *
+
+#read file
+#gather way points
+
+def main():
+    print('hello world')
+    inputFile = openInputFile('StoryData_en.ll2Real.txt')
+
+    counter = 0
+
+    currentWaypoint = None
+    waypointNodes = []
+
+    nodeClassList = [WaypointNode, SilentlyNode, SetNode, EndSilentlyNode, ChoiceNode]    
+    for line in inputFile:
+        line = line.strip()
+        if len(line) <= 0:
+            continue
+        for nodeClass in nodeClassList:
+            thisNode = nodeClass.tryIsNodeType(line)
+            if thisNode:
+                break
+            
+        if thisNode:
+            if thisNode.type == SequenceNodeType.waypoint:
+                print ('found waypoint: ', thisNode.type, thisNode.label)
+                if currentWaypoint:
+                    print('ending currentWaypoint', currentWaypoint)
+                    print(currentWaypoint)
+                    for node in waypointNodes:
+                        print(node.javascriptOutputString())
+
+                currentWaypoint = thisNode.label
+                waypointNodes = []
+            else:
+                waypointNodes.append(thisNode)
+        else:
+            node = TextNode.tryIsNodeType(line)
+            waypointNodes.append(node)
+
+            
+
+        
+        counter += 1
+        if counter > 75:
+            break
+
+    print(currentWaypoint)
+    for node in waypointNodes:
+        print(node.javascriptOutputString())
+    
+        
+def openInputFile(inputFileName):
+    #do some error checking here.. some day
+    return open(inputFileName, 'r')
+    
+
+
+
+
+
+
+if __name__ == '__main__':
+    main()
