@@ -2,8 +2,8 @@ import re
 from enum import Enum
 
 
-eitherRegex = re.compile('\[\[either\(("[\w|_]+",?)+\)\]\]')
-#\[\[either\(("[\w|_]+",?)+\)\]\]
+eitherRegex = re.compile('\[\[either\(("[\w|_|,|:]",?)+\)\]\]')
+
 
 commandTokenRegex = re.compile('(<<[\\s\\S]*?>>)')
 LinkTokenRegex = re.compile('[<<choice]?(\[\[[\\s\\S]*?\]\])[>>]?')
@@ -25,18 +25,12 @@ elseRegex   = re.compile('<<else>>')
 
 silentRegex   = re.compile('<<silently>>')
 endSilentRegex   = re.compile('<<endsilently>>')
-setRegex         = re.compile('<<[\s]*set[\s]*\$([\S]+)[\s]*=[\s]*([\S]+)[\s]*>>')
+setRegex         = re.compile('<<[\s]*set[\s]*(\$[\S]+)[\s]*=[\s]*([\S]+)[\s]*>>')
 
 endIfRegex = re.compile('<<endif>>')
 
 ifRegex = re.compile('<<if([\s\S]*?)>>([\s\S]*)')
 elseIfRegex = re.compile('<<elseif([\s\S]*?)>>([\s\S]*)')
-
-#this is explicitly checking for two choices.. seems like a tricky reg ex to do otherwise
-#choiceRegex = re.compile('<<choice[\s]*\[\[([\s\S]*)\]\]>>[\s]*\|[\s]*<<choice[\s]*\[\[([\s\S]*)\]\]>>')
-
-
-#choiceRegex      = re.compile('<<choice([\\s\\S]*)>>[\s]*|[\s]*<<choice([\\s\\S]*)>>')
 
 variableNameReplacementRegEx = re.compile('\$')
 variableReplaceWith = 'gGameData.story.'
@@ -128,7 +122,7 @@ class Action:
         self.short = short
 
     def __repr__(self):
-        return "%s:%s"%(self.target,self.title)
+        return '{"destructive":0, "full":"%s", "title":"%s", "short":"%s","identifier":"%s"}'%(self.title, self.full, self.short, self.target)
         
 class EitherNode(SequenceNode):
     def __init__(self, targetList):
@@ -295,7 +289,8 @@ class SetNode(SequenceNode):
         #node variables here
         super().__init__()
         self.type = SequenceNodeType.setter
-        self.varName = varName
+
+        self.varName = re.sub(variableNameReplacementRegEx,variableReplaceWith,varName)
 #        print('varvalue:', varValue, varName)
         self.varValue = varValue.replace('"','\\"')
         
@@ -309,7 +304,7 @@ class SetNode(SequenceNode):
 
     #instance method
     def javascriptOutputString(self):
-        return '{"type":"void", "js":"gGameData.story.'+self.varName +' = '+self.varValue+';"}'
+        return '{"type":"void", "js":"'+self.varName +' = '+self.varValue+';"}'
 
 
     # {"type": "if_block", "js": "gameData.story.hasknife == 1;"},
@@ -321,9 +316,15 @@ class SetNode(SequenceNode):
     # {"type": "endif_block"},
     
 
+def gussyUpConditional(conditional):
+    newConditional = re.sub(variableNameReplacementRegEx,variableReplaceWith,conditional)
+    newConditional = re.sub('[\s]+is[\s]+', ' == ', newConditional)
+    return newConditional
+    
 class IfStartNode(SequenceNode):
     def __init__(self, conditional, remainder):
-        self.conditional = conditional
+        self.conditional = gussyUpConditional(conditional)
+        #self.varName = re.sub(variableNameReplacementRegEx,variableReplaceWith,varName)
         self.type = SequenceNodeType.ifStart
         self.remainder = remainder
     @staticmethod
@@ -338,7 +339,7 @@ class IfStartNode(SequenceNode):
 
 class ElseIfNode(SequenceNode):
     def __init__(self, conditional, remainder):
-        self.conditional = conditional
+        self.conditional = gussyUpConditional(conditional)
         self.type = SequenceNodeType.ifElse
         self.remainder = remainder
     @staticmethod

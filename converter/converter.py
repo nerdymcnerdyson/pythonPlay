@@ -17,8 +17,39 @@ class TweeToLLJSConverter:
         
     def setInputFile(self, inputFileName):
         self.inputFile = openInputFile(inputFileName)
+        
 
 
+
+    # [{
+    #     "actions": [{
+    #         "destructive": 0,
+    #         "full": "end of game sequence",
+    #         "title": "end of game sequence",
+    #         "short": "end of game sequence",
+    #     "identifier": "goodbye_hell"
+    #         }, {
+    #             "destructive": 0,
+    #             "full": "I hear voices",
+    #             "title": "I hear voices",
+    #             "short": "I hear voices",
+    #         "identifier": "vocal_demo"
+    #             }],
+    #     "identifier": "lifeline0"
+    #     },
+        
+    def outputCategoriesToFile(self, outputFilename):
+        outputFile = open(outputFilename, 'w')
+        outputFile.write('[\n')
+        isFirstCategory = True
+        for identifier, category in self.categories.items():
+            if not isFirstCategory:
+                outputFile.write(',\n')
+            isFirstCategory = False
+            outputFile.write('{"actions":%s, "identifier":"%s"}'%(category.actions, category.identifier))
+        outputFile.write('\n]\n')
+        outputFile.close()
+        
     def outputWaypointsToFile(self, outputFilename):
         outputFile = open(outputFilename,'w')
         outputFile.write('{\n')
@@ -36,6 +67,7 @@ class TweeToLLJSConverter:
                 outputFile.write(str(node))
             outputFile.write('\n]')
         outputFile.write('\n}\n')
+        outputFile.close()
 
     def process(self):
         currentWaypoint = None
@@ -110,6 +142,7 @@ def main(inputFileName):
     converter.setInputFile(inputFileName)
     converter.process()
     converter.outputWaypointsToFile("waypoints.converted.txt")
+    converter.outputCategoriesToFile("categories.converted.txt")
         
 def openInputFile(inputFileName):
     #do some error checking here.. some day
