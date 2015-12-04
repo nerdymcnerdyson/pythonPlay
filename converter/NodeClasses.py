@@ -45,7 +45,8 @@ class SequenceNodeType(Enum):
     ifStart = 7
     ifElse = 8,
     endIf = 9,
-    elseBlock = 10
+    elseBlock = 10,
+    link = 11
 
 class SequenceNode:
     def __init__(self):
@@ -113,6 +114,37 @@ class Action:
         self.full = full
         self.title = title
         self.short = short
+
+class LinkNode(SequenceNode):
+    def __init__(self, target, delay, text):
+        self.type = SequenceNodeType.link
+        self.target = target
+        self.delay = delay
+        self.text = text
+
+        #factory method.. returns instance of class or None
+    @staticmethod
+    def tryIsNodeType(inputString):
+        links = LinkTokenRegex.findall(inputString)
+        if len(links) == 0:
+            return None
+        choice = links[0]
+        choice = choice.strip().strip('[').strip(']')
+        shortEndIndex = choice.find('^')
+        short = ""
+        if shortEndIndex != -1:
+            short = choice[:shortEndIndex]
+            choice = choice[shortEndIndex+1:]
+        breakIndex = choice.find('|')
+        full = choice[:breakIndex]
+        #if len(short) <= 0:
+            #short = full
+        target = choice[breakIndex+1:]
+        return LinkNode(target, short,full)
+
+    def javascriptOutputString(self):
+        return '{"type":"link","js":"%s"}'%self.target
+
     
 class ChoiceNode(SequenceNode):
     choiceCount = 0
@@ -152,10 +184,10 @@ class ChoiceNode(SequenceNode):
         choices = LinkTokenRegex.findall(inputString)
 
         
-        if len(choices):
+        if len(choices) >= 2:
             actions = []
             for choice in choices:
-                print('processing choice: ', choice)
+                #print('processing choice: ', choice)
                 choice = choice.strip().strip('[').strip(']')
                 shortEndIndex = choice.find('^')
                 short = ""

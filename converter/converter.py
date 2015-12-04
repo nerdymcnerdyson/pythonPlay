@@ -12,7 +12,7 @@ class TweeToLLJSConverter:
         self.waypointNodes = []
         self.categories = {}
 
-        self.nodeClassList = [WaypointNode, SilentlyNode, SetNode, EndSilentlyNode, ChoiceNode, IfStartNode, ElseIfNode]    
+        self.nodeClassList = [WaypointNode, SilentlyNode, SetNode, EndSilentlyNode, ChoiceNode, IfStartNode, ElseIfNode, LinkNode]    
         
     def setInputFile(self, inputFileName):
         self.inputFile = openInputFile(inputFileName)
