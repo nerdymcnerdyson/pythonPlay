@@ -149,13 +149,13 @@ class ChoiceNode(SequenceNode):
         #     pass            #print('ranout of choices')
 
 
-        answers = LinkTokenRegex.findall(inputString)
-        print answers
+        choices = LinkTokenRegex.findall(inputString)
 
         
         if len(choices):
             actions = []
             for choice in choices:
+                print('processing choice: ', choice)
                 choice = choice.strip().strip('[').strip(']')
                 shortEndIndex = choice.find('^')
                 short = ""
