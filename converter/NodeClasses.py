@@ -2,9 +2,22 @@ import re
 from enum import Enum
 
 
-commandTokenRegex = re.compile('<<[\s\S]*?>>')
+commandTokenRegex = re.compile('(<<[\\s\\S]*?>>)')
+LinkTokenRegex = re.compile('[<<choice]?(\[\[[\\s\\S]*?\]\])[>>]?')
+
+commandTokenGeneralRegex = re.compile('([<<|\[\[][\s\S]*?[>>|]]])')
+
+
+unlimitedChoicesRegex = re.compile('[<<choice]?(\[\[[\w|\||\^]+\]\])[>>]?\|?')
 
 waypointRegex = re.compile('^::\\s*([\\w]+)')
+
+
+variableInTextRegex = re.compile('<<(\$[\w]+)>>')
+
+outwardWaypointRegex = re.compile('\[\[\s*(\w+)\]\]')
+choiceRegex = re.compile('\[\[[\W|\S]*?\|\s*(\w+)\s*\]\]')
+
 silentRegex   = re.compile('<<silently>>')
 endSilentRegex   = re.compile('<<endsilently>>')
 setRegex         = re.compile('<<[\s]*set[\s]*\$([\S]+)[\s]*=[\s]*([\S]+)[\s]*>>')
@@ -13,7 +26,7 @@ ifRegex = re.compile('<<if([\s\S]*?)>>([\s\S]*)')
 elseIfRegex = re.compile('<<elseif([\s\S]*?)>>([\s\S]*)')
 
 #this is explicitly checking for two choices.. seems like a tricky reg ex to do otherwise
-choiceRegex = re.compile('<<choice[\s]*\[\[([\s\S]*)\]\]>>[\s]*\|[\s]*<<choice[\s]*\[\[([\s\S]*)\]\]>>')
+#choiceRegex = re.compile('<<choice[\s]*\[\[([\s\S]*)\]\]>>[\s]*\|[\s]*<<choice[\s]*\[\[([\s\S]*)\]\]>>')
 
 
 #choiceRegex      = re.compile('<<choice([\\s\\S]*)>>[\s]*|[\s]*<<choice([\\s\\S]*)>>')
@@ -48,6 +61,11 @@ class SequenceNode:
     #instance method
     def javascriptOutputString():
         return ''
+
+    def __repr__(self):
+        return str(self.type)
+    def __str__(self):
+        return str(self.type)
 
 class SequenceNodeTemplate:
     def __init__(self):
@@ -114,22 +132,27 @@ class ChoiceNode(SequenceNode):
         #try non-greedy parse
         #choice start token
 
-        startChoiceToken = "<<choice"
-        endChoiceToken = ">>"
-        s = inputString
-        first = startChoiceToken
-        last = endChoiceToken
+        # startChoiceToken = "<<choice"
+        # endChoiceToken = ">>"
+        # s = inputString
+        # first = startChoiceToken
+        # last = endChoiceToken
         
-        choices = []
-        try:
-            while True:
-                start = s.index( first ) + len( first )
-                end = s.index( last, start )
-                choices.append(s[start:end])
-                s = s[end:]
-        except ValueError:
-            pass            #print('ranout of choices')
+        # choices = []
+        # try:
+        #     while True:
+        #         start = s.index( first ) + len( first )
+        #         end = s.index( last, start )
+        #         choices.append(s[start:end])
+        #         s = s[end:]
+        # except ValueError:
+        #     pass            #print('ranout of choices')
 
+
+        answers = LinkTokenRegex.findall(inputString)
+        print answers
+
+        
         if len(choices):
             actions = []
             for choice in choices:

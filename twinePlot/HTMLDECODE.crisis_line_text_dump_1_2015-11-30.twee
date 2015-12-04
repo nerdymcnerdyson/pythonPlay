@@ -1,0 +1,3048 @@
+::start
+[[intro:start]]
+
+::crime_scene:start
+//global vars
+<<set $current_location = "crime_scene">>
+<<set $visited_crime_scene = true>>
+<<set $got_crystal_clue = false>>
+<<set $pulled_over_pearson = false>>
+<<set $connected_pearson_clue = false>>
+
+//local vars
+<<set $asked_evidence = false>>
+
+I just pulled up to the crime scene.
+The d-bag neighbor is gone, presumably to work, leaving his shell-shocked wife to watch over the cops in his absence.
+Jason Leder is no longer lying by the side of the pool, having been taken to the morgue.
+Otherwise, things look like they did when I left.
+The lead criminalist, Cordelia Wiseman, just saw me and is heading this way. She looks irritated.
+I'll put the app on speech-to-text mode, like before.
+<<d "secondary">>Hey, Esposito. Thanks for the fun crime scene.<<endd>>
+<<d "rob">>I keep asking the murderers to commit their crimes in sterile environments but I haven't had any takers yet.<<endd>>
+<<d "secondary">>Well, get on that. This isn't any fun at all.<<endd>>
+<<d "rob">>What can you tell me?<<endd>>
+<<d "secondary">>Right now? Not much.<<endd>>
+<<d "secondary">>We skimmed the pool and did a fifty-foot sweep, but it's outdoors, it's windy. This scene is a loser.<<endd>>
+<<d "rob">>Hang on. I'm just going to take some quick notes on my phone.<<endd>>
+This is me typing.
+Anything I should ask her?
+[[Ask about the body.^Ask if she noticed anything about the body.|crime_scene:ask_c_about_body]] | [[Ask if they found any evidence.^Ask if they found any evidence.|crime_scene:ask_c_about_evidence]]
+
+
+
+::crime_scene:end
+[[main:post_crime_scene]]
+
+::crime_scene:ask_c_about_body
+Good idea. Cordelia's not a pathologist, but she's been doing this for a long time.
+<<d "rob">>Did you notice anything about the body? Guess at how exactly he died?<<endd>>
+<<d "secondary">>He didn't drown, I can tell you that much.<<endd>>
+<<d "secondary">>No flecking around the lips, and the EMTs said there was no water in his lungs when they went to resuscitate.<<endd>>
+<<d "rob">>Got it. Any guesses about how he got so beat up?<<endd>>
+<<d "secondary">>He's got tons of lacerations on his arms and face, and then a bunch of blunt force trauma to boot.<<endd>>
+<<d "secondary">>one thing I didn't see was defensive wounds. Might have missed those.<<endd>>
+[[What are defensive wounds?|crime_scene:c_defensive_wounds]] | [[How would she have missed them?|crime_scene:c_miss_defensive]]
+
+::crime_scene:ask_c_about_evidence
+<<set $asked_evidence = true>>
+<<d "rob">>Did you find anything during your sweep?<<endd>>
+<<d "secondary">>We found a few drops of blood by the far end of the driveway.<<endd>>
+<<d "secondary">>Are they his? Probably, but we won't know without testing, and you know how long that takes.<<endd>>
+[[How long does it take?|crime_scene:how_long_testing]] | [[Ask to see the blood.|crime_scene:ask_c_see_blood]]
+
+
+::crime_scene:ask_c_what_happened
+<<d "rob">>What do you think happened here?<<endd>>
+She's thinking. Making a clicking sound with her tongue.
+<<d "secondary">>It's really impossible to say at this point.<<endd>>
+<<d "secondary">>If I had to guess, I'd say someone beat the snot out of him someplace nearby and dumped him here.<<endd>>
+<<d "secondary">>Maybe they wanted to muddy the evidence -- in which case, excellent job -- or maybe they weren't sure if he was dead.<<endd>>
+<<d "secondary">>Or maybe this is a message to the homeowner.<<endd>>
+<<d "rob">>Nah, I checked. The owner died six months ago. The house is tied up in probate.<<endd>>
+<<d "rob">>Nobody to send a message <i>to</i>.<<endd>>
+[[Ask her about the evidence.|crime_scene:ask_c_about_evidence]] | [[Tell her thanks.|crime_scene:tell_c_thanks]]
+
+::crime_scene:tell_c_thanks
+<<d "rob">>Hey, thanks, Cordelia. I really appreciate your help.<<endd>>
+<<d "secondary">No problem. I mean, they pay me to do this, so it's cool.<<endd>>
+She's looking at me funny. I'm pretending like I'm still taking notes.
+<<d "secondary">Hey, Esposito. Are you, you know, <i>okay</i>?<<endd>>
+Shoot.
+[[Tell her you're fine.|crime_scene:tell_c_fine]] | [[Be honest with her.|crime_scene:be_honest_with_c]]
+
+::crime_scene:how_long_testing
+It depends. If there were a clear and present danger to the community, we could get it back in a day.
+In a case like this, where there's no indication of an immediate threat, doing DNA and typing can take days or even weeks.
+[[Ask to see the blood.|crime_scene:ask_c_see_blood]] | [[Ask her what she thinks happened.|crime_scene:ask_c_what_happened]]
+
+::crime_scene:ask_c_see_blood
+<<set $mention_sarah_text = true>>
+<<d "rob">>Let's take a look at the blood. You never know.<<endd>>
+Now we're walking over toward the road, toward where Waters Edge Drive ends in a narrow cul-de-sac.
+If you're wondering how I can do all this and type to you at the same time, it's because I'm a world-champion texter.
+Before Sarah and I lived together, we'd text each other for hours every night.
+But now that's over, I guess.
+[[Tell me more about Sarah.|crime_scene:tell_more_sarah]] | [[Stay focused.|crime_scene:stay_focused]]
+
+::crime_scene:tell_c_fine
+Yeah. I like Cordelia, but I can't risk anyone else thinking that I'm losing it.
+<<d "rob">>Oh, sure. Just a little tired, is all.<<endd>>
+<<d "cordelia">>Are you sure? Because I may have heard that you punched a wall back at the office.<<endd>>
+Great.
+[[Gloss over it.|crime_scene:gloss_over_punch]] | [[Be honest with her.|crime_scene:be_honest_with_c]]
+
+
+::crime_scene:gloss_over_punch
+<<d "rob">>Oh, that? That was nothing. You know what a d-bag Wheeler can be. He was just riding my ass.<<endd>>
+<<d "rob">>I barely touched the wall. It was more of a love tap than a punch, to be honest.<<endd>>
+<<d "secondary">>If you say so.<<endd>>
+She looks skeptical.
+<<d "secondary">>Welp. Back to work for me. You'll have my preliminary report on this by the end of the day.<<endd>>
+<<d "secondary">>Be warned, though, it'll just be that shrugging emoji.<<endd>>
+[[ &Acirc;&macr;\_(ã&fnof;&bdquo;)_/&Acirc;&macr; |crime_scene:shrug]] | [[Now what?|crime_scene:next_step_after_c]]
+
+::crime_scene:be_honest_with_c
+Okay. Normally I only open up to complete strangers on the Internet, but I guess I can make an exception here.
+<<d "rob">>Yeah, well, the truth is that things haven't been going so great.<<endd>>
+<<d "rob">>That whole thing with me punching the wall... it's a long story, but I'm just having a really hard time lately.<<endd>>
+<<d "secondary">>I heard you broke up with Sarah. Is it that?<<endd>>
+<<d "rob">>You heard that? I guess that's part of it. I don't know.<<endd>>
+<<d "secondary">>If you want my advice, you should come over to our place and drink some beer.<<endd>>
+<<d "secondary">>Sam made this IPA that's going to blow your mind. It's all she talks about anymore.<<endd>>
+<<d "rob">>Sounds good, Cordelia. I'll call you.<<endd>>
+<<d "secondary">>You do that, Esposito. You do that.<<endd>>
+<<delay 15s>>Rob is busy<<enddelay>>
+<<d "secondary">>I'll get you that report ASAP.<<endd>>
+Sorry, she was hugging me.
+I'm not the huggiest person in the world, but I guess it was okay.
+
+[[Feel any better?|crime_scene:feel_better_honest]] | [[What now?|crime_scene:next_step_after_c]]
+
+::crime_scene:shrug
+That's the one.
+&Acirc;&macr;\_(ã&fnof;&bdquo;)_/&Acirc;&macr;, indeed.
+[[crime_scene:next_step_after_c]]
+
+::crime_scene:next_step_after_c
+I don't know. I'm just kind of walking the scene now, trying to picture what might have happened.
+Hm. I got nothin'.
+<<if ! $mention_sarah_text>>
+By the way, if you're wondering how I can do all this and type to you at the same time, it's because I'm a world-champion texter.
+Before Sarah and I lived together, we'd text each other for hours every night.
+But now that's over, I guess.
+Anyway.
+<<endif>>
+
+<<if $asked_evidence>>
+ <<if visited("crime_scene:see_blood")>>
+ [[crime_scene:look_blood_again]]
+ <<else>>
+ [[crime_scene:look_blood_solo]]
+ <<endif>>
+<<else>>
+ [[crime_scene:leave_scene]]
+<<endif>>
+
+::crime_scene:look_blood_again
+Something about those drops of blood bothers me. I want to see them again.
+
+[[You should move on to something else.|crime_scene:move_on_from_blood]] | [[Good idea.|crime_scene:look_blood_solo_2]]
+
+::crime_scene:look_blood_solo
+I might want to go check out those drops of blood Cordelia mentioned.
+[[You should move on to something else.|crime_scene:move_on_from_blood]] | [[Good idea.|crime_scene:look_blood_solo_2]]
+
+::crime_scene:tailed_on_mt_bonnell_rd
+<<delay 2m>>Rob is busy<<enddelay>>
+Hey, it's that car again. I've been keeping an eye out for it and there it is.
+I feel like maybe I should pull this guy over.
+But maybe I shouldn't. Maybe I should play it safe and see what happens.
+I can see his license plate either way.
+[[Pull him over.|crime_scene:pull_over_tail]] | [[Don't pull him over.^Don't pull him over. Just run the plate.|crime_scene:no_pull_over]]
+
+::crime_scene:leave_scene
+I can't think of anything else to do. Guess I'll get out of here.
+I'll talk to you in a little while.
+<<if $notice_tail>>
+[[crime_scene:tailed_on_mt_bonnell_rd]]
+<<else>>
+[[crime_scene:ignore_tail_on_mt_bonnell_rd]]
+<<endif>>
+
+
+::crime_scene:move_on_from_blood
+Yeah, I guess so. Still, I feel like I was missing something there.
+Oh, well.
+[[crime_scene:leave_scene]]
+
+::crime_scene:look_blood_solo_2
+<<if visited("crime_scene:see_blood")>>
+Okay, I'm walking back over there.
+<<delay 10s>>Rob is busy<<enddelay>>
+Here we are again.
+<<else>>
+Okay, let's go have a look.
+<<delay 10s>>Rob is busy<<enddelay>>
+Here we are.
+There are four or five drops spattered on the driveway, leading out toward the cul-de-sac. 
+They're a little misshapen but I'm not entirely sure what that means.
+Something to do with the body being in motion when the drops were spilled.
+<<endif>>
+What is it that bothers me about this?
+[[Something about the shape of the drops?|crime_scene:guess_blood_shape]] | [[Something about the location of the drops?|crime_scene:guess_blood_location]]
+
+
+::crime_scene:tell_more_sarah
+Dangit. I'm sorry I brought her up.
+I know I should talk about her, but now is obviously not the time.
+Maybe later on, okay?
+[[crime_scene:see_blood]]
+
+::crime_scene:stay_focused
+Yeah, that's probably a good idea.
+You don't want to hear about Sarah and me, anyway.
+[[crime_scene:see_blood]]
+
+::crime_scene:see_blood
+We're here now at the edge of the driveway.
+I should say, "one of the edges of the driveway." 
+It's one of those kind that loops around in front of the house with an entrance and an exit.
+The gate that leads to the pool is right off the driveway where it loops closest to the house.
+I guess rich people can't be bothered to put their cars in reverse?
+Hey, if you live here and always valet when you go out, you'd <i>never have to</i>.
+<<d "secondary">>Here we go. Take a look.<<endd>>
+There are four or five drops spattered on the driveway, leading out toward the cul-de-sac. 
+<<d "secondary">>See, the drops are a bit misshapen, but just a bit. Slightly thicker at their leading edge.<<endd>>
+Huh. There's something weird about this.
+[[What does it mean that the drops are misshapen?|crime_scene:what_mean_misshapen_drops]] | [[What's weird?|crime_scene:weird_about_drops]]
+
+
+
+::crime_scene:what_mean_misshapen_drops
+<<d "rob">>What does it mean that the drops are misshapen?<<endd>>
+<<d "secondary">>Oh, it means that whoever's blood this is, they were moving toward the house when these drops fell.<<endd>>
+<<d "secondary">>I'm not a blood spatter expert, but this is, like, Blood 101.<<endd>>
+Interesting.
+But that's not what's weird about it.
+[[crime_scene:weird_about_drops]]
+
+::crime_scene:weird_about_drops
+Honestly, I can't quite place what's weird about it.
+I try to get a picture in my mind of what happened at a scene when a crime took place.
+And this doesn't fit. I can't see it.
+Usually that means something; I just have no idea what it means.
+[[Thank Cordelia for her help.|crime_scene:tell_c_thanks]] | [[Look around some more.|crime_scene:look_around_some_more]]
+
+::crime_scene:look_around_some_more
+<<set $speculated_on_dump_site = true>>
+<<d "secondary">>I gotta get back to work, Rob. We're trying to wrap up. Anything else?>>
+<<d "rob">>No, I'm good.<<endd>>
+<<d "secondary">>Watch out for those walls, sport. I hear sometimes they punch back.<<endd>>
+Sheesh.
+I'm going to look around a bit.
+<<delay 2m>>Rob is busy<<enddelay>>
+There's something not quite right.
+If you wanted to dump a body, it only <i>sort of</i> makes sense to do it here.
+The river is right there.
+If the killer had dumped the body in the river, it'd be washed up against Tom Miller Dam by now. Out of sight.
+Why dump the body <i>here</i>?
+There's something else, but I can't work out what it is.
+[[What are you doing now?|crime_scene:next_step_after_c]] | [[Think hard.|crime_scene:think_hard]]
+
+::crime_scene:think_hard
+I <i>am</i> thinking hard. Or, at least, as hard as I can.
+Thinking isn't my specialty lately. That's why I'm telling a complete stranger all of my business on a help line app.
+Lest you forget.
+[[crime_scene:next_step_after_c]]
+
+::crime_scene:feel_better_honest
+You know what, <<print $player>>, I do feel better.
+Maybe there's something to this "tell other people how you're feeling" racket after all.
+[[crime_scene:next_step_after_c]]
+
+::crime_scene:guess_blood_shape
+No, that's not it.
+I wish I could think of what it was.
+Oh, well.
+[[crime_scene:leave_scene]]
+
+::crime_scene:guess_blood_location
+The location of the blood.
+Yes! That's it!
+<<print $player>>, you're a genius!
+This is what's been bothering me:
+I can't see a killer driving his car all the way to the end of the driveway here, then pulling a body out of his trunk.
+The gate to the pool is right along the driveway, where it comes closest to the house.
+Why stop your car here and drag your victim--dead or dying--all the way across the lawn where you could be seen?
+Why not just pull up to the gate?
+Unless...
+<<delay 10s>>Rob is busy<<enddelay>>
+[[Unless what?|crime_scene:unless_what_fall]] | [[Are you okay?|crime_scene:you_okay_fall]]
+
+::crime_scene:unless_what_fall
+Unless he wasn't driven here at all.
+[[crime_scene:he_fell]]
+
+::crime_scene:you_okay_fall
+Yes, I'm fine. My brain is just struggling to fire on all cylinders.
+It just hit me -- what if he wasn't driven here at all?
+[[crime_scene:he_fell]]
+
+::crime_scene:he_fell
+What if he <i>fell</i>?
+[[Fell? From where?|crime_scene:fell_from_where]] | [[That doesn't make any sense, Rob.|crime_scene:fell_makes_no_sense]]
+
+::crime_scene:ignore_tail_on_mt_bonnell_rd
+<<delay 2m>>Rob is busy<<enddelay>>
+Huh. For a second I thought maybe that car was tailing me again, but I ignored it, like we talked about.
+<<delay 18m>>Rob is busy<<enddelay>>
+[[crime_scene:end]]
+
+::crime_scene:fell_from_where
+
+From the cliff across the street. Remember that?
+Neither Cordelia nor I considered it because it's too far away from here.
+A body that goes over a cliff is going to land at the bottom of the cliff, not a hundred yards away from it.
+[[crime_scene:think_about_it]]
+
+
+::crime_scene:fell_makes_no_sense
+No, it does.
+Remember, I told you there's a cliff face across the street. 
+Neither Cordelia nor I considered it because it's too far away from here.
+A body that goes over a cliff is going to land at the bottom of the cliff, not a hundred yards away from it.
+[[crime_scene:think_about_it]]
+
+::crime_scene:fell_possible
+It's not just <i>possible</i>. I think it makes sense of a lot of things.
+I can't explain why the killer dumped the body in the pool instead of the river, but that's a question for another time.
+[[crime_scene:realize_what_this_means]]
+
+::crime_scene:fell_why_pool
+Yeah, I have no idea about that.
+Maybe they thought they chlorine would get rid of fingerprints?
+Who knows why bad guys do some of the dumb stuff they do.
+[[crime_scene:realize_what_this_means]]
+
+::crime_scene:think_about_it
+Think about it.
+The killer shoves Leder over the top of the cliff, and Leder lands in the middle of the road.
+But that's too exposed for the killer's taste. He wants wants the body to go unnoticed for as long as possible.
+So he comes down here, drags Leder's body across the street -- leaving the blood spatter -- and dumps him in the pool.
+
+[[I guess it's possible.|crime_scene:fell_possible]] | [[Why the pool?^Why the pool instead of the river, like you said?|crime_scene:fell_why_pool]]
+
+::crime_scene:realize_what_this_means
+You realize what this means?
+There's another scene. Mabye even the scene where Leder was murdered.
+And it's directly above us.
+Oh, jeez.
+I'm such an idiot. How could I not have remembered?
+You know what's directly above me?
+[[Nope.|crime_scene:mt_bonnell]] | [[Yes!|crime_scene:yes_whats_above]]
+
+::crime_scene:mt_bonnell
+Mt. Bonnell!
+It's a little park at the top of the cliff directly above us.
+I haven't been there since I was a kid, but if I remember correctly, it's <i>directly</i> above me.
+That's where I need to go.
+Hang on. It should just take a few minutes to drive there.
+<<delay 4m>>Rob is busy<<enddelay>>
+[[crime_scene:arrive_mt_bonnell]]
+
+::crime_scene:yes_whats_above
+Oh, yeah? What is it, o Geographic One?
+[[Mount Bonnell|crime_scene:mt_bonnell]] | [[El Capitan|crime_scene:el_capitan]]
+
+::crime_scene:arrive_mt_bonnell
+I'm here now at the entrance to the park at Mount Bonnell.
+There's a gravel parking area, and then a bunch of steps that lead up the side of the mountain.
+The area here is thick with ash juniper trees, live oaks, and scrub brush.
+Going up the steps now. There are exactly a hundred of them, if I recall correctly. 
+Mount Bonnell has a dark history, as it happens.
+Its first mention in history is when a white man killed a Tonkawa Indian he happened upon up here.
+A few years later, some Tonkawa hid up here after kidnapping and killing a white settler, so tit-for-tat, I guess.
+Legend has it that the place was once called "Antoinette's Leap" after a girl who leapt to hear death to escape some Indians.
+As a Latino with probably equal parts white and Indian blood, who am I to take sides?
+Hard to type and walk up steps. I'll be back with you in a minute.
+<<delay 45s>>Rob is busy<<enddelay>>
+Something just occurred to me while I was walking up here.
+Leder's boss told me that Leder had a meeting with a potential buyer for the crystals yesterday morning.
+What if <i>this</i> is where the meeting took place?
+Something to consider. Still about 20 more steps to go.
+<<delay 35s>>
+I'm at the top. A little more out of breath than I'd like to admit.
+Wow.
+[[What do you see?|crime_scene:mt_what_see]] | [[Any evidence of a murder?|crime_scene:mt_murder]]
+
+
+::crime_scene:el_capitan
+Are you crazy? El Capitan is like 500 miles west of here, out by El Paso.
+I guess I'm getting you a map of Texas for your birthday.
+The correct answer is:
+[[crime_scene:mt_bonnell]]
+
+::crime_scene:mt_what_see
+The view is unbelievable. Google "view from mount bonnell" if you don't believe me.
+If you turn to the right, you can see all the way up the river to the Pennybacker bridge.
+If you turn to the left, you can see downtown Austin spread out at your feet.
+Across the river are some zillion-dollar homes nestled among the trees at the water's edge.
+And if you look down, you can see 3902 Water's Edge and a little speck in a black windbreaker that must be Cordelia.
+Anyone who fell -- or who was thrown -- from here, would have a very unpleasant journey.
+It's not a clean drop. You'd tumble down over terraces of sharp rocks and gnarled trees that cling to the face.
+And depending on how you fell, you'd either end up tangled up in the underbrush, never to be seen again...
+... you'd land across the street from where Leder was found, in a strip of grass that's in full view of the road.
+I'm guessing our killer was hoping for the former, but got the latter.
+What should I do first up here?
+There's nobody up here right now; the place is deserted.
+I can feel this as a murder scene.
+I can imagine the different ways it can happen. I just have to narrow it down.
+I can start by looking around over by the cliff edge, or by the stone observation deck.
+[[Look by the dropoff.|crime_scene:search_edge]] | [[Look by the observation deck.|crime_scene:search_deck]]
+
+
+
+
+
+
+::crime_scene:mt_murder
+I doubt there's going to be like a bloody baseball bat just lying on a bench up here.
+I'll have to look at little more closely.
+I'm just gawking at the view right now.
+[[crime_scene:mt_what_see]]
+
+::crime_scene:search_edge
+There's a railing made of braided metal wire that's looped through pyramid-shaped stone posts. I'm stepping over it.
+Very carefully.
+I'm looking for signs of a scuffle here. Signs that someone went over the edge.
+And I see it.
+There are tufts of grass directly on the edge of the overhang here.
+Kneeling down, I can see that something (or someone) has crushed some of them very recently.
+From this position I can see all the way down to the road below, something like three hundred feet down.
+Has anyone ever stood at the edge of something like this and <i>not</i> wondered what would happen if...
+[[Are you thinking of killing yourself?|crime_scene:edge_think_killing]] | [[How does it make you feel?|crime_scene:edge_make_feel]]
+
+::crime_scene:search_deck
+The deck is the centerpiece of the tiny park. It's an oblong structure made of stone, surrounding a sad little garden.
+The whole deal is made of casually mortared limestone, and covered by a line of pergolas.
+It looks like the kind of thing where you might agree to meet someone, I'm thinking.
+Wait -- pergolas are those things where it's like someone meant to put up a roof and then just gave up after framing it, right?
+[[Yes, that's a pergola.|crime_scene:pergola_yes]] | [[No, that isn't a pergola.|crime_scene:pergola_no]]
+
+::crime_scene:edge_think_killing
+No. Never.
+When I was a teenager, I thought about it a few times.
+My dad had a gun and I knew where he kept it. I could have gone in there and gotten it easy.
+But I never even could get through it in my head.
+Just thinking about what it would do to my mamã¡ and my sisters was enough to stop me.
+Instead I dream of just... <i>leaving</i>, you know?
+Packing a bag, getting in my car, and driving until I run out of gas.
+Wherever I end up, I would stay there. Get a job tending bar or making artisnal falafel, whatever.
+That's the closest I ever come to wanting to kill myself.
+[[Everyone feels like that sometimes.|crime_scene:edge_everyone_feels]] | [[Glad to hear it.|crime_scene:edge_glad_to_hear_it]]
+
+
+::crime_scene:edge_make_feel
+It makes me feel like I'm hovering above the world and I could just float away if someone cut my string.
+[[Do you want your string cut?|crime_scene:want_string_cut]] | [[I don't know what you mean.|crime_scene:not_know_mean_float]]
+
+::crime_scene:edge_everyone_feels
+Really? You think so?
+I always figured I was some kind of freak for thinking that.
+I feel a little better about myself, to be honest.
+[[crime_scene:end_search_edge]]
+
+::crime_scene:edge_glad_to_hear_it
+Yeah, that's a great accomplishment, "not killing myself." I should get an award.
+[[Maybe you should.^Maybe you should get an award. Sometimes just living can be incredibly hard.|crime_scene:edge_maybe_should_award]] | [[Okay, I get it.^Okay, I get what you mean, but you can still be proud of it.|crime_scene:edge_i_get_it]]
+
+::crime_scene:end_search_edge
+I can't see anything else along the edge.
+<<if visited("crime_scene:search_deck")>>
+I can head back, or --
+Oh, hey! There's a park employee here, empyting the trash.
+I wonder if she was here yesterday?
+[[Get out of here.|crime_scene:leave_mt_bonnell]] | [[Talk to the employee.|crime_scene:talk_employee]]
+<<else>>
+I could go back and search the observation deck, or --
+Oh, hey! There's a park employee here, empyting the trash.
+I wonder if she was here yesterday?
+[[Go search the observation deck.|crime_scene:search_deck]] | [[Talk to the employee.|crime_scene:talk_employee]]
+<<endif>>
+
+
+::crime_scene:edge_maybe_should_award
+Aw, see, now you're going to make me feel all self-conscious.
+I... thanks.
+<<delay 5s>>Rob is busy<<enddelay>>
+[[crime_scene:end_search_edge]]
+
+::crime_scene:edge_i_get_it
+I guess. 
+Doesn't seem like much of an accomplishment, though, just trudging through life one day at a time.
+But maybe if that's the absolute best you can do, then it kind of is.
+Especially if the alternative is just not getting out of bed.
+[[crime_scene:end_search_edge]]
+
+::crime_scene:talk_employee
+She's a small Asian woman, short gray hair, maybe in her sixties.
+She has earbuds in and she's singing along to a song by the band Spoon. That's Austin for you.
+I'm gonna put you on speech-to-text again.
+(And then I'm gonna stop telling you that I'm putting you on speech-to-text, because you probably get it by now.)
+<<d "rob">>Excuse me, ma'am? I'm Detective Esposito with the APD. Do you have a minute?<<endd>>
+<<d "secondary">>Am I doing something wrong?<<endd>>
+<<d "rob">>No, nothing like that. I was just wondering if you were here yesterday, by any chance?<<endd>>
+<<d "secondary">>I sweep and empty the trash cans up here every day, Monday to Friday.<<endd>>
+<<d "rob">>So you were here yesterday. What time did you get here?<<endd>>
+<<d "secondary">>Some days I get here at six o' clock, some days at six fifteen. It depends.<<endd>>
+<<d "rob">>Did you see anyone here yesterday morning, around six?<<endd>>
+<<d "secondary">>I didn't see anyone.<<endd>>
+Crap. Oh, well.
+<<d "secondary">>I hear someone, though.<<endd>>
+<<d "rob">>Excuse me? What did you hear?<<endd>>
+<<if $killer == "mia">>
+<<d "secondary">>I hear a man and woman shouting. They are very angry about something.<<endd>>
+<<elseif $killer == "rod">>
+<<d "secondary">>I hear two men shouting. One man is very loud and angry, other much more quiet.<<endd>>
+<<elseif $killer == "sok">>
+<<d "secondary">>I hear two men shouting. Both are shouting very loud.<<endd>>
+<<else>> //Just to keep story from stopping
+<<d "secondary">>I hear two people shouting.<<endd>>
+<<endif>>
+[[Ask if she saw them.|crime_scene:ask_if_saw_shouters]] | [[Ask what else she heard.|crime_scene:ask_what_else_heard]]
+
+
+::crime_scene:ask_if_saw_shouters
+<<d "rob">>Did you see them? What did they look like?<<endd>>
+<<d "secondary">>I do not see them. I am coming back up stairs, and I hear voices. Then remember I need trash bags, so I come back down to the truck.<<endd>>
+<<d "secondary">>When I come back up again, nobody is here.<<endd>>
+<<d "rob">>How is that possible?<<endd>>
+<<d "secondary">>The stairs are not the only way up. Also trail that way.<<endd>>
+She's pointing to the north, where there's a trail that leads down the side of the escarpment.
+If Leder's killer was up here, that's how he -- or she! -- got past the employee.
+<<if visited("crime_scene:ask_what_else_heard")>>
+[[crime_scene:end_employee_conversation]]
+<<else>>
+[[Ask if she heard anything else.|crime_scene:ask_what_else_heard]] | [[End the conversation.|crime_scene:end_employee_conversation]]
+<<endif>>
+
+::crime_scene:ask_what_else_heard
+<<d "rob">>Did you hear anything else?<<endd>>
+<<if visited("crime_scene:ask_if_saw_shouters")>>
+<<d "secondary">>No, when I come back, I don't hear anything else.<<endd>>
+[[End the conversation.|crime_scene:end_employee_conversation]] | [[Ask if she could make out any words.|crime_scene:ask_if_make_out_words]]
+<<else>>
+<<d "secondary">>I don't hear anything else, just shouting.<<endd>>
+[[Ask if she saw the two people.|crime_scene:ask_if_saw_shouters]] | [[Ask if she could make out any words.|crime_scene:ask_if_make_out_words]]
+<<endif>>
+
+::crime_scene:end_employee_conversation
+Well, <i>that's</i> something.
+I'm going to take down her information and tell her to come in for a full interview. Give me a minute here.
+<<delay 2m>>Rob is busy.<<endd>>
+<<if $killer == "mia">>
+So we have a man and a woman shouting at each other up here, possibly around the time Leder was killed.
+<<else>>
+So we have two men shouting at each other up here, possibly around the time Leder was killed.
+<<endif>>
+That could turn out to be useful information.
+<<if visited("crime_scene:search_deck")>>
+[[crime_scene:leave_mt_bonnell]] 
+<<else>>
+I can go search over by the observation deck, or I can take off.
+[[Go search the observation deck.|crime_scene:search_deck]] | [[Hit the trail.|crime_scene:leave_mt_bonnell]]
+<<endif>>
+
+::crime_scene:ask_if_make_out_words
+<<d "rob">>Could you make out anything the two people were shouting about?<<endd>>
+<<d "secondary">>It is hard to hear, and English is not my first language. But I hear one word over and over.<<endd>>
+<<d "rob">>What word was that?<<endd>>
+<<if $killer == "mia">>
+<<d "secondary">>"Humiliated."<<endd>>
+<<elseif $killer == "rod">>
+<<d "secondary">>"Belittled."<<endd>>
+<<elseif $killer == "sok">>
+<<d "secondary">>"Ashamed."<<endd>>
+<<else>> 
+<<d "secondary">>"Ashamed."<<endd>>
+<<endif>>
+<<d "secondary">>I don't remember anything else. Sorry.<<endd>>
+[[crime_scene:end_employee_conversation]]
+
+::crime_scene:end_search_deck
+Nothing else to see here.
+<<if visited("crime_scene:search_edge")>>
+[[crime_scene:leave_mt_bonnell]] 
+<<else>>
+I can climb out and check out the edge of the cliff, or I can head back.
+There may not be anything to see out there, but it might be worth a look.
+Then again, I could also fall and get myself killed.
+[[Don't chance it.|crime_scene:leave_mt_bonnell]] | [[It's worth a look.|crime_scene:search_edge]]
+<<endif>>
+
+::crime_scene:leave_mt_bonnell
+I guess that's it for Mount Bonnell.
+I'm going to head back.
+<<if $notice_tail>>
+[[crime_scene:tailed_on_mt_bonnell_rd]]
+<<else>>
+[[crime_scene:ignore_tail_on_mt_bonnell_rd]]
+<<endif>>
+
+::crime_scene:want_string_cut
+No, not really. It's tempting to imagine, though, right?
+Like you could just float away from all your problems and disappear.
+But I couldn't do that even if I wanted to. I'm needed here.
+[[crime_scene:end_search_edge]] 
+
+
+::crime_scene:not_know_mean_float
+I don't know. Sometimes it would feel easier if you could just disappear, you know?
+Like, just get in your car and drive, and keep driving and not stop until you run out of gase.
+And stay wherever you end up and tend bar or make falafel, or whatever you wanted.
+And there wouldn't be any huge responsibilities...
+...and nobody would need or expect anything from you.
+But I could never do that. I have to do my job. And I do.
+[[Everyone feel that way sometimes.|crime_scene:edge_everyone_feels]] | [[Something to be proud of.^You can be proud of that.|crime_scene:edge_i_get_it]]
+
+::crime_scene:pergola_yes
+Thank you. Like any guy, I like it when reality aligns with my pronouncements about it.
+[[crime_scene:search_deck_2]]
+
+::crime_scene:pergola_no
+I don't know! It's a thing with wood slats on it for shade and whatever.
+Do you even know what a pergola is?
+[[Yes.^Yes. I was just giving you a hard time.|crime_scene:pergola_hard_time]] | [[No, I don't.^I admit it. I don't know.|crime_scene:pergola_dont_know]]
+
+::crime_scene:search_deck_2
+Pergolas aside, if you were going to meet someone, you'd stand right about... here.
+From here you could lean against or sit on the half wall that surrounds the deck and look right down the stairs.
+You'd be able to see anyone coming up them easily.
+<<if visited("crime_scene:ask_if_saw_shouters")>>
+Of course, as the employee pointed out, there's also the trail leading up from the north.
+<<else>>
+There's a trail off to the north, but I'm not sure if it leads anywhere.
+<<endif>>
+I guess someone could sneak up on you that way.
+Hm.
+[[What are you thinking?|crime_scene:deck_what_thinking]] | [[Did you notice something?|crime_scene:deck_notice]]
+
+::crime_scene:pergola_hard_time
+Don't mess with me like that! I'm having enough trouble with my self-esteem as it is.
+The last thing I need is having my knowledge of gardening features questioned.
+[[crime_scene:search_deck_2]]
+
+::crime_scene:pergola_dont_know
+See, this is what you get for <<print $player>>splaining me.
+//This is a joke on "mansplaining", which is when a man attempts
+//to explain something to a woman that the woman already knows.
+If it's any consolation, I barely knew what it was myself.
+[[crime_scene:search_deck_2]]
+
+::crime_scene:deck_what_thinking
+I'm thinking that you can't really sneak up on someone on this deck. It's too open and too quiet.
+Especially at six a.m., if that's actually when it happened.
+Leder wasn't shot, which means that whoever killed him got right up close.
+Leder <i>must</i> have known the person that killed him.
+<<if visited("crime_scene:ask_c_about_body")>>
+Cordelia told me there weren't any noticeable defensive wounds, which means the killer got the drop on him.
+<<else>>
+I wish I'd asked Cordelia about the body, to see if Leder had defensive wounds or not.
+<<endif>>
+I'll be interested to hear what the pathologist says. I want to know if he was alive when he went over the edge.
+[[See anything else?|crime_scene:deck_see_anything_else]] | [[What difference does it make?|crime_scene:deck_what_difference]]
+
+
+
+
+
+
+
+::crime_scene:deck_notice
+Just trying to work out what happened here.
+[[crime_scene:deck_what_thinking]]
+
+::crime_scene:c_defensive_wounds
+Defensive wounds are injuries you find on peoples' hands and forearms.
+They get these injuries trying to fend off an attacker.
+[[crime_scene:ask_c_about_body_2]]
+
+::crime_scene:c_miss_defensive
+<<d "rob">>Why might you have missed them?<<endd>>
+[[crime_scene:ask_c_about_body_2]]
+
+::crime_scene:ask_c_about_body_2
+<<d "secondary">>He'd been in the water for at least a day. It's hard to get a sense of his injuries as a result.<<endd>>
+<<d "secondary">>The pathologist will be able to tell you more, I'm sure. Keep in mind, my specialty is fibers.<<endd>>
+<<d "secondary">>If you have any fiber queries, I'm your girl.<<endd>>
+<<d "secondary">>I can tell polyester from rayon at a hundred yards -- I'm amazingly fun at parties.<<endd>>
+What else should I ask her about?
+<<if ! visited("crime_scene:ask_c_about_evidence")>>
+[[Ask if she found any evidence.|crime_scene:ask_c_about_evidence]] | [[Ask what she thinks happened.|crime_scene:ask_c_what_happened]]
+<<else>>
+[[Ask what she thinks happened.|crime_scene:ask_c_what_happened]] | [[Thank her for her help.|crime_scene:tell_c_thanks]]
+<<endif>>
+
+::crime_scene:deck_see_anything_else
+Let's see. Now comes the fun part -- squatting down and looking at the ground.
+The ground is where evidence tends to wind up, what with gravity and all.
+Detectives who doesn't spend a lot of time on their haunches are like the guy who looks for his lost wallet by the streetlight...
+...not because that's where he dropped it but because that's where the light is best.
+I'm just gonna spend a minute or two playing bloodhound.
+<<delay 5m>>Rob is busy<<enddelay>>
+I'm not finding anything. Should I keep looking? It'll take a few more minutes.
+[[Keep looking.^Yes, you should be as thorough as possible.|crime_scene:deck_keep_searching]] | [[Move on.|crime_scene:deck_move_on]]
+
+::crime_scene:deck_what_difference
+If he was dead, then someone big had to have done this. 
+Someone would have had to carry him from here over to the edge and push him off.
+If he was still alive, maybe he was trying to get away and stumbled off the edge on accident.
+[[crime_scene:deck_see_anything_else]]
+
+::crime_scene:deck_keep_searching
+Your patience is appreciated.
+Don't tell anyone, but police work is mostly incredibly boring.
+On TV, cops never have to write reports.
+Sometimes it feels like writing reports is <i>all I do.</i>
+<<delay 5m>>Rob is busy<<enddelay>>
+Aha!
+I found... something. What the--holy crap!
+[[What did you find?|crime_scene:deck_found_what]] | [[Are you okay?|crime_scene:deck_okay]]
+
+::crime_scene:deck_move_on
+Yeah, there doesn't seem to be anything else here. Maybe he was by the edge the whole time?
+[[crime_scene:end_search_deck]]
+
+::crime_scene:deck_found_what
+Oh, no, I'm <i>fine</i>. Thanks for asking.
+[[crime_scene:crystal]]
+
+::crime_scene:deck_okay
+Yeah, I'm fine. Just a little wigged out.
+[[crime_scene:crystal]]
+
+::crime_scene:crystal
+It's a tiny, irregularly-shaped stone.
+And it's glowing.
+And it's <i>warm to the touch</i>.
+<<if $visited_mary >>
+This is tunguskite!
+<<else>>
+I wonder if this is one of the crystals that Leder was selling?
+<<endif>>
+[[Take it.|crime_scene:take_crystal]] | [[What does it look like?|crime_scene:describe_crystal]]
+
+::crime_scene:take_crystal
+<<if $visited_mary>>
+<<set $got_crystal_clue = true>>
+You bet I'm taking this. It's my first piece of real evidence!
+[[crime_scene:end_search_deck]] 
+<<else>>
+I don't know. It could be a piece of that crystal, or it could just be a rock. I don't have any way of knowing.
+[[Take it anyway|crime_scene:take_crystal_anyway]] | [[Leave it.^Leave it. It's probably nothing.|crime_scene:leave_crystal]]
+
+
+::crime_scene:describe_crystal
+It's small, maybe the size of a pinto bean.
+But it's got jagged faces that have sharply-angled trapezoidal edges.
+It glows like there's an LED inside of it.
+And it's warm like it's been sitting out in the sun, but I found it under a bench.
+Pretty freaky.
+[[Take it.|crime_scene:take_crystal]] | [[Seems dangerous.|crime_scene:crystal_dangerous]]
+
+::crime_scene:take_crystal_anyway
+<<set $got_crystal_clue = true>>
+Got it. I just hope it doen't turn me into a mutant or make me sterile.
+[[crime_scene:end_search_deck]]
+
+::crime_scene:leave_crystal
+Yeah, it's probably not important. Anyway, it looks like it's radioactive or something. I want to have kids someday.
+And I don't want them to have weird mutant powers.
+[[crime_scene:end_search_deck]]
+
+::crime_scene:crystal_dangerous
+You're right. I'm not holding onto this thing. It could be radioactive for all I know.
+[[crime_scene:end_search_deck]]
+
+::crime_scene:pull_over_tail
+<<set $pulled_over_pearson = true>>
+Yeah! Real cop stuff!
+This is why a lot of us got on the cops in the first place--excitement, adventure, getting in the thick of it.
+When you spent your entire youth getting angry, you tend to be the kind of person who likes getting up in people's faces.
+I'm gonna light him up, see what happens. Hold on.
+<<delay 30s>>Rob is busy<<enddelay>>
+Okay, they're stopped. I'm gonna run his tag while I make him wait, wondering what I'm doing.
+It's fun making bad guys wait.
+[[crime_scene:run_plate]] 
+
+
+::crime_scene:no_pull_over
+<<set $pulled_over_pearson = false>>
+Yeah, I'll just wait and see what happens.
+In the meantime I'll run the plate.
+Hang on.
+<<delay 30s>>Rob is busy<<enddelay>>
+[[crime_scene:run_plate]]
+
+
+::crime_scene:run_plate
+Okay, I ran the plate.
+The car is registered to a company called The Pearson Corporation. Sounds big and faceless.
+Great. I'm being tailed by a big faceless corporation. This can't but end well.
+<<if $mention_pearson>>
+The name Pearson sounds familiar. Is it familiar to you?
+[[Yes.|crime_scene:pearson_familiar]] | [[No.|crime_scene:pearson_not_familiar]]
+<<else>>
+Hm. Doesn't ring a bell.
+[[crime_scene:end_run_plate]]
+<<endif>>
+
+
+::crime_scene:pearson_familiar
+That's right! Who was talking about "Pearson"?
+<<if $visited_law_office>>
+[[Mary Jo Irving|crime_scene:mary_talk_pearson]] | [[Leder's boss, Sherwood.|crime_scene:sherwood_talk_pearson]]
+<<else>>
+[[Mary Jo Irving|crime_scene:mary_talk_pearson]] | [[Leder's wife, on the phone.|crime_scene:mia_talk_pearson]]
+<<endif>>
+
+::crime_scene:pearson_not_familiar
+Double-click this passage to edit it.
+
+::crime_scene:end_run_plate
+<<if $pulled_over_pearson>>
+[[crime_scene:approach_car]]
+<<else>>
+<<if $connected_pearson_clue>>
+Dammit. Now I really wish I'd pulled those guys over.
+Oh, well. Maybe I'll see them again.
+<<else>>
+I feel like I'm missing something. Dammit.
+<<endif>>
+I'm going to head back.
+<<delay 20m>>Rob is busy<<enddelay>>
+[[crime_scene:end]] 
+<<endif>>
+
+::crime_scene:mary_talk_pearson
+<<set $connected_pearson_clue = true>>
+That's right! Pearson was the name of the company that kept offering to buy the crystals from her grandfather!
+Very interesting!
+[[crime_scene:end_run_plate]]
+
+::crime_scene:sherwood_talk_pearson
+No, that's not it. He mentioned a couple of Leder's clients, but Pearson wasn't one of them.
+[[crime_scene:end_run_plate]]
+
+::crime_scene:mia_talk_pearson
+No, that's not it. Mia didn't say much, and she sure as hell didn't say anything about a Pearson corporation.
+[[crime_scene:end_run_plate]]
+
+::crime_scene:approach_car
+Something most people don't get about cops is that when they pull you over they don't know much about you.
+You might be a solid citizen: a nun or a kindergarten teacher.
+On the other hand, you could be a gangbanger or a car thief, which makes you dangerous.
+Or you could be any of the above but tweaked on meth, and then you're even more dangerous.
+A cop never knows what he's getting into, even with the simplest traffic stop.
+So be nice to the cop who pulls you over. He doesn't hate you.
+He just wants to go home at the end of his shift.
+With all that in mind, here I go.
+<<delay 20s>>Rob is busy<<endd>>
+<<d "pearson">>Hello, officer.<<endd>>
+<<d "rob">>License and insurance, please.<<endd>>
+(Gotta put on the tough cop act. The Show, remember?)
+The driver and sole occupant is a 32-year-old white secret-service wannabe named Marvin Heckler.
+Not the most intimidating name.
+[[Ask him why he's following you.|crime_scene:pearson_ask_why_follow]] | [[Ask him what he's doing up here.|crime_scene:pearson_ask_what_doing]]
+
+
+::crime_scene:pearson_ask_why_follow
+<<d "rob">>Okay, Marvin. I notice you've been tailing me. Care to explain why?<<endd>>
+<<d "pearson">>Am I being detained?<<endd>>
+<<d "rob">>Excuse me?<<endd>>
+<<d "pearson">>Unless I'm being detained, I do not have to answer your questions, officer.<<endd>>
+Greaaaaat. One of these guys.
+[[Keep trying.|crime_scene:pearson_keep_trying]] | [[One of what guys?|crime_scene:pearson_what_guys]]
+
+::crime_scene:pearson_ask_what_doing
+<<d "rob">>What brings you up to Mount Bonnell today, sir?<<endd>>
+<<d "pearson">>It's a private matter, officer.<<endd>>
+[[Ask why he's following you.|crime_scene:pearson_ask_why_follow]] | [[Ask about Pearson.|crime_scene:pearson_ask_pearson]]
+
+::crime_scene:pearson_keep_trying
+How should I go at him? Should I be nice cop, or mean cop?
+[[Be nice.|crime_scene:pearson_be_nice]] | [[Be tough.|crime_scene:pearson_be_tough]]
+
+::crime_scene:pearson_what_guys
+Some people get a kick out of learning the precise extent to which they're <i>required</i> to help authorities...
+...and then walking as close to that line as possible.
+Some of them are just people who are concerned about protecting their rights and whatnot.
+Some of them are squirrely bad guys.
+[[Be nice.|crime_scene:pearson_be_nice]] | [[Be tough.|crime_scene:pearson_be_tough]]
+
+::crime_scene:pearson_be_nice
+<<d "rob">>No sir, you are most definitely not being detained. Just curious why you're following me.<<endd>>
+<<d "pearson">>Unless you're detaining me, I don't have to answer any of your questions.<<endd>>
+<<d "rob">>I understand that, sir. But you are <i>able</i> to answer my question, aren't you?<<endd>>
+<<d "pearson">>Am I being detained?<<endd>>
+This guy.
+[[Let him go.|crime_scene:pearson_let_go]] | [[Stop being nice.|crime_scene:pearson_be_tough]]
+
+::crime_scene:pearson_be_tough
+<<d "rob">>Hey, d-bag! Are you deaf? I asked you a question!<<endd>>
+<<d "pearson">>Unless I'm being detained--<<endd>>
+<<d "rob">>Yeah, yeah. Listen. There are a hundred things I could detain you for. You want to get detained, we can do that.<<endd>>
+<<d "rob">>Maybe you were driving erratically. Maybe you look like a suspect on a case I'm working.<<endd>>
+<<d "rob">>We can head down to the station, and I can let you sit in lockup for 48 hours before I have to charge you.<<endd>>
+<<d "rob">>You want to do that, or do you want to tell me why the hell you're following me?<<endd>>
+<<d "pearson">>If you're detaining me, I'd like to contact my lawyer.<<endd>>
+Eh, he called my bluff. Figures. 
+I could arrest him, but I'm not sure what good it would do.
+Might be better to let him go.
+[[Arrest him.|crime_scene:pearson_arrest]] | [[Let him go.|crime_scene:pearson_let_go]]
+
+::crime_scene:pearson_let_go
+<<d "rob">>Okay, Marvin. Here's your license. You're free to go.<<endd>>
+<<d "rob">>But if I spot you tailing me again, it's going to go badly for you.<<endd>>
+<<delay 10s>>Rob is busy<<endd>>
+Man, what a d-bag. He didn't say another word. Just rolled up his window and drove off.
+Guess I'm done here. See you back at the ranch.
+<<delay 20m>>Rob is busy<<enddelay>>
+[[crime_scene:end]]
+
+
+::crime_scene:pearson_arrest
+<<d "rob">>Step out of the car, Marvin. You're under arrest.<<endd>>
+<<d "pearson">>This is ridiculous! On what charge?<<endd>>
+<<d "rob">>I'm sure I'll think of something.<<endd>>
+Okay, I'm going to take this guy down to the station. I'll get back to you.
+<<delay 2h>>Rob is busy<<enddelay>>
+Well, that was maybe not the best decision.
+Marvin didn't say another word beyond what was legally required of him.
+As soon as he got his phone call, he called a very expensive and nasty lawyer.
+Said lawyer is making a fuss and my Lieutenant is furious.
+And now Pearson knows that I'm on to them, whoever they are.
+Crap.
+[[crime_scene:end]]
+
+::crime_scene:pearson_ask_pearson
+<<d "rob">>I see your vehicle is registered to the Pearson Corporation. Are you an employee of theirs?<<endd>>
+<<d "pearson">>Yes, officer.<<endd>>
+<<d "rob">>In what capacity?<<endd>>
+<<d "pearson">>Security. Am I being detained?<<endd>
+<<d "rob">>Come again?<<endd>>
+<<d "pearson">>Unless I'm being detained, you have no right to question me any further. Am I being detained?<<endd>>
+Oh, this guys is annoying. Should I keep being nice, or should I get mean or should I get tough?
+[[Keep being nice.|crime_scene:pearson_be_nice]] | [[Get tough.|crime_scene:pearson_be_tough]]
+
+::intro:start_tell_about_sarah
+<<set $discussed_sarah = true>>
+Where to begin with Sarah.
+I guess it's fair to say that she saved my life.
+When I was a teenager, we lived in a pretty bad part of Austin. 
+There were a lot of tough kids at my high school. Like gangsta-lite, you know?
+They sold weed, and they <i>had</i> a gun but it's not like they would ever shoot anyone.
+They sure as hell didn't care about school or aything like that.
+I was on my way to being one of them, but then I met Sarah.
+She was in my Geometry class -- math was the only subject I didn't suck at -- 
+and this might sound melodramatic, but she <i>saw</i> something in me.
+She just kind of barged into my life, told me to stop handing out with those losers and start studying instead.
+And I was so enamored of her that I just did whatever she said.
+The thought that someone like her, so smart and so beautiful, would care about a nobody like me...
+...it was pretty amazing.
+If someone like her saw something in <i>me</i>, then maybe I was worth something after all, you know?
+I loved her instantly. I thought she only saw me as a friend, or a project.
+Then one night while we were studying for a History test, I gathered up all my courage, and I leaned over, and I kissed her.
+She just smiled and said, "Took you long enough, dummy."
+And we were pretty much together from then on.
+[[What happened next?|intro:what_happened_sarah]] | [[How did she become your "ex" girlfriend?|intro:what_happened_sarah]]
+
+::intro:what_happened_sarah
+<<set $discussed_police = true>>
+What happened was that we both graduated high school. She went to UT in Austin and I went to Community College there.
+We stayed together. I tried really hard to be the person she needed me to be and a lot of the time I succeeded.
+But after a while I started to think maybe I was just putting on an act for her, that it wasn't really me she loved.
+But the person that I tried to be when I was with her. 
+And maybe she wouldn't love the real me.
+So after I got my associate's degree, I took the police exam for the APD, and I got in easy.
+Sarah didn't like it -- she said I could do so much more with my life.
+I said, "What's wrong with being a cop?" I got all defensive.
+We went back and forth.
+I became a cop. She didn't care for it. I think mainly she was nervous that I was going to get shot or something.
+Which is crazy because nobody has ever shot at me in ten years on the job or even come close.
+Well, until yesterday.
+But then I became a homicide detective. I was really proud. I wanted to do a good job.
+She didn't like me being out all hours, spending so much time on the job.
+She wanted me to be successful, and now that I was successful, it was pissing her off!
+So I kind of shouted at her. A lot.
+And she kind of left.
+And she's called me a few times and I haven't called her back.
+And I feel like crap about it.
+But I don't know what to say.
+[[You should call her.|intro:should_call_sarah]] | [[What happened yesterday?|intro:what_happened_yesterday]]
+
+::intro:should_call_sarah
+I should, I guess. I don't know. I wouldn't know what to say to her. I'm just so confused right now.
+Mainly about the thing that happened yesterday.
+[[intro:what_happened_yesterday]]
+
+::intro:start
+<<set $mention_cop = false>>
+<<set $mention_snark = false>>
+<<set $mention_sarah = false>>
+<<set $gore = null>>
+
+<<d "helpbot">>Hi, I'm HelpBot!<<endd>>
+<<d "helpbot">>Welcome to HelpText, the app that allows people who need help to find it.
+<<d "helpbot">>I'm here to get you started as a volunteer.<<endd>>
+<<d "helpbot">>Your job will be to listen to people in need and let them know they're not alone.<<endd>>
+<<d "helpbot">>Let's start with your name.
+Enter your first name: <<textbox "$player" "" "intro:hello_name">>
+
+::intro:hello_name
+<<set $lowName = $player.toLowerCase() >>
+<<if $lowName == "helpbot">>
+<<d "helpbot">>That's funny. <i>My</i> name is Helpbot! What a coincidence!<<endd>>
+<<elseif $lowName == "taylor">>
+<<d "helpbot">>I've always especially liked that name for some reason!
+<<elseif $lowName == "arika">>
+<<d "helpbot">>Is that pronounced ARR-uh-kuh, by any chance?<<endd>>
+<<elseif $lowName == "carrie">>
+<<d "helpbot">>Carries are the best! Not like those suspicious "Kerry" types.<<endd>>
+<<elseif $lowName == "camille">>
+<<d "helpbot">>What an especially lovely name!<<endd>>
+<<elseif $lowName == "mercy" || $lowName == "emerson">>
+<<d "helpbot">>What a delightfully lovely name!<<endd>>
+<<elseif $lowName == "fuck" || $lowName == "shit" || $lowName == "asshole" || $lowName == "poop" || $lowName == "faggot" || $lowName == "fart">>
+<<set $player = "Sam">>
+Hm. I'm not sure that's the best name to use on a crisis intervention line. Let's call you "Sam" instead.
+<<elseif $lowName == "deez nuts">>
+<<set $player = "Brady">>
+Hey, didn't you run for president? Maybe I'll just call you "Brady" instead.
+<<elseif $lowName == "dave">>
+Hey, you're one of the Daves I know! Some of them are Davids but most of them are Daves.
+<<endif>>
+Thanks for volunteering, <<print $player>>!
+[[intro:keep_in_mind]]
+
+
+::intro:keep_in_mind
+<<d "helpbot">>Thanks so much for volunteering with HelpText! You're doing something really valuable!<<endd>>
+<<d "helpbot">>In minute you'll be connected to your first client. Get ready!<<endd>>
+
+<<d "helpbot">>There are just a few things to know before you get started.<<endd>>
+
+<<d "helpbot">>It's important to remember that the people you're talking to are going through a hard time.<<endd>>
+
+<<d "helpbot">>They need understanding and support, not judgment.<<endd>>
+
+<<d "helpbot">>When people are having experiencing emotional difficulty, things can seem really bleak and difficult.<<endd>>
+
+<<d "helpbot">>Telling them to "just cheer up" won't help.<<endd>>
+
+<<d "helpbot">>A lot of the people who use this app feel like they're not being listened to.<<endd>>
+<<d "helpbot">>So your job, first and foremost, is to listen!<<endd>>
+
+<<d "helpbot">><i>Important! Don't give out personal information to the people you're talking to.</i><<endd>>
+
+<<d "helpbot">><i>Don't attempt to "fix" their problems.</i><<endd>>
+
+<<d "helpbot">><i>Whatever you do, don't get involved in their personal lives!</i><<endd>>
+
+<<d "helpbot">>Got all that?<<endd>>
+
+[[intro:prepare_connection]]
+
+
+
+::intro:hi_rob
+Hi.
+I need help.
+I don't know what to do.
+I don't even know where to start.
+[[What's going on?|intro:whats_going_on]] | [[It's okay. Take your time.|intro:hi_take_your_time]]
+
+::intro:whats_going_on
+That's hard to explain. 
+It's pretty complicated.
+[[I have plenty of time.|intro:plenty_of_time]] | [[How is it complicated? |intro:how_complicated]]
+
+
+::intro:plenty_of_time
+Okay. Give me a second.
+<<delay 5s>>Rob is busy<<enddelay>>
+I think I'm in trouble.
+Something... insane happened to me.
+Something that couldn't possibly have happened.
+Nobody will believe me. I'm not sure if <i>I</i> believe me.
+
+[[What kind of trouble are you in?|intro:what_kind_of_trouble]] | [[No Pressure.^No pressure. You don't have to tell me anything.|intro:no_pressure]]
+
+::intro:what_kind_of_trouble
+I may have killed someone.
+In the line of duty, I mean. I'm a cop.
+The problem is that I have no idea if I actually <i>did</i> kill someone.
+Does that sound crazy?
+I know it does. That's the problem in a nutshell.
+
+[["Crazy" isn't a word we like to use.|intro:crazy_not_good_word]] | [[What happened?|intro:what_did_you_see]]
+
+::intro:crazy_not_good_word
+Okay, fair enough.
+Let's get technical. I'm afraid I might be psychotic.
+Like the homeless guys I used to deal with when I was on patrol.
+[[You experienced something disturbing.|intro:saw_disturbing]] | [[On patrol?|intro:on_patrol]]
+
+::intro:saw_disturbing
+That's a little bit of an understatement. 
+It's more like I experienced something that totally undermined my assumptions about what's real and what isn't.
+Assuming that I saw it, of course.
+See the problem?
+Let me ask you: do you believe in magic?
+[[No, I don't|intro:believe_magic_no]] | [[I'm open to the idea|intro:believe_magic_yes]]
+
+::intro:believe_magic_no
+No, me either. 
+Until yesterday I would have said that "magic" was just an uninspired Coldplay song.
+(Or a really awesome Cars song, depending on how old you are.)
+But...
+I saw it so clearly -- the flames leaping toward me, reflected in her eyes. I could feel the heat of it.
+I know what I saw was real, and that's what terrifies me.
+[[Why does that terrify you?|intro:why_terrify]] | [[What was real?|intro:what_real]]
+
+::intro:why_terrify
+I'm terrified because only psychotic people <i>know</i> that the crazy things they see are real.
+You see what I mean?
+A healthy person sees something insane and they dismiss it as a trick of the light, or a figment of their imagination.
+It takes a genuine crazy person to <i>know</i> that the crazy things they see are <i>real</i>.
+Maybe at any other time I could shake it off. 
+In my job I've seen all kinds of wackadoo stuff. I thought nothing could surprise me.
+But now... I just <i>don't know anymore</i>.
+The problem is, things have been bad with me for a while. Really bad.
+I don't know if I'm coming or going.
+[[Tell me about that.|intro:talk_bad_for_awhile]] | [[You don't sound psychotic.|intro:not_sound_psychotic]]
+
+::intro:talk_bad_for_awhile
+I guess I've always felt... off.
+As long as I can remember, I've felt empty inside. Hollow.
+There's this... bleakness that kind of follows me everywhere I go. I can't shake it.
+It's like this thing that lives in my head and presses down on me and makes everything seem terrible.
+And lately it's gotten a lot worse.
+I don't know if it's being a cop and seeing all the horrible things I've seen, or if it's just brain chemicals.
+But some days it's all I can do to just get out of bed. I just lie there and think, "Why bother?"
+And when I do get up and force myself to go to work, I can hardly think. It's like static in my brain.
+I'm depressed, okay? There it is. I'm depressed.
+I guess I always have been. And over the past year it's gotten worse.
+And with the job I have, I can't afford to be depressed. It's <i>literally</i> life or death.
+But I can't talk to anyone in the department about this.
+[[Why not?|intro:why_not_talk_cops]] | [[How do you usually handle those feelings?|intro:how_usually_handle]]
+
+
+
+
+
+::intro:why_not_talk_cops
+There's no way the other detectives or my superious would believe me.
+I can't put what I saw into a report.
+But I sure as hell can't ignore it.
+So I'm stuck.
+[[This must be really hard for you.|intro:stuck_hard]] | [[What happened?|intro:tell_what_happened]]
+
+
+::intro:car_drive
+I walk to my car, passing homeless guys and indie rockers, and I just drive.
+I take Sixth down past all the crappy bars and tourist spots...
+...past the higher end bars and empty lots that used to be bookstores and restaurants...
+...and which are all now being converted into trendy boutique crap.
+I drive across Lady Bird Lake and looked at the city across the water, my city, feeling it pull away from me.
+I weave my way down Bee Cave Road, through West Lake Hills, where the richest of the rich live.
+And then once I hit Loop 360 I floor it, flying over the rolling hills west of the city.
+I come to this scenic overlook I used to bring girls to when I was in high school.
+"Hey, look how pretty Austin looks from here. Are you cold? Let me put my arm around you..."
+Except Sarah, of course. Sarah wouldn't have fallen for that.
+Then I park and try to think who I can talk to.
+[[Who can you talk to?|intro:overlook_talk]] | [[Who's Sarah?|intro:ask_sarah]]
+
+::intro:falafel
+I mean, it's tempting. The falafel life.
+But ultimately I don't think I could be happy <i>just</i> making falafel. 
+I'd have to supplement it with something else. 
+Like kebabs.
+[[intro:car_drive]]
+
+
+::intro:overlook_talk
+I can't talk to my mom, because she's dead.
+I can't talk to my dad because he's also dead, not that it makes much of a difference.
+I can't talk to Father Arturo because he'd just tell me to pray.
+I can't talk to other cops because they'll all think I'm crazy.
+<<if ! $mention_sarah>>
+I can't talk to Sarah because... well, that's a long story.
+<<endif>>
+I'm just sitting here at this scenic overlook feeling more alone than I ever have in my whole life.
+And then I think about this poster that just got hung up in the lobby of police headquarters.
+"Need someone to talk to? Download the HelpLine App today!"
+And so I do. And not over wi-fi either, man. I'm burning <i>data</i> for this.
+So it'd better be good. 
+<i>You'd</i> better be good, <<print $player>>. Because you're all I've <i>got</i>.
+[[I'm here for you.|intro:here_for_you]] | [[I'll do the best I can to help.|intro:best_i_can]]
+
+::intro:ask_sarah
+<<set $mention_sarah = true>>
+Sarah is... she was my girlfriend. Let's just leave it at that for right now.
+Suffice to say that she wasn't dumb enough to be fooled by anything I said or did in high school.
+The point is...I can't talk to her now.
+[[intro:overlook_talk]]
+
+::intro:here_for_you
+I really appreciate that. I do.
+[[Will the punch get you in trouble?|intro:get_trouble]] | [[How do you feel now?|intro:how_feel_now]]
+
+::intro:happy_listen
+I guess that has to be good enough, doesn't it?
+It's not like you can look at the evidence and see for yourself.
+I'll try to explain it as best I can.
+[[All you can do is your best.|intro:explain_best]] | [[Just stick to the facts.|intro:stick_facts]]
+
+::intro:explain_best
+So here's the facts:
+I'm in the middle of an investigation. 
+The victim is an attorney.
+I'm at his house, with a warrant, waiting for CSS to show up.
+(CSS is short for "Crime Scene Service," not "Cascading Style Sheets," nerds.)
+I know there's nobody at the house -- or so I think -- so I let myself in.
+But before I get a chance to really look around, I hear a noise.
+I go to check it out.
+Turns out there's someone in the victim's office, turning the place upside-down.
+She's blonde, maybe late twenties -- hard to tell, exactly. What's certain is that she's furious.
+I flash my shield, and in my best cop voice, I say, "Excuse me, ma'am. I'm a police officer. Can I help you?"
+She looks at me. Her eyes are a vivid green.
+She stands up straight, cocks her head to the side.
+She says, "Where are they?"
+[[Who was she?|intro:who_was_she]] | [[Then what happened?|intro:she_threatens]]
+
+
+
+::intro:she_threatens
+And then she threatens me. Says if I don't tell her what I know, she'll <i>make</i> me tell.
+And I explain again that I am a police officer and is she sure about that?
+And she says that she can make me dance like a puppet on a string.
+And I say that if she doesn't calm down we are going to have a serious problem.
+And that's when she...
+I don't know how to say it.
+[[It's okay. Take your time.|intro:take_time_green]] | [[Keep going.|intro:keep_going_green]]
+
+::intro:take_time_green
+<<set $compassion ++>>
+Thanks. I'm going to close my eyes for a few seconds. Take some deep cleansing breaths. Say a Hail Mary.
+That kind of thing.
+<<delay 10s>>Rob is busy<<enddelay>>
+Okay. So, I tell her to calm down and repeat that I'm a police officer.
+[[intro:keep_going_green]] 
+
+
+::intro:what_do_to_green
+I... shot her.
+It was a reflex. 
+I drew my weapon, and I put three in her chest, in a tight little cluster.
+Sergeant Lopez back at the Academy would have been so proud.
+First time I ever fired my weapon in the line of duty. After seven years.
+I shot her.
+[[You must have been freaked out.|intro:shot_freaked_out]] | [[Did you kill her?|intro:did_kill_green]]
+
+::intro:shot_freaked_out
+Oh, I'm pretty freaked out, all right.
+First off, I've just shot someone.
+Second, that someone was just spitting <i>fire</i> from <i>nozzles</i> in her <i>hands</i>.
+And third -- and this is the part that I am having and even harder time with --
+-- when she falls to the floor?
+She vanishes.
+As in "without a trace."
+[[How is that possible?|intro:how_disappear_happen]] | [[Are you 100% sure?^Are you 100% sure that's what happened?|intro:you_sure_disappear]]
+
+::intro:what_happened_after_shot
+I pace back and forth for a second, trying to figure out what to do.
+Then I realize that I've just fired my weapon in the home of a murder victim, and I can't explain why.
+I know right away that I can't tell anyone about what happened.
+[[Why can't you tell?|intro:why_not_tell_happened]] | [[What did you do?|intro:cover_up]]
+
+
+
+
+::intro:hi_take_your_time
+Okay.
+I don't really know what I'm doing here, to be honest.
+I don't know how much I should tell you.
+It's complicated, and I know I'm not thinking straight.
+[[In what way?^In what way is it complicated?|intro:how_complicated]] | [[You can talk about anything.^You can talk about whatever you want.|intro:talk_whatever]]
+
+::intro:how_complicated
+Unfortunately, there's no easy way to explain it.
+I don't know if I should even be telling anyone this, but I have no choice.
+
+[[No Pressure.^No pressure. You don't have to tell me anything.|intro:no_pressure]] | [[I won't judge.^You can tell me anything. I won't judge it.|intro:no_judge]]
+
+::intro:talk_whatever
+Yeah, but there's only this one thing that I <i>need</i> to talk about.
+And I really do <i>need</i> to talk about it.
+I just don't know if telling you is going to do any good.
+Or if I should be telling you anything at all.
+Dammit.
+[[No Pressure.^No pressure. You don't have to tell me anything.|intro:no_pressure]] | [[I won't judge.^You can tell me anything. I won't judge it.|intro:no_judge]]
+
+
+::intro:no_pressure
+I appreciate that. I do. But there <i>is</i> pressure. A lot of it.
+I need to figure out what the hell I'm supposed to do now.
+I think I may have made a huge mistake.
+And I guess the truth is that I just don't trust myself to figure it out on my own.
+[[What kind of mistake?|intro:what_kind_of_trouble]] | [[Why don't you trust yourself|intro:why_no_trust]]
+
+::intro:no_judge
+I appreciate that. I do. But I'm judging the hell out of myself right now.
+I think I might have made a huge mistake.
+I need to figure out what the hell I'm supposed to do now.
+And I guess the truth is that I just don't trust myself to figure it out on my own.
+[[What huge mistake?|intro:what_kind_of_trouble]] | [[Why don't you trust yourself|intro:why_no_trust]]
+
+::intro:what_did_you_see
+What happened? How do I even say it?
+If I say I saw the devil, does that make me crazy?
+What if f I say I saw a "heretofore unknown phenomenon"?
+What if I say I saw "magic"? How about that?
+Which of those things makes me seem the least crazy?
+[[Let's avoid using words like "crazy".|intro:crazy_not_good_word]] | [[What do you think?|intro:what_think_crazy]]
+
+::intro:why_no_trust
+Because what I saw <i>couldn't</i> have happened.
+Like, just 100% impossible.
+But it happened right in front of me.
+So I'm forced to accept that I absolutely experienced something I know to be impossible.
+[[intro:what_kind_of_trouble]]
+
+::intro:on_patrol
+Oh, yeah. I'm a detective now. A homicide detective.
+My days as a uni are finally behind me, thank God.
+That's part of why this is so hard to talk about. It's cop stuff.
+[[Why does being a detective make it hard to talk?|intro:why_cop_hard]] | [[What's a "uni"?|intro:define_uni]]
+
+::intro:what_think_crazy
+What do <i>I</i> think?
+I don't even know <i>what</i> to think. Isn't that what you're supposed to tell me?
+[[Not exactly.|intro:not_here_to_tell]] | [[I sounds like what you saw was disturbing.|intro:saw_disturbing]]
+
+::intro:not_here_to_tell
+Right, right. You're supposed to be a good listener and all that.
+I learned about "reflectiving listening" when I was on patrol.
+Repeat back what you hear the person say so they know you're listening.
+Ask them to talk more about their feelings.
+Never offer any opinions of your own because that'd be "judging."
+[[That's pretty much it, yeah.|intro:listener_yes]] | [[On patrol?|intro:on_patrol]]
+
+::intro:listener_yes
+Okay. Fair enough.
+Just answer me this one question: do you believe in magic?
+[[No, not really.|intro:believe_magic_no]] | [[I'm not opposed to it.|intro:believe_magic_yes]]
+
+::intro:define_uni
+Sorry. "Uni" is short for "uniformed patrol officer."
+Cop jargon.
+[[intro:why_cop_hard]]
+
+::intro:believe_magic_yes
+Why? What makes you think that magic could possibly be real?
+You understand I'm not asking if Criss Angel is real, right? 
+We both know all too well that he is, sadly.
+//Criss Angel is a TV magician who is very "Rock 'n' Roll" and considered fairly annoying and cheesy.
+I'm talking about real magic. Spooky supernatural "magic" magic.
+[[Because I know Arika.^I knew someone named Arika. She was a real magic user.|intro:knew_arika]] | [[I have my reasons.^I have my own reasons for believing. But I believe.|intro:just_believe]]
+
+::intro:why_cop_hard
+This all happened while I was on the clock, doing official cop stuff.
+It's part of an active investigation, and I don't want to screw that up.
+I'm not supposed to discuss cases with anyone besides other cops.
+But I think I'm going to anyway.
+I don't think I have a choice.
+Let me ask you a question. Do you believe in magic?
+[[No, not really.|intro:believe_magic_no]] | [[I'm not opposed to it.|intro:believe_magic_yes]]
+
+::intro:not_personal
+Thanks. That's very big of you.
+Honestly, though. I am terrified.
+[[intro:why_terrify]]
+
+::intro:what_real
+I'll tell you. Just... give me a minute.
+All kidding aside, I really am genuinely terrified right now.
+[[intro:why_terrify]]
+
+::intro:not_sound_psychotic
+Well, hey! That's something!
+A stranger on the Internet told me I don't sound psychotic!
+Sorry. I'm trying to rein in my usual sarcasm and cynicism, but I don't think it's working.
+[[Sarcasm won't help.|intro:no_snark]] | [[I can take it.|intro:snark_away]]
+
+::intro:snark_away
+That's a relief. Because otherwise I was going to go crazy trying not to be a wiseass.
+I said "crazy" again. Sorry. 
+[[Just don't let it happen again.|intro:no_crazy_again]] | [[You said things have been going bad for a while?|intro:talk_bad_for_awhile]]
+
+::intro:no_crazy_again
+Okay... but if it turns out I actually <i>am</i> crazy, I'm going to use that word all I want.
+And nobody will be able to stop me, because I'll be crazy.
+Here's the thing:
+[[intro:talk_bad_for_awhile]]
+
+::intro:how_usually_handle
+I don't know. I guess I don't usually "handle" them. I just smoosh them down until they stop bugging me.
+That's the cop way, and that's how we do things in my family.
+When I was a teenager, my dad would take me aside and say, "Roberto, you're too angry. You need to shape up and be a man."
+Of course, he said it in Spanish. The only English words my dad ever learned were "Quarter Pounder" and "Miller Lite".
+[[What do you wish he'd said?|intro:dad_talk]] | [[That sucks.|intro:dad_finish]]
+
+::intro:prepare_connection
+<<d "helpbot">>Great! Let's get started.<<endd>>
+<<delay 5s>>HelpBot is connecting to you a client<<enddelay>>
+<<d "helpbot">>Okay, <<print $player>>! Say hello to <b>Rob</b> from <b>Austin, Texas</b>.
+[[intro:hi_rob]]
+
+::intro:knew_arika
+You actually <i>know</i> someone who does magic. Okay. Cool.
+I will... file that away.
+[[intro:out_of_mind_magic]]
+
+::intro:just_believe
+Hey, you know what? Different strokes for different folks, I always say.
+I mean, I don't <i>say</i> it. It sounds kind of dirty, to be honest.
+But, okay, so you believe in magic.
+[[intro:out_of_mind_magic]]
+
+::intro:out_of_mind_magic
+You know, yesterday I would have said that you were out of your mind.
+But I know what I saw and that's what terrifies me.
+[[I don't take it personally.|intro:not_personal]] | [[What terrifies you?|intro:why_terrify]]
+
+::intro:no_snark
+Yeah, well, that's not going to happen. Sorry.
+I guess you haven't met a lot of cops.
+One time I arrested a guy who'd clubbed his next door neighbor to death over a <i>Jeopardy</i> answer.
+It's hard not to get a little dark when you have my job.
+[[Fair enough.^Fair enough. Snark away, then.|intro:snark_away]] | [[Was it final Jeopardy?|intro:final_jeopardy]]
+
+
+::intro:final_jeopardy
+I see what you're doing there, fighting snark with snark.
+And to answer your question, yes, it was final jeopardy. 
+The victim answered out loud before the perp had a chance to guess.
+When I asked him why that made him commit murder, his face went dark and he said...
+..."It wasn't the first time he'd done it."
+Okay, so maybe I compensate with a little dark humor, but you can see why.
+Usually that's enough to get me by, but lately things have been pretty bad.
+And now... I feel too unmoored to know what I'm doing.
+[[What's been bad?|intro:talk_bad_for_awhile]] | [[Unmoored how?|intro:talk_bad_for_awhile]]
+
+::intro:best_i_can
+Thank. I hope your best is good enough.
+[[Will the punch get you in trouble?|intro:get_trouble]] | [[How do you feel now?|intro:how_feel_now]]
+
+::intro:tell_what_happened
+Okay, here's the deal.
+I'll tell you what happened, and then I want you to tell me if you think I'm psychotic. Will you do that?
+[[I'm happy to listen.^I'm happy to listen and help you figure out what you think.|intro:happy_listen]] | [[I can't decide that.^I don't think I can decide that for you.|intro:cant_decide_for_you]]
+
+::intro:cant_decide_for_you
+Okay, maybe not. But you can listen, right? 
+And you can at least tell me if you think I'm just hallucinating or not?
+[[I can only promise to listen.|intro:happy_listen]] | [[Tell me and we'll see.|intro:explain_best]]
+
+::intro:who_was_she
+No idea. I'd never seen her before. All I remember is blonde hair and those eyes.
+Green.
+Like, <i>too</i> green. At first I thought she was wearing colored contacts, but now I'm not sure.
+[[intro:she_threatens]]
+
+::intro:keep_going_green
+That's when she... changes.
+She kind of starts to turn red, like she's really angry, right?
+Then she holds up her hands, pointing them at me with the fingertips all together.
+And I watched her fingers merge together and become like a hole or something.
+Two holes, actually, one at the end of each hand, like nozzles.
+And then there's this smell, like methane, and she hisses.
+"Where are they?. Where are they? Tell me or burn!"
+And then -- and I swear this happened -- 
+-- there's a little "whoosh", like when your gas grill lights.
+And flames start pouring from her hands, or rather the nozzles that her hands have become.
+And she's <i>shrieking</i> like this is causing her pain, and her skin is red and shining, and the flames are reflected in her eyes.
+And she's walking toward me, shouting, "Tell me!"
+And that's when I... oh, man. 
+[[What did you do?|intro:what_do_to_green]] | [[Tell her what?^What did she want you to tell her?|intro:green_okay]]
+
+::intro:green_okay
+I'm not entirely sure. She wanted to know where something was, but she didn't say what.
+[[intro:what_do_to_green]]
+
+::intro:did_kill_green
+Well, that's the part that's really hard to know, as it turns out.
+See, as soon as I shoot her, she goes down hard, still screaming.
+But instead of just falling to the floor, she falls <i>through</i> the floor.
+She disappears. The flames disappear. 
+It's like she was never there.
+[[How could that have happened?|intro:how_disappear_happen]] | [[Are you sure?^ Are you completely sure that's what happened?|intro:you_sure_disappear]]
+
+
+::intro:how_disappear_happen
+That's the million dollar question, isn't it? How?
+How does a woman with three bullets in her chest fall backward into a Persian rug in broad daylight and disappear?
+The answer is I have no idea, but I'm sure as hell going to find out.
+[[How did you feel when it happened?|intro:how_feel_happened]] | [[What happened next?|intro:what_next_disappear]]
+
+::intro:you_sure_disappear
+No! I'm <i>not</i> entirely sure!
+That's what I've been trying to tell you!
+I know what I saw, okay? There was nothing vague or illusion-like about it.
+It wasn't like she vanished into the shadows.
+It was broad daylight. She was standing in the middle of a room, on a Persian rug.
+And then she just fell <i>into</i> the rug.
+And yes, I searched for convenient trapdoors, if that's your next question.
+Nothing underneath but concrete slab.
+[[Sorry.|intro:sorry_doubt]] | [[What did you do next?|intro:what_next_disappear]]
+
+::intro:sorry_doubt
+No, no. You're the one who's talking sense. I know I sound bonkers.
+That's the whole point of why I need you.
+So don't give me a hard time about it.
+Anyway. Moving on.
+[[intro:what_next_disappear]]
+
+::intro:what_next_disappear
+So I'm standing there. Alone.
+My ears are still ringing from the shots.
+There are wisps of smoke in the air from the barrel of my Glock.
+There's a pungent tang of gunpowder in the air.
+There are my three spent casings on the floor, and my weapon is warm to the touch.
+But the woman I shot, and the three rounds I put into her?
+Just... gone.
+[[Then what happened?|intro:what_happened_after_shot]] | [[How did you feel then?|intro:how_feel_disappear]]
+
+::intro:how_feel_happened
+This might be hard for you to understand.
+You might think I'd feel confused, or scared, but neither of those feelings even registered.
+Maybe this is just post-hoc revision, but here's how it feels in my memory --
+I was angry. 
+Sometimes anger is all I can feel.
+I'm like a Metallica song with a badge.
+I'm probably not coming off too great here.
+[[I know how you feel.|intro:understand_angry]] | [[You come off as human.|intro:come_off_human]]
+
+::intro:understand_angry
+You do? I'm genuinely sorry to hear that.
+So here's what happens next.
+[[intro:what_next_disappear]]
+
+::intro:come_off_human
+That's me -- Rob Esposito, "coming off as human" since 1986.
+Sorry -- I know what you meant. I'm just giving you crap.
+That means I like you. It's a cop thing.
+Moving on.
+[[intro:what_next_disappear]]
+
+::intro:how_feel_disappear
+Then I feel like my head is going to explode.
+I keep looking at the floor, kicking the rug.
+I'm shouting, "Where the hell are you?"
+Nothing.
+[[intro:what_happened_after_shot]]
+
+::intro:get_trouble
+Well, yeah. Even at the tough-guy cop shop, they still frown on punching holes in things.
+I <i>might</i> could get suspended. But probably not.
+See, if there's one thing a defense attorney would <i>love</i> to see during discovery...
+...it's that the lead detective on an investigation was suspended for losing his mind.
+So they probably won't do that unless I end up raving on the streets or something, wearing a pie tin as a beanie.
+[[What will you do now?|intro:what_do_now]] | [[Can you take some time off?|intro:take_time_off]]
+
+::intro:how_feel_now
+I don't know.
+It's like I can feel angry, or I can feel hollow. But nothing else.
+All things considered, I'll take angry. 
+Anger gives me momentum. I can move forward when I'm angry.
+What I can't seem to do is think straight, or trust my own judgment.
+And that's a big problem.
+[[What will you do now?|intro:what_do_now]] | [[Can you take time off?|intro:take_time_off]]
+
+::intro:what_do_now
+What I'm going to do now is my job.
+Nobody knows about the woman I shot.
+And that means that Dietz would be walking into something he don't understand the first thing about.
+And he's not the best detective in the world to begin with, if we're being honest.
+That's the noble reason, but maybe not the biggest one.
+The biggest one is that I need to find out what the hell happened in that house.
+I need to find that woman. And I will.
+If it's the last thing I do.
+[[intro:have_an_idea]]
+
+::intro:take_time_off
+I guess I could. I'm one of those people who stores up vacation hours like they appreciate in value.
+But I'm not going to. I'm going to keep working this case.
+I kind of have to. You get that, right?
+[[Why do you have to?|intro:why_have_to]] | [[I guess so.|intro:what_do_now]]
+
+::intro:why_have_to
+Because if I take time off, Dietz will be alone this case.
+He doesn't know what actually happened.
+Maybe I <i>am</i> hallucinating, but I don't believe it.
+That means my partner is walking into something he doesn't understand the first thing about.
+And Dietz is <i>not</i> the best detective in the world, to be honest.
+That's the noble reason, but maybe not the biggest one.
+The biggest one is that I need to find out what the hell happened in that house.
+I need to find that woman. And I will.
+If it's the last thing I do.
+[[intro:have_an_idea]]
+
+::intro:have_an_idea
+I need to think. I'll check back with you in a few minutes, okay?
+<<delay 4m>>Rob is busy<<enddelay>>
+Okay. I'm going to ask you something.
+I want you to think really hard about it, because what I'm asking you is deadly serious.
+Will you help me work this case?
+[[What do you mean?^What do you mean, "work this case"?|intro:what_mean_work_case]] | [[That's not a good idea.^I'm not sure what you mean, but it sounds like a bad idea.|intro:help_bad_idea]]
+
+::intro:what_mean_work_case
+What I mean is that I need a partner.
+Not an actual partner -- I already have one.
+Though Dietz is a lot more interested in the yoga studio he owns with his wife than he is in the job.
+I need is someone to help me think, because I can barely think right now.
+I need someone to make sure I'm making the right calls, because my head is full of static.
+I need someone to be my better judgment, because I don't trust mine right now.
+I know it sounds--less than sane--but it actually makes sense.
+You're a great listener. You're observant, and you're objective.
+It might not be the most entirely legal setup in the world, but desperate times call for desperate measures.
+There's no one else I can talk to. THere's no one else I can turn to.
+I need you. Will you help me?
+[[Yes.^Yes. I'll help you.|intro:yes_help]] | [[Sounds like a bad idea.^Now that you've explained it, it sounds like a bad idea.|intro:help_bad_idea]]
+
+::intro:yes_help
+Okay, wow. That's... that's great news.
+I realize I'm asking a lot here. I promise that I won't let any of this blow back on you.
+I just need you to promise me that you won't tell anyone else about the things I'm going to tell you.
+Someone died, and I need you to respect their privacy.
+Will you promise to me that you won't ever tell another soul any of the things I'm going to tell you?
+[[I promise|intro:promise_yes]] | [[Sorry, I can't promise that.|intro:promise_no]]
+
+::intro:help_bad_idea
+Look, I know it's not the most orthodox arrangement.
+But this is a highly unorthodox situation. 
+Under normal circumstances, I'd never ask a stranger to help me with an investigation.
+Where I'm at, though, is so far from normal circumstances that you can't even get there from here.
+I need is someone to help me think, because I can barely think right now.
+I need someone to make sure I'm making the right calls, because my head is full of static.
+I need someone to be my better judgment, because I don't trust mine right now.
+I know it sounds -- less than sane -- but it actually makes sense.
+You're a great listener. You're observant, and you're objective.
+All I'm asking is for you to try.
+A real person died, <<print $player>>. A person with a life. With a family.
+Those people suffering right now, much worse than I am.
+I'm giving you a chance to help them, too.
+[[Okay, I guess I can try.|intro:yes_help]] | [[No. I'm sorry.|intro:no_help]]
+
+::intro:no_help
+Okay. I get it. I knew I sounded crazy.
+Maybe I am.
+Yeah, I said crazy. What are you gonna do about it.
+Have a nice life, <<print $player>>. 
+I'll work it out on my own.
+<<set $end_state = "no_help">>
+[[main:end]]
+
+::intro:promise_yes
+Great. Now then.
+If we're going to work together, I'm going to have to get you up to speed.
+I'm going to drive home now. I can pull up the case file on my laptop there and give you the details.
+I live in East Austin, so it'll take me about twenty minutes.
+I'll check in when I get there.
+And just so I don't forget...
+Thank you.
+<<delay 22m>>Rob is busy<<enddelay>>
+Okay. I'm home. Give me just a minute to fire up the computer.
+Man, it's amazing how much East Austin has changed since I was a kid.
+When I was little, it was nothing but Latinos and African Americans --
+-- white people only came over here to get barbecue and Mexican food.
+Now it's the gringos making the barbecue and Mexican food, and the brown people have to live someplace else.
+I'm supposed to hate gentrification, because I'm Latino and I grew up here.
+And I do... mostly. 
+I mean, I can barely afford the property taxes on this house anymore.
+But secretly I'm really stoked about the quality of the beer selection at the corner stores.
+You promised not to talk about any of this.
+[[I promised not to talk about the case.|intro:promised_not_case]] | [[Your secret is safe with me.|intro:secret_safe]]
+
+::intro:promise_no
+Seriously?
+You're going to offer to help me, but you're not going to promise to keep quiet about it?
+What are you gonna do, post our conversation on your law-enforcement Tumblr page?
+[[Sorry. Of course I'll promise.|intro:promise_yes_instead]] | [[I can't make a promise like that.|intro:promise_no_way]]
+
+::intro:promise_yes_instead
+Okay. Don't mess with me like that, <<print $player>>.
+Seriously.
+[[intro:promise_yes]]
+
+::intro:promise_no_way
+Okay, if that's how you want to play it.
+Have a great life, <<print $player>>.
+Wish me luck.
+<<set $end_state = "no_promise">>
+[[main:end]]
+
+::intro:question_like_this
+Yes, exactly like that. You're very clever. I can see I picked the right person to team up with.
+If this counseling thing doesn't work out, you have a bright future in improv comedy.
+[[intro:beginning_2]]
+
+::intro:question_ok
+Well done.
+[[intro:beginning_2]]
+
+::intro:the_beginning
+Okay, I have the file up now. Let's go over it.
+While I'm talking, feel free to interrupt me to ask questions, or just say "okay" if you get it.
+[[Like this?|intro:question_like_this]] | [[Okay.|intro:question_ok]]
+
+::intro:promised_not_case
+Huh. I guess that's true. Still.
+[[intro:the_beginning]]
+
+::intro:secret_safe
+Thanks. You're a credit to your profession.
+[[intro:the_beginning]]
+
+::intro:beginning_2
+Now then.
+I'm just going to run down the chronology of the case file.
+The chronology contains every event recorded in the case to date.
+It starts yesterday at 6:10 a.m., when 911 receives a confused call from a citizen.
+The address is out by Lake Austin -- a very nice part of town, as it happens.
+She's calling to report a drowned man in the swimming pool across the street.
+Paramedics show up at 6:19, and they do the irritating thing that paramedics always do in this situation --
+-- which is that they attempt to revive the clearly very dead man, whom we can now refer to as our victim.
+[[Why would they do that?|intro:why_paramedics_revive]] | [[Okay.|intro:cops_show_up]]
+
+
+::intro:why_paramedics_revive
+Not sure. It can't <i>just</i> be to make my job harder, but you never know.
+They claim it's something to do with "exhausting all lifesaving measures."
+I think they just really like their jobs.
+I mean, why else would they do such difficult, dangerous work for so little money?
+It's hard to be mad at paramedics.
+Especially when firefighters are so much worse.
+[[What's wrong with firefighters?|intro:firefighters]] | [[Okay.|intro:cops_show_up]]
+
+::intro:cops_show_up
+By the time the paramedics have fished the body out of the pool and attempted to resuscitate the victim...
+...the entire scene is pretty much totally compromised.
+The first officer to arrive on the scene, at 6:22 is someone named... Oscar Olivarez, who I never met before yesterday.
+He seems like a fairly comptetent cop.
+He secures the scene, calls the homicide division, and makes notes of everything he sees.
+He does not touch the body, and he does not track useless footprints all around the edge of the pool.
+If only Lieutenants and Captains were as reliable at crime scenes as Oscar Olivarez is.
+[[Why is that stuff important?|intro:why_evidence_important]] | [[Okay.|intro:rob_gets_call]]
+
+
+
+::intro:why_evidence_important
+Oh, because by tromping around my crime scene, all these people are making evidence collection a nightmare.
+You want footprints? You got a million of 'em. Good luck with that, crime lab tech!
+You want hair, fibers, trash? You got it! Good luck with that, young criminalist!
+I even saw a Lieutenant crush out a cigarette butt next to a body once.
+That actually happened.
+Thank God it wasn't my Lieutenant.
+[[intro:rob_gets_call]]
+
+::intro:rob_gets_call
+Let's see here.
+Oh, look. Here's where I first enter the story, at 6:28.
+I work what they call a 9/17 shift, which means I work nine-hour days, nine out of ten weekdays.
+I'm there every day at six or so. Which is nice because there's not so much traffic...
+...but it almost totally negates the possibility of an active social life.
+Sergeant Wheeler takes the call himself, checks the board, and sees that I'm up.
+He tells me I've got a floater.
+[[What's a floater?|intro:floater]] | [[Okay.|intro:gory]]
+
+::intro:rob_goes_to_scene
+According to the chronolgy, I'm logged at the crime scene 6:55 and I officially take control of it.
+Dietz is teaching a Hatha Flow yoga class, which he does every now and again while he's on duty.
+Did I mention he's not the best partner?
+I commend patrol officer Olivarez for his handling of the scene and tell him to stick around.
+The 911 caller's husband, a very alarmed rich white guy, has questions for me.
+He's going back and forth between us and his wife and kids, who he keeps shooing back into the house.
+I tell him that he needs to leave, which is something that I don't think he has heard a lot in his life.
+He's about to lay into me but I give him the cop stare and he just kind of withers.
+I wish I could say that I don't enjoy doing that to d-bags like him, but I do.
+[[What's a cop stare?|intro:cop_stare]] | [[Okay.|intro:examine_house]]
+
+
+::intro:dad_talk
+I don't know. <i>Anything</i> supportive?
+One time I got in a fight at school. I don't remember what about. But I hurt the other kid pretty bad.
+My dad asked me what I was thinking, and I said something like:
+"I wasn't <i>thinking</i> anything. I just feel angry all the time."
+And he said, "A real man doesn't talk about feelings! Go see Father Arturo if you want to whine about feelings!"
+So I went to see Father Arturo; he was old and slow and kind of distant. 
+He listend to everything I said and just told me to ask Jesus for forgiveness.
+I figured I was just whiny and I needed to man up, like my dad said.
+So I never talked to anyone else about my feelings after that.
+Until Sarah. But that's not important right now.
+
+[[That sucks.|intro:dad_finish]] | [[You can talk about Sarah.|intro:can_talk_sarah]]
+
+::intro:dad_finish
+Yeah. It does.
+Well, it did. My dad's dead now, so I guess it doesn't matter.
+Anyway.
+[[intro:why_not_talk_cops]]
+
+::intro:can_talk_sarah
+No, I'm sorry. I want to keep her out of this. I hope you can understand.
+Anyway, back to the story.
+[[intro:why_not_talk_cops]]
+
+::intro:floater
+Oh, sorry. That's the ever-so-sensitive cop slang for a drowning victime.
+I'll warn you up front that cops aren't always the most PC people.
+We typically don't like dealing with floaters.
+A body that gets fished out of the water after it's been in for a while can be decidedly unpleasant to deal with. 
+[[intro:gory]]
+
+::intro:gory
+We're about to get to the part where I see the body. 
+If you like, I can leave out the more graphic elements of the story.
+Sometimes police work involves a lot of gory details; that's just how it is.
+But if that kind of stuff turns your stomach I can leave the grossest parts out.
+What do you prefer?
+[[I can handle it.|intro:can_handle_gore]] | [[I prefer things less gory, thanks.|intro:cant_handle_gore]]
+
+::intro:can_handle_gore
+<<set $gore = true>>
+Okay, you asked for it. Just don't come crying to me if you yodel your groceries later.
+[[intro:describe_scene]]
+
+::intro:cant_handle_gore
+<<set $gore = false>>
+Okay, I'll try to keep the blood and guts to a minimum.
+[[intro:describe_scene]]
+
+::intro:cop_stare
+The cop stare is a thing you learn pretty quick on the street.
+It's kind of a steely-eyed (some might uncharitably say "dead-eyed") glare that lets people know you're serious.
+That if you mess around with me there will be dire consequences.
+My Field Training Officer called it "putting on The Show."
+[[Why would you enjoy doing that?|intro:why_enjoy_stare]] | [[Okay.|intro:examine_house]]
+
+::intro:examine_house
+The first thing I do is take in the scene.
+It's the backyard of a really nice home in a really nice part of town.
+The kind of house they call a McMansion -- too big, too gaudy for Austin's laid-back tastes.
+Austin being Austin, they actually passed an ordinance banning these things in some parts of town.
+But this house clearly predates the ordinance because it looks a cross between a medieval castle and a Barbie dream home.
+It's well-tended, but there doesn't appear to be anyone there.
+No cars in the driveway, no answer to my knocking.
+The lot must be worth a fortune, right up on the water of Lake Austin. 
+It has a private boat dock, and a swimming pool just a few feet from the water.
+Why you need a swimming pool when you have an entire lake right there is beyond me...
+...but you know what Fitzgerald said about the very rich.
+[[What did Fitzgerald say?|intro:what_fitzgerald]] | [[Gotcha.|intro:examine_body]]
+
+::intro:why_enjoy_stare
+Aw, man. I was hoping you wouldn't call me on that.
+I don't know why. Maybe it's because for a lot of my life I felt kind of helpless.
+It feels good to be in a position of authority.
+I know that sounds like it's a power trip. 
+Maybe for some cops it is, but I think for most of us it's a feeling that you can handle anything that comes your way.
+It's a feeling of strength. Like you're somebody.
+I don't know. Maybe that's just me. I can't speak for anyone else.
+[[intro:examine_house]] 
+
+
+::intro:what_fitzgerald
+You had to call me on it. I admit it, I don't remember the line exactly. Something about how they're way different from you and me.
+Google like "Fitzgerald very rich" and it'll probably be the top hit.
+[[intro:examine_body]] 
+
+
+::intro:examine_body
+Next I take a look at the body, but there's not much to see there.
+He's a young guy, Caucasian, good-looking before the beating he took, clearly in good health at the time of his death. 
+He's dressed in gym shorts and a t-shirt commemorating a law firm employee retreat.
+This is a guy who worked out, ate dinosaur kale, and got weekly massages, I'm guessing.
+For all the good it did him.
+After being in the pool and having the EMTs work him over, trace evidence is going to be hard to collect.
+<<if $gore>>
+He's covered in cuts and scrapes, and looks to have numerous broken bones. 
+There's a pretty serious break in one of his legs -- part of his left femur is sticking out at a forty-five degree angle.
+There's post-mortem lividity in his face, arms, and legs, meaning he was face-down in the pool for a while after he died.
+Hey, you said you didn't mind the gory stuff.
+<<else>>
+He's got cuts and scrapes all over his body, and at least one of his legs is broken.
+Post-mortem lividity tells me he was face-down in the pool for a while after he died.
+<<endif>>
+So it's a safe bet he didn't just fall into the pool and drown.
+Either he was beat up and fell into the pool, or he was killed and then someone dumped him there.
+The medical examiner will be able to tell me.
+[[What's post-mortem lividity?|intro:livor_mortis]] | [[Okay.|intro:check_pockets]]
+
+::intro:check_pockets
+I check his pocket and I find a money clip.
+Inside there's... hang on... there's an inventory here someplace.
+Okay.
+Inside there's a key fob for a Lexus and a Texas driver's license.
+The license identifies him as Jason Eric Leder, of 2212 Sunny Slope Drive.
+With that address, he wasn't doing too bad for himself.
+There aren't any other personal effects except for a standard gold band wedding ring.
+Which means I've got a spouse to notify.
+[[That must be a difficult thing to do.|intro:difficult_spouse]] | [[What did you do next?|intro:notify_wife]]
+
+
+::intro:livor_mortis
+<<if $gore>>
+Oh, right. Post-mortem lividity, or <i>livor mortis</i> is the blood settling in the lowest part of the body after death.
+It causes reddish purple marks on the skin.
+We use it to help determine what position the body was in when the victim died.
+It looks kind of like a big bruise.
+<<else>>
+You said you weren't into the gory details, so let's just say that it's a way you can tell what position someone was in when they died.
+And leave it at that.
+<<endif>>
+[[intro:check_pockets]] 
+
+
+::intro:difficult_spouse
+It's not fun. Information a husband or wife that their spouse has died is about the most unpleasant task you can perform.
+That said, I do my best to be as kind and supportive as I can.
+Being there for people at the worst moments of their lives is a big part of what cops do.
+In this case, however, notifying the spouse was where I first noticed something weird about the Leder investigation.
+[[How so?|intro:notify_wife]] | [[What did you do next?|intro:notify_wife]]
+
+::intro:notify_wife
+I get Letty, the devision admin, on the phone. 
+She does her computer magic and gives me the name of Leder's wife -- Mia Westerman -- along with cell and work numbers.
+Normally the coroner notifies next of kin, but I want to talk to her beforehand.
+People who have just learned their spouse is dead aren't really helpful, like they are on TV.
+On cop shows, the recently bereaved spouse daubs her eyes with a tissue and answers the detectives' questions.
+In real life, they mostly freak out, like you'd expect.
+I call the cell and Mia Westerman picks up. I tell her who I am and ask if she could meet me at her home.
+She asks if there was a break-in or something, and says I should speak to her husband because she's in Houston at a conference.
+[[That's awkward.|intro:houston_awkward]] | [[What did you say to her?|intro:what_say_mia]]
+
+
+::intro:think_mia_killed
+It's way too early to say. I have way too many questions at this point.
+If a married woman dies, you always look at the husband first.
+If a married man dies, you look elsewhere first. It's just simple statistics.
+Men are about nine times as likely to kill their wives as wives are to kill their husbands.
+Sorry, bros.
+Mia's response was strange, but not outside the realm of possibility.
+[[intro:visit_leder_house]]
+
+::intro:visit_leder_house
+So at this point, since she's calm, I ask Mia if she knows who might have killed her husband, and she says no.
+I tell her that I'm going to have to get a warrant to search her house. She doesn't seem to flinch at that.
+In fact, she tells me there's a key under the ceramic frog by the door, and please don't break anything.
+What she doesn't ask is how he died, which is interesting.
+[[Why is that interesting?|intro:why_no_ask_interesting]] | [[Okay.|intro:next_calls]]
+
+::intro:why_no_ask_interesting
+When someone finds out that a loved one has died, the first thing they almost always ask is how it happened.
+People want to know if their loved one suffered. They want to know what happened.
+Inexperienced murderers often forget to ask, because they already know the answer.
+[[intro:next_calls]]
+
+::intro:next_calls
+By this time, the Crime Scene folks have arrived at the scene. I point some stuff out to them, request a couple specific photos.
+But these people are pros; they don't really need my assistance, and I have other things to do.
+So I head back to the office to write up the warrant on the Leder home.
+While I'm doing that, I call Leder's employer to let them know what's going on and see if I can get any information.
+The boss, a guy named Sherwood, sounds genuinely shocked and horrified. Says he'll offer whatever assistance he can.
+Then he asks what happened to the crystals.
+And I say, "What crystals?"
+He tells me that Leder was acting as a go-between to sell some very valuable and rare crystals.
+And that Leder had a meeting about them yesterday morning, around six a.m. He doesn't know where the meeting was.
+So that's interesting.
+[[What kind of crystals?|intro:what_kind_crystals]] | [[Why is that interesting?|intro:why_crystals_interesting]]
+
+::intro:tell_mia_come_home
+Like I said, it's the coroner's job, so I haven't done a million of these notifications, but I've done a few.
+Once I told a man that his wife was dead, and his only response was, "Good."
+But he was a sociopath with a sheet a mile long and she'd been very publicly cheating on him.
+Mia Westerman, on the other hand, is the sales manager for an organic bagged salad company.
+I tell her that she needed to come home immediately and she says she'll be on the next plane.
+That plane lands in a couple of hours -- I'm <i>really</i> looking forward to talking to her.
+[[Do you think she killed him?|intro:think_mia_killed]] | [[What happened next?|intro:visit_leder_house]]
+
+::intro:what_kind_crystals
+No clue. Sherwood said I should talk to the owner of the crystals, said she'd be eager to help if they're missing.
+Her name is Mary Jo Irving.
+Now at least I have one piece of the puzzle in place.
+When someone is murdered while in them midst of selling something rare and valuable...
+... it doesn't take a rocket scientist to guess at a potential motive for the crime.
+But that remains to be seen.
+[[intro:end_of_exposition]]
+
+::intro:why_crystals_interesting
+Leder was meeting someone about selling some rare, valuable crystals at the time he was murdered.
+There aren't many coincidences in my line of work.
+It's a good guess that these crystals have something to do with it.
+I need to talk to the woman who's selling them to find out more about them, and who might have wanted them.
+[[intro:end_of_exposition]]
+
+::intro:end_of_exposition
+I get off the phone with Leder's boss at 8:58. 
+I send off my warrant to search Leder's house to the judge, and a little while later, it's signed.
+So I head on over to the Leder house.
+And that's when I meet the green-eyed woman:
+I let myself in using the key under the frog. 
+I hear a sound from the office.
+The woman is there -- the green-eyed woman.
+She -- oh my God!
+[[What is it?|intro:what_is_it_where_are_they]] | [[Are you okay?|intro:okay_where_are_they]]
+
+::intro:what_is_it_where_are_they
+It just hit me -- what she said was, "Where are they?"
+I didn't know what she meant at the time, but now it seems fairly obvious:
+<i>she was talking about the crystals</i>.
+[[intro:now_you_know_everything]]
+
+::intro:okay_where_are_they
+Yeah, sorry. It wasn't "Oh my God" as in "I'm in trouble." It was "Oh my God" as in "I just realized something."
+What the green-eyed woman said was, "Where are they?"
+Now I realize what she was talking about.
+She was looking for those crystals.
+[[intro:now_you_know_everything]]
+
+::intro:now_you_know_everything
+You know what happened after that. She came at me. I shot her.
+She... vanished.
+I puked and punched a wall.
+I considered a new career in falafel.
+I drove out here to the scenic overpass. I don't know how long I sat here before downloading this app.
+But I'm glad I did.
+I feel a little better just telling you all of this.
+And now you know everything I know.
+Are you ready to start helping me?
+[[Why do you need help?|intro:why_need_help]] | [[You bet.|intro:you_bet_help]]
+
+
+::intro:why_need_help
+I'm not sure I can trust my own judgment. 
+Sometimes lately I can barely complete a thought on my own.
+There's static in my brain and a weight on my chest.
+I can't think; sometimes it feels like I can barely breathe.
+And that was before a woman shot flames from her hands and then vanished when I shot her.
+I <i>need</i> you.
+So I'm really glad you're here.
+[[No problem.|intro:here_no_problem]] | [[Okay. What do we do first?|intro:end]]
+
+::intro:you_bet_help
+Thanks. I really appreciate it.
+Sometimes lately I can barely complete a thought on my own.
+There's static in my brain and a weight on my chest.
+I can't think; sometimes it feels like I can barely breathe.
+And that was before all the crazy with the green-eyed woman.
+I'm really glad you're here.
+[[intro:end]]
+
+::intro:here_no_problem
+I'd like to tell you it's going to be easy. But I don't think it will.
+I'm pretty sure you'll be safe, but if I feel like that's going to change, I'll delete this app as fast as I can.
+I'll throw my phone into the Colorado river before I'll let anything happen to you, I promise.
+[[intro:end]]
+
+
+::intro:end
+Now then. The first thing I need your help with is pretty straightforward.
+I need to know where to go first.
+[[main:choice_1]]
+
+::intro:describe_scene
+So let's talk about the scene for a second.
+The location, like I said, is a house by Lake Austin, which is really just a wide spot in the Colorado River.
+It's an odd location, a narrow strip of land bordered by the river on the west.
+It's about a hundred yards wide or so -- wide enough for the street, and big homes on either side.
+On the east side is a rocky cliff face called the Balcones Escarpment.
+In the early morning, the Escarpment hides the sun and the whole place is pretty dark.
+[[So it was dark when you got there?|intro:dark_when_arrived]] | [[Okay.|intro:rob_goes_to_scene]] 
+
+
+::intro:dark_when_arrived
+Exactly. I really want to revisit it when it's light.
+[[intro:rob_goes_to_scene]]
+
+::intro:stuck_hard
+You could say that. It would be an understatement, but you could say it.
+[[intro:tell_what_happened]]
+
+::intro:why_not_tell_happened
+Because if I tell the truth, my superiors will think I've either gone off the deep end, or I'm trying to cover something up.
+Neither of those options is viable.
+So I go off the deep end and decide to cover it up.
+[[intro:cover_up]]
+
+::intro:cover_up
+I know that CSS is coming to investigate the scene. I can't have them thinking a gun went off here.
+That'll throw off the investigation and I'll have to answer a lot of questions I don't have answers to.
+So first I open a window and turn on the overhead fan to get the smell out.
+I grab my shell casings off the carpet and shove them in my pocket.
+I look at the wall behind where the woman was standing, praying that none of my slugs passed through her body.
+If they lodged in the wall, I'm screwed.
+But lucky for me, they all disappeared with the green-eyed woman.
+Hooray for hollow points.
+[[Then what?|intro:wait_for_css]] | [[Hollow points?|intro:hollow_points]]
+
+
+::intro:hollow_points
+Hollow points are the type of ammunition we use.
+As the name implies, the tips of them are hollow, so when they hit something, they crumple up.
+This makes them do more damage.
+It also helps keep them from exiting the intended target and killing someone you didn't mean to shoot.
+Cops try really hard to only shoot the people they intend to shoot.
+[[Got it.|intro:wait_for_css]] | [[That's thoughtful of you.|intro:cops_thoughtful]]
+
+::intro:wait_for_css
+Then CSS shows up and we search the house.
+The whole time they're going over the office I'm terrified someone's going to smell gunsmoke, but nobody does.
+Once the search is done, I head back to HQ, go into the men's room, and puke my guts out.
+I'm there, kneeling on the cold tile floor, listening to the hiss of the toilet, and I realize that I am in <i>serious</i> trouble.
+I walk back to Homicide Division, and there's my partner, Dietz.
+Dietz says, "Hey, dumbass. Where's my brisket?"
+At some point I guess I said I'd bring him back some barbecue from Rudy's.
+I just look at him, and then I punch the wall next to me as hard as I can.
+He raises an eyebrow at me and says, "I'm guessing you forgot the sausage, too?"
+[[That must have hurt.|intro:punch_hurt]] | [[What happened then?|intro:walk_outside]]
+
+
+::intro:cops_thoughtful
+Well, shooting innocent bystanders creates a <i>ton</i> of paperwork.
+That's a cop joke.
+Sometimes we seem callous but that's for the benefit of the other cops.
+If you see a cop who's genuninely upset, it's genuintely upsetting.
+So we avoid showing it by any means necessary.
+Given my upbringing, it comes pretty naturally to me.
+[[intro:wait_for_css]]
+
+::intro:punch_hurt
+I don't know if you've ever punched a wall, but it hurts more than you might think.
+People in movies are always punching holes in walls.
+I don't recommend it.
+[[intro:walk_outside]]
+
+::intro:walk_outside
+I have to get out of there, so I walk out of the office and down the stairs and step out onto Eighth Street.
+I don't know what I'm doing.
+I look over and I see this guy smiling.
+He's your standard Austin hipster, with anachonistic facial hair. He's selling falafel from a food truck. 
+He looks so happy.
+This guy's worst problems are keeping his mustache even and not overcooking his garbanzos.
+In that moment I hate him more than I've ever hated anyone.
+And I'm thinking, maybe I'm in the wrong line of work.
+[[What did you do then?|intro:car_drive]] | [[You could change careers.^I guess you could change careers. Falafel is tasty.|intro:falafel]]
+
+::intro:firefighters
+There's nothing wrong with firefighters.
+They get paid to cook chili and work out in the station house gym.
+Everybody <i>loves</i> firefighters, whereas plenty of people <i>hate</i> cops. 
+Firefighters are <i>the best</i>.
+[[intro:cops_show_up]]
+
+::intro:houston_awkward
+Right? Houston is three hours away. It's not like I can just pop by.
+[[intro:what_say_mia]]
+
+::intro:what_say_mia
+I ask her when she last saw her husbad, and she says it's been a while. She's been at the conference for three days.
+She thinks she talked to him two days earlier.
+She asks what's going on.
+I ignore her and ask if she and her husband have been having problems.
+She says everything is fine between her and her husband and asks again what's going on.
+I ignore her again and ask if she knows of anyone who might have a desire to hurt her husband.
+Now she's quiet for a second.
+"What the hell is going on?" she asks.
+So I tell her that her husband is dead.
+She's quiet for another second.
+"I see," she says.
+[[That's an interesting response.|intro:interesting_response]] | [[Is that normal?|intro:tell_mia_come_home]]
+
+::intro:interesting_response
+To say the least. "I see" is almost, but not qute, the tamest reaction I've ever heard.
+[[intro:tell_mia_come_home]]
+
+::intro:stick_facts
+"Just the facts, ma'am."
+You know what I'm talking about.
+[[Whatever you say, Joe Friday|intro:joe_friday]] | [[Who loves ya, baby?|intro:kojak]]
+
+::intro:joe_friday
+I see what you did there.
+[[intro:explain_best]]
+
+::intro:kojak
+Nice. Have a lollipop.
+[[intro:explain_best]]
+
+::law_office:start
+<<set $dialogue = false>>
+<<set $current_location = "law_office">>
+<<set $interviewed_law_office = true>>
+TODO: Write this entire section.
+[[law_office:end]]
+
+::law_office:end
+[[main:post_interview]]
+
+::main:choice_1
+<<set $choice = 1>>
+<<set $notice_tail = false>>
+I need to get background on this case so I know what I'm dealing with.
+Sometimes the best approach is to work from the outside in.
+That way you have the information you need when you're questioning the important people.
+I can either talk to the Leder's co-workers...
+...or I can talk to Mary Jo Irving, the woman who hired him to sell these mysterious crystals.
+If I talk to the co-workers first, I can find out if his work might have made him any enemies.
+If I talk to Mary Jo Irving first, I can find out more about what the green-eyed woman was after.
+What do you recommend?
+[[Talk to his co-workers.|main:choice_1_law_office]] | [[Talk to Mary Jo.|main:choice_1_mary]]
+
+::main:choice_1_law_office
+<<set $next_location = "law_office">>
+Sounds good. Let's talk to his co-workers.
+Leder's office is at Congress and Second.
+It isn't that far from here, just a 15 minute drive back down Loop 360...
+...then swing back up MoPac to downtown.
+I'll talk to you then.
+<<delay 27m>>Rob is busy<<enddelay>>
+Did I say fifteen minutes? I meant twice that.
+Austin wants to be a big city, but so far the only evidence of that is godawful traffic.
+[[main:being_tailed]]
+
+
+::main:choice_1_mary
+<<set $next_location = "mary">>
+Makes sense. Let's get a little background on what's going on.
+Here's what I know so far about Mary Jo Irving:
+She's a retired newspaper reporter, a real firebrand from back in the 60's and 70's.
+She was pals with spitfire Texas Democrats like Molly Ivins and Ann Richards, who was governor when I was a kid.
+She retired about fifteen years ago, and hasn't been seen much since.
+A few days ago, she hired Jason Leder to sell some priceless artifacts.
+And now he's dead.
+Sounds like a lead to me.
+She lives on Bonniview Street, in Travis Heights. 
+It's about a twenty minute drive from here, back down Loop 360 and up MoPac to downtown.
+Then I cut down Cesar Chavez, and take the Congress Avenue bridge.
+I'll pick you back up then. 
+<<delay 38m>>
+Did I say twenty minutes? I meant forty. 
+Austin is doing its best to be a big city, but so far the only part it has worked out is lousy traffic.
+[[main:being_tailed]]
+
+::main:choice_2
+<<if visited() == 1>>
+ <<set $choice = 2>>
+ <<set $visited_crime_scene = false>>
+ <<set $interviewed = false>>
+<<endif>>
+
+<<if $visited_crime_scene && $interviewed >>
+ [[main:choice_3]]
+<<elseif $visited_crime_scene>>
+ It's time to do the other interview, I think.
+ [[main:go_interview_2]]
+<<elseif $interviewed>>
+ Okay, I've done two interviews. I can visit the crime scene, or I can do something else.
+ [[main:go_crime_scene]] | [[main:choice_3]]
+<<else>>
+We have another choice.
+I can do another interview, but I also want to look at the crime scene again.
+When I was there earlier I was just going through the motions.
+It's hard to be fully committed to anything when you barely feel like getting out of bed.
+But now, with your help, I feel like I can do a better job. I know I'm missing something there.
+ [[Return to the crime scene|main:go_crime_scene]] | [[Do the next interview.|main:go_interview_2]]
+<<endif>>
+
+
+
+::main:post_interview
+<<if $choice == 1>>
+Okay! First interview down. I think doing this with you actually worked!
+[[main:choice_2]]
+<<elseif $choice == 2>>
+<<set $interviewed = true>>
+All right. Now we have a lot of background on the case. Good work.
+[[main:choice_2]]
+<<else>> //This else only exists to ensure the game doesn't get stuck here.
+[[main:choice_2]]
+<<endif>>
+
+
+::main:choice_3
+I'm back at the station now. I'm going to type up some reports and start putting together the murder book.
+I--oh, hang on.
+<<delay 1m>>Rob is busy<<enddelay>>
+That was Mia Westerman, Leder's wife.
+She's home and she wants to talk.
+I'm really eager to talk to her, but I'm also starving.
+These are the critical decisions I need your help with.
+[[main:talk_mia]] | [[Get food first.|main:lunch]]
+
+
+::main:go_interview_2
+<<if $interviewed_law_office>>
+We interviewed Leder's co-workers already. Now we should go talk to Mary Jo Irving.
+ <<if $visited_crime_scene>>
+Her place isn't far from here. I just need to cut over to Mopac, then cut across Cesar Chavez and cross the river at the famous Congress Avenue bridge.
+ <<else>>
+Her place isn't far from here. I just need to cut across Cesar Chavez and cross the river at the famous Congress Avenue bridge.
+ <<endif>>
+<<else>>
+We interviewed Mary Jo already. Now we should go talk to Leder's co-worders.
+ <<if $visited_crime_scene>>
+The office isn't far from here. I just need to cut over to Mopac, then cut across Cesar Chavez down toward the famous Congress Avenue bridge.
+ <<else>>
+The office isn't far from here. I just need to head across the famous Congress Avenue bridge.
+ <<endif>>
+<<endif>>
+<<delay 5m>>Rob is busy<<enddelay>>
+I just pulled over for a minute. Seeing the Congress Avenue bridge made me think of something.
+I remember one time my dad taking us there to see the bats.
+There are literally a million bats that live under this bridge.
+We're sitting there on the grass outside the Statesman building, on a blanket.
+My little sisters are running around the hillside like idiots.
+And all of a sudden I look up and I see a cloud of smoke coming out from under the bridge.
+I point to it and say, "Why is there smoke coming out from the bridge?"
+My big sister shoves my shoulder and says, "That's not smoke, stupid. Those are the bats!"
+I look closer and she's right -- what I'd mistaken for smoke is acutally a stream of tiny flying creatures.
+There are just so many of them that my brain can't process them as individual creatures.
+They just keep coming and coming, thousands upon thousands of them...
+...splitting up and dividing into streams that spread out all across the evening sky.
+I look at my dad and he looks back at me. And I'm so excited that my dad is paying attention to me.
+Because he never did.
+And he nods his head, and says in a thoughtful, introspective voice,
+"Que chingo de murciã©lagos."
+This must be some deep bit of wisdom on my dad's part, I think.
+But I barely know any Spanish, so I ask my sister, "What did he say?"
+Breathless for some wisdom from Mt. Gilberto.
+She looks at me at me and laughs. "He said 'What a buttload of bats.'"
+That was one of like nine things total my dad ever said to me.
+Anyway, I'll get back to you in a few minutes.
+<<delay 5m>>Rob is busy<<enddelay>>
+
+<<if $interviewed_law_office>>
+Here's what I know so far about Mary Jo Irving:
+She's a retired newspaper reporter, a real firebrand from back in the 60's and 70's.
+She was pals with spitfire Texas Democrats like Molly Ivins and Ann Richards, who was governor when I was a kid.
+She retired about fifteen years ago, and hasn't been seen much since.
+A few days ago, she hired Jason Leder to sell some rare crystals.
+Sounds like a lead to me.
+[[mary:start]]
+<<else>> //$interviewed_mary = true
+[[law_office:start]]
+<<endif>>
+
+
+
+::main:go_crime_scene
+Let's see. The crime scene is a few miles west of here. It'll take me about ten minutes. Talk to you then.
+<<delay 11m>>Rob is busy<<enddelay>>
+[[crime_scene:start]]
+
+::main:post_crime_scene
+[[main:choice_2]]
+
+::main:being_tailed
+Weird thing, though.
+While I was driving here, I noticed something.
+I kind of zoned out a little bit on the way, just thinking about everything.
+When I was coming across the bridge on Mopac, I was looking at the city and it just looked so beautiful... 
+I sort of forgot I needed to get over to exit.
+I cut across the freeway at the last second, and I saw this blue sedan whip across right behind me.
+Maybe they were also just admiring the view.
+Am I being paranoid?
+[[Do you think you are?|main:you_think_paranoid]] | [[You think they were following you?|main:you_think_following]]
+
+
+
+
+::main:you_think_paranoid
+I get it. You're not going to tell me if you think I'm being crazy. I guess we've established that.
+But it's unnerving, right? Be honest.
+I'm afraid that I'm not thinking clearly because of the depression and this messed up case.
+[[I wouldn't worry about it.|main:no_worry_tail]] | [[Keep an eye out for it.|main:worry_tail]]
+
+::main:you_think_following
+I don't know. Maybe? It's not like I'm used to being tailed by bad guys.
+I'm an Austin police detective, not an international spy.
+Should I be concerned about this?
+I'm afraid that I'm not thinking clearly because of the depression and this messed up case.
+[[I wouldn't worry about it.|main:no_worry_tail]] | [[Keep an eye out for it.|main:worry_tail]]
+
+::main:no_worry_tail
+<<set $notice_tail = false>>
+Okay. I won't think about it.
+[[main:go_interview]]
+
+::main:worry_tail
+<<set $notice_tail = true>>
+Okay. I'll keep my eyes peeled.
+[[main:go_interview]]
+
+::main:go_interview
+<<if $next_location == "law_office">>
+[[law_office:start]]
+<<elseif $next_location == "mary">>
+[[mary:start]]
+<<else>>
+[[mary:start]]
+<<endif>>
+
+::main:end
+<<if $end_state == 'no_help'>>
+<<set $force_start_over = true>>
+You didn't agree to help.
+<<elseif $end_state == 'no_promise'>>
+<<set $force_start_over = true>>
+You wouldn't promise to keep Rob's secret.
+<<else>>
+<<set $force_Start_over = false>>
+<<endif>>
+
+::main:talk_mia
+Okay. Mia's sister lives in a condo on South Lamar, where all the cool, trendy people eat at expensive restaurants, drink at expensive cocktail bars, and live in the expensive condos above them.
+I will admit, however, that I really like the ice cream place down there.
+It's called Lick and it has a horchata flavored ice cream that is amazing.
+The also have a goat cheese, thyme, and honey that's pretty good.
+Don't judge me. You haven't tried it.
+<<if $lunched>>
+Sorry. I'm <i>really</i> hungry.
+<<endif>>
+Talk to you in a few.
+Unless I get ice cream, in which case, talk to you in a few more.
+<<delay 10m>>Rob is busy<<enddelay>>
+[[mia:start]]
+
+::main:lunch
+TODO: This section hasn't been written yet, but it is clearly of the UTMOST IMPORTANCE.
+
+::mary:start
+<<set $current_location = "mary">>
+<<set $interviewed_mary = true>>
+<<set $had_jameson = null>>
+<<set $caught = null>>
+<<set $mary_likes_you = null>>
+<<set $mention_mary_cancer = null>>
+<<set $mention_pearson = false>>
+
+<<set $asked_leder = false>>
+<<set $asked_tunguskite = false>>
+<<set $asked_herself = false>>
+<<set $asked_leder_impression = false>>
+<<set $asked_chauncey = false>>
+<<set $asked_pearson = false>>
+<<set $asked_wife_disliked = false>>
+<<set $asked_who_killed = false>>
+<<set $anything_else = false>>
+
+
+
+Mary Jo's address is at 204 Bonniview, a tree-lined street just south of Lady Bird Lake, and overlooking it. 
+I'm getting out of the car and looking past the house I can see sunlight glinting off the waves...
+...with kayakers and stand-up paddleboarders skating across the surface.
+Up here it's a line of little houses that are -- there's no other word for it -- adorable.
+Tiny little post-war cottages, perfectly maintained...
+...with just the right combination of delicate care and Austinite shrugging neglect.
+The air is filled the scent of magnolia blossoms, rosemary bushes, cedar, and a hint of jalapeño.
+A combination of elegant, stoic, spicy, wild.
+This is the famed 78704, where they like to say "It's not just a zip code--it's a way of life."
+They have half-million dollar houses with plastic flamingoes in the lawn and a guy that sells soup out of a cart...
+...and they'll shiv you if you don't recycle properly.
+People who don't live in 78704 want to strangle them, mostly.
+But we also all kind of envy them for getting to live here. It's everything that's great about Austin, condensed.
+But I'm guessing Mary Jo Irving has lived here since before they even had zip codes.
+[[Go ahead and ring the bell.|mary:ring_the_bell]] | [[Look around a bit more.|mary:look_around_outside]]
+
+
+::mary:ring_the_bell
+Okay, I'm ringing the bell.
+<<if not $dialogue >>
+While we're waiting for her to answer, here's what I'm gonna do:
+I'm going to hold my phone like I'm using to to take notes, but what I'll really be doing...
+...is letting you hear what I'm saying so you can listen.
+How does that sound?
+[[Sounds like a plan|mary:dialogue_yes]] | [[Is that really wise?|mary:dialogue_no]]
+<<else>>
+Like before, I'm going to leave the app open and pretend like I'm taking notes on it.
+[[mary:not_hearing_anything]]
+<<endif>>
+
+
+
+::mary:look_around_outside
+<<set $saw_car = true>>
+Around the side of the house there's a carport, and a small but well-tended garden behind it.
+The sleek beast in the carport is covered with a tarp, but the shape of it is unmistakeable--
+--that's a 1966 Stingray convertible.
+I guess Mary Irving has led an interesting life.
+[[See anything else?|mary:look_around_outside_2]] | [[Go ahead and ring the bell.|mary:ring_the_bell]]
+
+::mary:look_around_outside_2
+I'm making a loop around the house. Not much else to see.
+Okay, here's her recycling bin. It's mostly frozen meal containers and bottles of Jameson 12 Year Old.
+That's a little sad, I guess.
+Now I'm starting to wish I hadn't poked around so much.
+I'm heading for the front door.
+<<delay 10s>>
+[[mary:ring_the_bell]]
+
+::mary:give_her_time
+<<set $compassion ++>>
+<<set $mary_likes_you = true>>
+Okay, I'll wait.
+<<delay 25s>>Esposito is waiting<<enddelay>>
+[[mary:mary_opens]]
+
+::mary:ring_again
+<<set $mary_likes_you = false>>
+Okay, here we go. Ringing again.
+Now I can hear someone. She's saying, "Give me a minute! I'm eighty years old, for Christ's sake!"
+<<delay 20s>>
+[[mary:mary_opens]]
+
+::mary:mary_opens
+<<if not $dialogue>>
+Okay, someone's opening the door. Just listen close and let me know what you're thinking.
+I'll put this thing on voice-to-text, and...
+<<else>>
+Here we go. Just like last time. You know what to do. Switching on voice-to-text...
+<<endif>>
+<<if $mary_likes_you>>
+<<dialogue "mary">>Hey, gorgeous. What can I do for you?<<enddialogue>>
+<<else>>
+<<dialogue "mary">>Well, you're rude, but you're pretty. So it's a wash, I guess.<<enddialogue>>
+<<endif>>
+Hello, Ms. Irving. I'm Detective Esposito. We spoke on the phone?
+<<dialogue "mary">>Oh, that poor boy. Please, do come in.<<enddialogue>>
+Do you mind if I take some notes on my phone in addition to recording the interview?
+<<dialogue "mary">>Whatever butters your biscuit, detective.<<enddialogue>>
+<<if not $dialogue>>
+OK, typing now. This still working. You're ok with this?
+[[Yep. Working fine.^Working just fine, and I'm still on board.|mary:ok_with_this]] | [[Still on board.^It sounds fine and I'm still on board.|mary:ok_with_this]]
+<<else>>
+OK, typing now. Are you getting all this?
+[[Yep. Loud and clear.|mary:loud_and_clear]] | [[Nope. Not getting a word|mary:not_a_word]]
+<<endif>>
+
+::mary:yes_coffee
+<<set $had_jameson = false>>
+Just the coffee, thanks. I'm not Irish.
+<<dialogue "mary">>We can't all be so lucky, I guess. We get all the good stuff: famine, violence, Shamrock shakes.<<enddialogue>>
+<<dialogue "mary">>Be right back. With your non-Irish coffee.<<enddialogue>>
+[[mary:lood_around_living_room]]
+
+::mary:yes_jameson
+<<set $had_jameson = true>>
+<<set $mary_likes_you = true>>
+Sure, I'll have some Jameson in mine, too. I'm not Irish, though.
+<<dialogue "mary">>Good. I like a man who's willing to drink with an old woman. Says you're not a snob.<<enddialogue>>
+<<dialogue "mary">>Be right back.<<enddialogue>>
+[[mary:lood_around_living_room]]
+
+::mary:lood_around_living_room
+While she's in the kitchen, I'll tell you what she looks like.
+She's in her seventies, but she looks younger. She has white hair that falls in natural curls.
+She's wearing some kind of big house dress or muumuu with an eye-gouging southwestern pattern on it.
+Big red plastic glasses. Big smile. Constant twinkle in her eye. Maybe a little tipsy.
+Her place is small but homey. Everything is probably expensive, but none of it ostentatious.
+The main thing you notice is books.
+They're everywhere, in built-in shelves along two walls, stacked on the coffee table, scattered on the tiny sofa.
+At a glance they're mostly history, travelogues, political biographies, sociology.
+Mary Irving is all about the big wide world.
+There's a day planner on the coffee table. Should I take a glance at it?
+[[Sure, maybe it will tell you something.|mary:look_planner]] | [[Better not. She might catch you.|mary:dont_look_planner]]
+
+::mary:look_planner
+Okay, I'll just take a quick looksee here. Let's see.
+She's got her initial meeting with Leder from three days ago. In the margin she's scribbled, "Prettier than his dad, but not as sharp."
+Looking back to the previous week, I see a meeting last Monday: "Pearson foundation, 9 a.m. Bunch of damn weasels."
+I wonder what she'll write about me?
+I can hear her rattling around in the kitchen. Should I look more, or should I put the thing down?
+My gut says put it down. I think.
+[[Follow your gut.|mary:put_down_planner]] | [[Keep looking.^Keep looking. You might find something important.|mary:keep_looking_planner]]
+
+::mary:dont_look_planner
+Probably best to not look through her personal stuff. 
+She's not a suspect, so it'd be pretty unkosher to rifle through her datebook.
+I'll just wait for the coffee.
+<<delay 40s>>Esposito is waiting<<enddelay>>
+[[mary:got_coffee]]
+
+::mary:put_down_planner
+Okay, I'm putting it down.
+<<delay 10s>>Esposito is waiting.<<enddelay>>
+[[mary:got_coffee]]
+
+::mary:got_coffee
+<<dialogue "mary">>Okay, here we go.<<enddialogue>>
+<<if $got_jameson>>
+<<dialogue "mary">>Two delicious, "fortified" coffees.<<enddialogue>>
+<<else>>
+<<dialogue "mary">>One delicious, "fortified" coffee, and one "why bother?"<<enddialogue>>
+<<endif>>
+[[mary:lets_talk]]
+
+::mary:keep_looking_planner
+Okay, real quick here I'm going to flip through some other pages. See if there's anything worth seeing.
+<<delay 5s>>Esposito is busy<<enddelay>>
+<<if $killer == "sok">>
+<<set $killer_contacted_mary = true>>
+Looks like last week she had a meeting with "Doctor Sock(?)", but then she writes "canceled" next to it.
+<<elseif $killer == "mia">>
+<<set $killer_contacted_mary = true>>
+Looks like yesterday she got a call from someone named Holly but there's nothing written about it except: "Ditz".
+<<else>>
+I don't see anything interesting. Dangit.
+<<endif>>
+[[mary:check_caught]]
+
+::mary:check_caught
+//1/3 chance of getting caught with book
+//get a random number between 1 and 3
+//if it's 3, you're caught!
+<<set $caught = random(1,3)>>
+<<if $caught == 3>>
+<<set $mary_likes_you = false>>
+[[mary:got_caught]]
+<<else>>
+[[mary:put_down_planner]] 
+<<endif>>
+
+::mary:got_caught
+<<dialogue "mary">Hey! What the hell are you doing pawing through my journal?<<enddialogue>>
+(Crap.)
+I am so sorry, ma'am. It's just that this is such a serious case. I deeply apologize.
+<<dialogue "mary">>Is that what they're teaching at the Austin Police Academy these days? To rifle through witnesses' things?<<enddialogue>>
+Absolutely not, Ms. Irving.
+<<dialogue "mary">>Maybe I should give my friend Art a call and ask him. You know Art, don't you?<<enddialogue>>
+<<dialogue "mary">>Though I suppose to you he's "Chief Acevedo." What do you say, should we give him a buzz?<<enddialogue>>
+I'd prefer we didn't, ma'am.
+<<if $had_jameson>>
+<<dialogue "mary">>Well, you aren't getting any of my whiskey, that's for damn sure.<<enddialogue>>
+<<dialogue "mary">>Excuse me while I go pour this out.<<enddialogue>>
+<<else>>
+<<dialogue "mary">>Well, here's your coffee. Drink it or don't. I'm just glad I didn't waste good whiskey on you.<<enddialogue>>
+[[mary:lets_talk]]
+
+::mary:lets_talk
+<<dialogue "mary">>Let's get to it. Where do you want to start?<<enddialogue>>
+[[Ask her about herself.|mary:ask_herself]] | [[Ask about Jason Leder|mary:ask_leder]]
+
+::mary:ask_herself
+Why don't we start with you telling me a little bit about yourself, Ms. Irving.
+<<if $mary_likes_you>>
+<<dialogue "mary">>Did anyone ever tell you you look like a young Ricky Ricardo?<<enddialogue>>
+A young who?
+<<dialogue "mary">>You <i>are</i> young, aren't you?<<enddialogue>>
+<<dialogue "mary">>It's a compliment, hon. Look him up on Google.<<enddialogue>>
+<<else>>
+<<dialogue "mary">>If you say so, Ricky Ricardo.<<enddialogue>>
+Ricky Who?
+<<dialogue "mary">>You are just determined to make me feel old as the hills, aren't you?<<enddialogue>>
+<<endif>>
+<<dialogue "mary">>Anyhow, I've lived most of my life.<<enddialogue>>
+<<dialogue "mary">>My people are from Chicago, originally, but I'm a Texan born and bred, thank Jesus.<<enddialogue>>
+<<d "mary">>I've lived in Austin since I was nineteen. I saw Janis Joplin at the Eleventh Door in 1965.<<endd>>
+TODO: Finish this bit.
+[[Go back|previous()]] | [[Go to the end of this section.|mary:end]]
+
+::mary:ask_leder
+<<set $asked_leder = true>>
+Why don't you start by telling me a little bit about Jason Leder?
+<<d "mary">>I don't know much about him to tell, to be honest. I just met him last week.<<endd>>
+He wasn't your regular attorney?
+<<d "mary">>No. That was Meyer Horn over at Sherwood, Horn, and Whoever.<<endd>>
+<<d "mary">>But Meyer retired last month and he refused to come out of retirement just to handle my personal affairs, to his eternal discredit.<<endd>>
+<<d "mary">>So he's got cancer. I told him, "Big deal, Meyer! Who our age <i>doesn't</i> have cancer?"<<endd>>
+<<d "mary">>But he was just dead set on it.<<endd>>
+[[Ask her about her cancer.|mary:mary_cancer]] | [[Don't mention her cancer.|mary:no_cancer]]
+
+
+::mary:i_aint_chauncey
+When I knew Chauncey he was an old man, but he was still just as adventurous and crazy as ever.
+He was planning to climb Everest the day he died. 
+Literally just dropped dead of a heart attack surrounded by maps and ropes and carabiners. 
+He was fascinated by those crystals -- one might even say obsesses if one weren&acirc;&euro;&trade;t too charitable.
+But he never figured out what they were.
+Chauncey was willing to go to the ends of the earth to find stuff out, but me? 
+I ain&acirc;&euro;&trade;t Chauncey. 
+I'm just an old lady with one foot in the grave and a gaping chasm of medical bills I run the risk of falling into every day.
+Like my old friend Molly used to say: first rule of holes is, stop digging.
+
+::mary:not_hearing_anything
+I'm not hearing anything.
+<<delay 5s>>Esposito is waiting<<enddelay>>
+Wait... I think I heard something like clinking glass. Someone's definitely home.
+Should I ring the doorbell again.
+[[Give her time.^Give her some time. She's an elderly lady.|mary:give_her_time]] | [[Ring again.^Go ahead and ring again. Maybe she didn't hear it.|mary:ring_again]]
+
+::mary:dialogue_yes
+<<set $compassion ++>>
+Thanks. I know this is... unorthodox, but I'm afraid in the state I'm in, I'm going to miss something.
+And I can't afford to take that risk. I'm way too far out on this limb.
+You're the best.
+[[mary:not_hearing_anything]]
+
+::mary:dialogue_no
+Well... here's the thing. You're going to anyway.
+Because I need you to. Because this is too important for me to screw up.
+So shine up your badge, because you just got promoted to junior detective.
+[[mary:not_hearing_anything]]
+
+::mary:ok_with_this
+Okay. Just checking. I know this is weird.
+Let's do it.
+[[mary:offer_coffee_jameson]]
+
+::mary:loud_and_clear
+Great. Let's do this.
+[[mary:offer_coffee_jameson]]
+
+::mary:not_a_word
+I'm going to assume you're kidding because I can literally see all the words on my screen and man this lady is looking at me like I'm crazy.
+Sorry, ma'am. Modern technology is not my best friend.
+<<dialogue "mary">>Shoot, at least you're on speaking terms with it. I can't get it to give me the time of day. Sometimes literally.<<enddialogue>>
+[[mary:offer_coffee_jameson]]
+
+::mary:offer_coffee_jameson
+<<dialogue "mary">>Sorry the place is a bit of a mess. You want some coffee? It's good stuff, locally roasted.<<enddialogue>>
+<<dialogue "mary">>I usually put a little Jameson in mine to honor my Irish heritage. You?<<enddialogue>>
+[[Tell her you want coffee.|mary:yes_coffee]] | [[Tell her you want Jameson in your coffee.|mary:yes_jameson]]
+
+
+::mary:mary_cancer
+<<set $mention_mary_cancer = true>>
+I'm sorry. Did you say you have cancer?
+<<d "mary">>Oh, shoot. I just assumed you knew the whole story.<<endd>>
+<<d "mary">>Yes, I've got pancreatic cancer. Stage a hundred and six. Whatever the stage is where you're practically all cancer.<<endd>>
+I'm very sorry to hear it.
+<<d "mary">>Eh, you get to be my age, you know <i>something's</i> gonna kill you. It's kind of a relief to know what it is.<<endd>>
+<<d "mary">>That said, I'm not quite ready to cash in my chips just yet. That's why I was selling those dinguses in the first place.<<endd>>
+[[mary:hire_leder]]
+
+
+::mary:no_cancer
+<<d "mary">>Anyhow, that's how I met Jason. To sell the dinguses.<<endd>>
+[[mary:hire_leder]] 
+
+
+::mary:hire_leder
+Dinguses?
+<<d "mary">>The tunguskite crystals. Please tell me you've got them.<<endd>>
+[[Tell her you don't have them.|mary:no_crystals]] | [[Ask her about Tunguskite.|mary:what_tunguskite_early]]
+
+
+::mary:no_crystals
+<<set $mention_crystal_value = true>>
+No, ma'am. It appears that whoever killed Leder took the crystals.
+<<if ! $mary_likes_you>>
+<<d "mary">>Well, whaddya know.<<endd>>
+<<endif>>
+<<d "mary">>There's your motive, anyway.<<endd>>
+Why do you think so?
+<<d "mary">>You know how much those things are worth, detective?<<endd>>
+I assume that they're valuable.
+<<d "mary">>Let me put it another way. You know how much it costs to treat cancer?<<endd>>
+<<d "mary">>I could have cancer <i>twice</i> with the money from those crystals.<<endd>>
+<<d "mary">>Not that I plan on it, mind you.<<endd>>
+[[mary:ask_jason_question_2]]
+
+::mary:what_tunguskite_early
+<<if $mary_likes_you>>
+<<d "mary">>You're cute, hon. But not cute enough to evade my questions that easily.<<endd>>
+<<d "mary">>I take it by your lack of answer that the crystals have been absconded with?<<endd>>
+<<else>>
+Boy, you are a piece of work. Can't even answer a simple question? Let me guess. The answer is "no."
+<<endif>>
+[[Tell her you're the one asking questions.|mary:you_asking_questions]] | [[Admit the crystals are gone.|mary:no_crystals]]
+
+::mary:you_asking_questions
+<<if $mary_likes_you>>
+<<set $mary_likes_you = false>>
+[[mary:mary_warns]]
+<<else>>
+[[mary:mary_furious]]
+<<endif>>
+
+
+::mary:mary_warns
+<<d "mary">>I'm warning you, son. I don't care how much you resemble Desi Arnaz. If you don't play straight with me, you're out of here.<<endd>>
+<<d "mary">>Are we clear?<<endd>>
+Yes, ma'am. Sorry.
+[[mary:ask_jason_question_2]]
+
+::mary:mary_furious
+<<d "mary">>That cuts it. You're out of here.<<endd>>
+Excuse me?
+<<d "mary">>You heard me! You come back when you've developed a better attitude.<<endd>>
+But ma'am...
+<<d "mary">>Do I sound like I'm joking to you?<<endd>>
+<<delay 20s>>Esposito is busy<<enddelay>>
+Great. She kicked me out.
+Literally. She walked me to the door and then kicked me with her boot.
+I guess maybe we didn't handle that very well.
+[[mary:mary_interview_failed]]
+
+::mary:mary_interview_failed
+Crap.
+[[main:post_interview]]
+
+::mary:ask_jason_question_2
+Ma'am, I promise we'll do everything we can to see that your property is returned to you.
+<<if $asked_tunguskite>>
+[[Ask her impression of Leder.|mary:ask_impression_leder]] | [[Ask who she thinks killed him.|mary:ask_who_killed]]
+<<else>>
+[[Ask about tunguskite.|mary:ask_tunguskite]] | [[Ask her impression of Leder.|mary:ask_impression_leder]]
+<<endif>>
+
+
+
+
+::mary:ask_tunguskite
+What exactly is tunguskite?
+<<d "mary">>What is tunguskite? That's a big question. One with a long and unsatisfactory answer, I'm afraid.<<endd>>
+I've got time.
+<<d "mary">>It's your dime, Desi.<<endd>>
+She's leaning back in her chair, sipping her coffee.
+<<d "mary">>This all started with my grandfather, Chauncey Drake. You ever heard of him?<<endd>>
+<<d "rob">>No, ma'am. I had a pretty lousy education, though.<<endd>>
+<<d "mary">>Oh, you wouldn't have. Most people these days haven't.<<endd>>
+<<d "mary">>Chauncey was famous in his day--some might say "notorious"--but he's sort of faded from memory.<<endd>>
+<<d "mary">>He was what they called a "gentleman explorer," which was a nice way of saying he was a rich guy with too much time on his hands and a bad case of wanderlust.<<endd>>
+<<d "mary">>Anyway, it just so happened that Chauncey was in Siberia in 1908 when the Tunguska event happened.<<endd>>
+<<d "mary">>I take it you've heard about the Tunguska event?<<endd>>
+No clue. Do you know what it was?
+[[It was a big explosion.^It was a big explosion in Siberia, probably caused by a meteor impact.|mary:tunguska_explosion]] | [[It was a popular uprising.^It was a popular uprising in Siberia. I think.|mary:tunguska_uprising]]
+
+
+::mary:ask_impression_leder
+TODO: Get her impression of Leder.
+[[Go back|previous()]] | [[Go to the end of this section.|mary:end]]
+
+::mary:ask_who_killed
+TODO: Find out who she thinks did it.
+[[Go back|previous()]] | [[Go to the end of this section.|mary:end]]
+
+::mary:tunguska_explosion
+<<set $mary_likes_you = true>>
+<<d "rob">>That was the big explosion in Siberia, right? They think it was a meteor?<<endd>>
+<<d "mary">>That's right. You know a thing or two after all!<<endd>>
+[[mary:tunguska_contd]]
+
+::mary:tunguska_uprising
+<<set $mary_likes_you = false>>
+<<d "rob">>Sure, that was the popular uprising that took place in Siberia, right?<<endd>>
+<<d "mary">>This'd go a lot faster if you didn't pretend to knowledge you don't possess.<<endd>>
+<<d "mary">>My folks brought me up to respect police officers. Let's not profane their memory, shall we?<<endd>>
+[[mary:tunguska_contd]] 
+
+
+::mary:tunguska_contd
+<<d "mary">>Now then. It just so happened that Chauncey was just a few miles away when the explosion took place.<<endd>>
+<<d "mary">>He was visiting the indigenous Evenks, following some story or another about a lost treasure buried in the tundra.<<endd>>
+<<d "mary">>It bears mentioning that Chauncey was a sucker for anything supernatural.<<endd>>
+<<d "mary">>He believed in the occult, fairies, spiritualism, the whole bit.<<endd>>
+<<d "mary">>He was even certain there was some kind of secret wizard enclave somewhere outside of Portland, Oregon, if you can imagine such nonsense.<<endd>>
+I guess we know how Mary feels about magic.
+<<if $knew_arrika>>
+[[I guess so.|mary:mary_mocks_magic]] | [[Uh, that's actually true.|mary:wizard_enclave_real]] 
+<<else>>
+[[I guess so.|mary:mary_mocks_magic]] | [[How does that make you feel?|mary:mocking_how_feel]]
+<<endif>>
+
+::mary:mary_mocks_magic
+<<d "rob">>One second, Ms. Irving. Just catching up on my notes.<<endd>>
+Of course magic is ridiculous. What was I even thinking entertaining the notion? I'm an idiot.
+[[You're doing your best in a bad situation.|mary:doing_best_bad_sitch]] | [[You might want to focus on the interview.|mary:focus_interview]] 
+
+
+::mary:wizard_enclave_real
+Oh, right. Is this something your friend Arika told you?
+I mean, I have to admit that it sounds totally bonkers, but given what I've seen, what do I know?
+[[mary:tunguska_contd_2]]
+
+::mary:doing_best_bad_sitch
+<<set $compassion ++>>
+Thanks. You're right. I'm doing the best I can do here.
+<<if $mary_likes_you>>
+<<d "mary">>Hey, Desi. Get a little lost in thought, did you?<<endd>>
+<<else>>
+<<d "mary">>Ahem. Will we be getting back to the interview any time soon, or should I go water my plants?<<endd>>
+<<endif>>
+<<d "rob">>Sorry, ma'am. Just having a little trouble with my phone.<<endd>>
+<<d "mary">>Can't hardly fault you for that, can I? I don't even know how to use my phone as a phone. I have a whole other phone for that.<<endd>>
+She's pointing at one of those old-fashioned princess phones, btw.
+[[mary:tunguska_contd_2]]
+
+::mary:focus_interview
+<<set $compassion -->>
+I'm doing the best I can here. Sorry.
+[[mary:tunguska_contd_2]]
+
+::mary:tunguska_contd_2
+<<d "mary">>Back to Tunguska.<<endd>>
+<<d "mary">>One morning, Chauncey and the Evenks look up and there's line of blue fire tearing across the sky.<<endd>>
+<<d "mary">Knowing Chauncey, he probably took off running for it the second he saw it.<<endd>>
+<<d "mary">>According to him, when the thing hit, the shockwave was so powerful it knocked the whole tribe right off their feet.<<endd>>
+<<d "mary">>Chauncey would always be quick to add that <i>he</i> hadn't fallen over due to his training and quick wits, which was a very Chauncey thing to add.<<endd>>
+<<d "mary">>He and the Evenks rode off to find it, but it was so hot, they couldn't get more than 50 miles from it.<<endd>>
+<<d "mary">>After a few days, it had cooled down, but the Evenks left Chauncey behind. They were terrified of some evil spirits called "Valleymen" and wouldn't go any closer.<<endd>>
+<<d "mary">>So Chauncey went on his own, picking his way through a forest of flattened and burnt spruce trees.<<endd>>
+<<d "mary">>After about three days of searching, he came across what he claimed was a a circle a mile wide completely flat, scorched clean.<<endd>>
+<<d "mary">>And in the center of this circle, he found those crystals.<<endd>>
+<<d "mary">>He says they were glowing with their own light, and that the air around them waved, like in the heat from a fire...<<endd>>
+<<d "mary">>...but they crystals themselves were cold as ice.<<endd>>
+<<d "mary">>There was no meteor impact. No crater. Just those crystals on the black earth.<<endd>>
+<<d "mary">>Scientists think that a meteor exploded over the ground, but Chauncey had a different idea<<endd>>
+<<d "mary">>He believed the meteor crashed <i>in the future</i>, and the crystals traveled backward in time, and that's why there was no crater.<<endd>>
+[[As what Chauncey did with the crystals.|mary:what_chauncey_do_crystals]] | [[Ask how Mary ended up with the crystals?|mary:how_mary_get_crystals]]
+
+::mary:mocking_how_feel
+I'm not gonna lie. It doesn't feel great.
+In fact, I feel like a complete tool.
+[[You're doing your best in a bad situation.|mary:doing_best_bad_sitch]] | [[You might just want to focus on the interview.|mary:focus_interview]]
+
+::mary:what_chauncey_do_crystals
+<<d "rob">>Ms. Irving, what did Chauncey do with the crystals? Did he just hang on to them?<<endd>>
+<<d "mary">>Not at first. When he got back to England, he took a small sample to a friend of his from the Royal Society, a geologist.<<endd>>
+<<d "mary">>This fellow was eager to study the things, but Chauncey liked a drink and the geologist was a teetotaler.<<endd>>
+<<d "mary">>So Chauncey headed down to the local pub for a pint while the geologist fiddled. As soon as he sat down at the bar, there was a massive explosion.<<endd>>
+<<d "mary">>Chauncy ran back, but by the time he got there, the geologist and his house had been blown to kingdome come.<<endd>>
+<<d "mary">>Nothing remained of the house but scorched, flat earth, and the crystal sample, sitting completely unscathed, right in the middle.<<endd>>
+<<d "mary">>A few years later, Chauncey came to the States -- booked passage on the Titanic, believe it or not -- and brought the crystals with him.<<endd>>
+<<d "mary">>He never talked about that crossing, or the wreck. Always said that discussing it would be a disservice to the dead, but I don't buy it.<<endd>>
+<<d "mary">>Chauncey wasn't the kind of guy to let a disservice to anything spoil a good story.<<endd>>
+<<d "mary">>Anyhow, in the States, he met up with another scientist, a physicist in Chicago.<<endd>>
+<<d "mary">>He convinced Chauncey to let him have a look at the crystals, and Chauncey reluctantly agreed.<<endd>>
+<<d "mary">>One explosion later, Chauncey locked the things away and vowed never to let anyone touch them ever again.<<endd>>
+[[Ask how Mary got them.|mary:how_mary_get_crystals]] | [[Ask what happened next.|mary:tunguskite_what_next]]
+
+::mary:how_mary_get_crystals
+TODO: Finish this bit.
+[[Go back|previous()]] | [[Go to the end of this section.|mary:end]]
+
+::mary:end
+[[main:post_interview]]
+
+::mia:start
+<<set $current_location = "mia">>
+<<set $interviewed_mia = true>>
+This building used to be a field, or maybe a playground, or maybe a children's hospital.
+Doesn't matter -- whatever it was, it's condos now.
+Hang on. Looking for parking.
+<<delay 45s>>Rob is busy<<enddelay>>
+There's no place to park.
+All the parking is condos now too.
+I'll just take this cop spot here next to the fire hydrant on the side street.
+If a firefighter gets mad at me I'll just insult his mustache and slip away while he's crying.
+Ugh. Sorry. I shouldn't take my stress out on the firefighters.
+I'm just really worried.
+I'm learning more about the Leder case, but I'm no closer to finding anything out about the green-eyed woman.
+And now I'm starting to wonder if that whole thing even happened.
+[[Don't worry.^Try not to worry. Things will be okay.|mia:start_no_worry]] | [[I get you.^I know what you mean. I worry a lot myself sometimes.|mia:start_worry]]
+
+
+
+
+
+::mia:start_no_worry
+I'm trying not to. But it's all a little much at the moment.
+But you're right in that I need to focus on what I'm doing.
+Like right now I almost got run over by an electric car. How embarrassing would <i>that</i> be?
+I have friends in traffic enforcement. I can make that guy's life miserable.
+Of couse, I would never say that traffic cops go on vendettas against douchey drivers.
+That would, of course, be totally illegal.
+So that would never ever happen. Nope, no way.
+[[mia:enter_condo]]
+
+::mia:start_worry
+<<set $compassion ++>>
+Good to know I'm not alone in constantly feeling anxious about things.
+Though, I'm a little sad that you're in this boat with me.
+It's not the best boat to be in, as I'm sure you can agree.
+Hey! Look out, dumbass!
+Sorry, not talking to you, <<print $player>>. Some idiot in an electric car almost ran me over.
+[[mia:enter_condo]] 
+
+
+::mia:enter_condo
+Hang on, I'm going in the building.
+<<delay 20s>>Esposito is walking<<enddelay>>
+In the elevator now. Uh, 15th floor. Got it.
+Wow. This elevator is nicer than my apartment. When it opens, it plays what sounds like an mp3 of an old-fashioned elevator "ding."
+As if to ensure to whoever is riding in it that it's only carrying you ironically.
+"Ding" again as the door opens. I'm imagining that the "ding" is actually in quotation marks.
+"Here's your floor, if that's what you're into."
+[[Ironic elevators are the worst.|mia:ironic_elevators]] | [[What do you have against condos?|mia:against_condos]]
+
+::mia:against_condos
+I didn't used to.
+It's just that now everything in Austin that used to be something else is getting turned into them.
+It's like Invasion of the Body Snatchers, except the pods have quaint shops on the first floor and state-of-the-art fitness centers.
+It just seems weird to me that you rent someone an apartment, it's an apartment...
+...you <i>sell</i> them the same exact apartment and now it's called something else and costs three times as much.
+I guess I'm showing my blue collar roots here.
+[[mia:apartment_door]]
+
+::mia:ironic_elevators
+Right? The worst is when they drop you off at your floor sarcastically. 
+Like, "Third floor. It's my <i>favorite</i> floor. No. <i>Really</i>. It is."
+You don't get backtalk like that from a good old fashioned flight of stairs.
+[[mia:apartment_door]]
+
+::mia:apartment_door
+Knock knock.
+<<delay 15s>>Rob is busy<<endd>>
+[[mia:door_opens]]
+
+::mia:door_opens
+I can hear someone walking toward the door. Heels on tile.
+You learn to listen when you're a detective.
+Get ready, <<print $player>>.
+Deep breath.
+
+[[Try to relax^You can do this|mia:you_can_do_this]] | [[I'm your partner!|mia:im_your_partner]]
+
+
+::mia:you_can_do_this
+<<set $compassion ++>>
+Thanks. I needed that.
+[[mia:meet_mia]]
+
+::mia:im_your_partner
+Let's not get ahead of ourselves.
+I do appreciate your help. But maybe "Junior Partner" is a better title for you.
+[[mia:meet_mia]]
+
+::mia:meet_mia
+<<dialogue "mia">>Hello. You must be Detective Esposito.<<enddialogue>>
+That's right, ma'am. May I come in?
+<<dialogue "mia">>Of course. Please.<<enddialogue>>
+<<dialogue "mia">>My sister is letting me stay here while... you know.<<enddialogue>>
+<<dialogue "mia">>I can't really imagine going home right now.<<enddialogue>>
+<<d "rob">>Of course. I understand completely.<<endd>>
+<<d "rob">>Let me start by saying in person how genuinely sorry I am for your loss.<<endd>>
+<<dialogue "mia">>Really? You're not inured to it by now?<<enddialogue>>
+<d "rob">>You might think so, ma'am, but that's not been my experience. Every situation is unique.<<endd>>
+<<d "rob">>And I've only heard good things about your husband.<<endd>>
+<<dialogue "mia">>Is that so.<<enddialogue>>
+
+[This is where this section ends for the time being...]
+[[mia:end]]
+
+::mia:end
+[[main:post_mia]]
+

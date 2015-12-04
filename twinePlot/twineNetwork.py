@@ -5,10 +5,10 @@
 import re
 
 
-waypointRegex = re.compile('^::\\s*([\\w]+)')
+waypointRegex = re.compile('^::\\s*([\\w|:]+)')
 
-outwardWaypointRegex = re.compile('\[\[\s*(\w+)\]\]')
-choiceRegex = re.compile('\[\[[\W|\S]*?\|\s*(\w+)\s*\]\]')
+outwardWaypointRegex = re.compile('\[\[\s*([\w|:]+)\]\]')
+choiceRegex = re.compile('\[\[[\W|\S]*?\|\s*([\w|:]+)\s*\]\]')
 
 #set
 setRegex         = re.compile('<<[\s]*set[\s]*(\$[\S]+)[\s]*=[\s]*([\S]+)[\s]*>>')
@@ -45,9 +45,9 @@ class TwineGraph:
         print nodeName
 
 
-def main():
+def main(inputFileName):
 #    storyfile = open('llbridge.txt', 'r')
-    storyfile = open('StoryData_en.txt', 'r')
+    storyfile = open(inputFileName, 'r')
 
 
 
@@ -73,7 +73,8 @@ def main():
                 gameoverhelper = ""
                 if curIsGameOver:
                     gameoverhelper = "color=red,"
-                print '%s [shape=record,%slabel="%s"];'%(currentWaypoint,gameoverhelper,currentWaypointDesc)
+                currentWaypointDesc = currentWaypointDesc.replace('"','\\"')
+                print (('%s [shape=record,%slabel="%s"];'%(currentWaypoint,gameoverhelper,currentWaypointDesc)))
             #but also, drop a node here
             currentWaypoint = result.group(1)
             currentIfCond = None
@@ -87,6 +88,7 @@ def main():
         ifResult = ifRegex.findall(line)
         if ifResult:
             for ifThing in ifResult:
+                print 'setting if cond', ifThing
                 currentWaypointDesc += ''.join(['\\nIF ',ifThing])
                 currentIfCond = ifThing
 
@@ -97,6 +99,7 @@ def main():
 
                 currentElseIfConds.append(elseifThing)
                 #print currentElseIfConds
+
                 currentWaypointDesc += ''.join(['\\nELSEIF ',elseifThing])
 
         #endif, else todo
@@ -127,6 +130,7 @@ def main():
             for setThing in setResult:
                 #print ('='.join(setThing))
                 setValue = ('='.join(setThing)).replace('"','\\"')
+
                 currentWaypointDesc += ''.join(['\\nSET ',setValue])
                 
         
@@ -136,8 +140,11 @@ def main():
                 edgeNumber += 1
                 if isElse:
                     #print 'else was true!!!!'
+                    print 'if cond', currentIfCond
+                    print 'elseifconds',currentElseIfConds
+
                     elseProperties = "NOT"+"\\n NOT ".join([currentIfCond]+currentElseIfConds)
-#                    print 'elseprops', elseProperties
+                    print 'elseprops', elseProperties
                     edgeProperties = '[color=red, label="e:%d-%s"]'%(myEdgeNumber,elseProperties)
                 elif len(currentElseIfConds) > 0:
  #                   print 'current elseif cond', currentElseIfConds
@@ -147,6 +154,7 @@ def main():
                     edgeProperties = '[color=red,label="e:%d-%s"]'%(myEdgeNumber,currentIfCond)
                 else:
                     edgeProperties = '[color=blue]'
+
 
                 print currentWaypoint,'->',outbound,edgeProperties,';'
                 currentWaypointDesc += "\\nredir:%s (%d)"%(outbound,myEdgeNumber)
@@ -160,11 +168,13 @@ def main():
                 choiceCount += 1
                 if isElse:
                     #print 'else was true!!!!'
+                    print 'elseifconds',currentElseIfConds
                     elseProperties = "NOT"+"\\n NOT ".join([currentIfCond]+currentElseIfConds)
-#                    print 'elseprops', elseProperties
+                    print 'elseprops', elseProperties
                     edgeProperties = '[color=red, label="e:%d-%s"]'%(myEdgeNumber,elseProperties)
                 elif len(currentElseIfConds) > 0:
- #                   print 'current elseif cond', currentElseIfConds
+ #
+                    #print 'current elseif cond', currentElseIfConds
                     edgeProperties = '[color=red, label="e:%d-%s"]'%(myEdgeNumber,currentElseIfConds[-1])
                 elif currentIfCond:
   #                  print 'current if cond', currentIfCond
@@ -173,16 +183,21 @@ def main():
                     edgeProperties = '[color=blue]'
 
 
+
                 print currentWaypoint,'->',choice,edgeProperties,';'
                 currentWaypointDesc += "\\nchoice%d:%s (%d)"%(choiceCount,choice,myEdgeNumber)
 
-    print 'first_encounter->shepherd_talk [color=green, label="EITHER"] ;'
-    print 'first_encounter->key_talk [color=green, label="EITHER"] ;'
-    print 'first_encounter->aries_talk [color=green, label="EITHER"] ;'
-    print 'first_encounter->bos_talk [color=green, label="EITHER"] ;'
-    print 'first_encounter->artesa_talk [color=green, label="EITHER"] ;'
+    #print 'first_encounter->shepherd_talk [color=green, label="EITHER"] ;'
+    #print 'first_encounter->key_talk [color=green, label="EITHER"] ;'
+    #print 'first_encounter->aries_talk [color=green, label="EITHER"] ;'
+    #print 'first_encounter->bos_talk [color=green, label="EITHER"] ;'
+    #print 'first_encounter->artesa_talk [color=green, label="EITHER"] ;'
     print '}'
 
 
 if __name__=='__main__':
-    main()
+    import sys
+    inputFile = "StoryData_en.txt"
+    if len(sys.argv) >= 2:
+        inputFile = sys.argv[1]
+    main(inputFile)
