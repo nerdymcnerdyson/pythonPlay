@@ -1,6 +1,6 @@
 import re
 from enum import Enum
-
+import logging
 
 eitherRegex = re.compile('\[\[either\(("[\w|_|,|:]",?)+\)\]\]')
 
@@ -109,7 +109,16 @@ class Category:
 #        print('making category', identifier, actions)
         self.actions = actions
         self.identifier = identifier
+        logger = logging.getLogger(__name__+"."+(type(self).__name__))
 
+        # 'application' code
+        # logger.debug('debug message')
+        # logger.info('info message')
+        # logger.warn('warn message')
+        # logger.error('error message')
+        # logger.critical('critical message')
+
+        
     def __str__(self):
         return "%s->%s"%(self.identifier, self.actions)
 
@@ -140,6 +149,14 @@ class LinkNode(SequenceNode):
         self.target = target
         self.delay = delay
         self.text = text
+        logger = logging.getLogger(__name__+"."+(type(self).__name__))
+
+        # 'application' code
+        # logger.debug('debug message')
+        # logger.info('info message')
+        # logger.warn('warn message')
+        # logger.error('error message')
+        # logger.critical('critical message')
 
         #factory method.. returns instance of class or None
     @staticmethod
