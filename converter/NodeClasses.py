@@ -2,6 +2,9 @@ import re
 from enum import Enum
 
 
+eitherRegex = re.compile('\[\[either\(("[\w|_]+",?)+\)\]\]')
+#\[\[either\(("[\w|_]+",?)+\)\]\]
+
 commandTokenRegex = re.compile('(<<[\\s\\S]*?>>)')
 LinkTokenRegex = re.compile('[<<choice]?(\[\[[\\s\\S]*?\]\])[>>]?')
 
@@ -115,6 +118,16 @@ class Action:
         self.title = title
         self.short = short
 
+class EitherNode(SequenceNode):
+    def __init__(self, targetList):
+        self.type = SequenceNodeType.either
+        self.targetList = targetList
+
+    def javascriptOutputString(self):
+        return '{"type":"either","js":"%s"}'%','.join(self.targetList)
+
+    
+        
 class LinkNode(SequenceNode):
     def __init__(self, target, delay, text):
         self.type = SequenceNodeType.link

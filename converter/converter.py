@@ -19,24 +19,54 @@ class TweeToLLJSConverter:
     
 
     def process(self):
-        print('DOING ALL THE STUFF')
+        currentWaypoint = None
         for line in self.inputFile:
             line = line.strip()
-        
+
+            indexOfComments = line.find('//')
+            if indexOfComments != -1:
+                line = line[:indexOfComments]
+            
+            if len(line) == 0:
+                continue
+            #print ('processing line: ',line)
+            
             tokenList = breakUpStringIntoListOfTwineParts(line)
 
             for token in tokenList:
+                #print('processing token:', token)
                 thisNode = None
-                if len(line) <= 0:
+                if len(token) <= 0:
                     continue
                 for nodeClass in self.nodeClassList:
-                    thisNode = nodeClass.tryIsNodeType(line)
+                    thisNode = nodeClass.tryIsNodeType(token)
                     if thisNode:
                         break
+                if thisNode:
+                    if thisNode.type == SequenceNodeType.waypoint:
+                        if currentWaypoint:
+                            print(currentWaypoint)
+                            for node in waypointNodes:
+                                print(node.javascriptOutputString())
+                                if node.type == SequenceNodeType.choice:
+                                    #print category
+                                    print(node.category)
+                                
+                        currentWaypoint = thisNode.label
+                        waypointNodes = []
+                    else: #if this node type is waypoint
+                        if thisNode.type == SequenceNodeType.choice:
+                            self.categories[thisNode.identifier] = thisNode.category
+                        waypointNodes.append(thisNode)
+                        
+                        
+                else:
+                    node = TextNode.tryIsNodeType(line)
+                    waypointNodes.append(node)
 
                 if not thisNode:
-                    thisNode = TextNode.tryIsNodeType(line)
-                print('%s for:\t\t %s'%(thisNode, token))
+                    thisNode = TextNode.tryIsNodeType(token)
+                #print('%s for:\t\t %s'%(thisNode, token))
     
 
 
