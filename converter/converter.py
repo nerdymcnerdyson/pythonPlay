@@ -11,12 +11,31 @@ class TweeToLLJSConverter:
         self.currentWaypoint = None
         self.waypointNodes = []
         self.categories = {}
-
+        self.waypoints = {} # waypointName->nodelist
+        
         self.nodeClassList = [WaypointNode, SilentlyNode, SetNode, EndSilentlyNode, ChoiceNode, IfStartNode, ElseIfNode,ElseNode,EndIfNode, LinkNode]    
         
     def setInputFile(self, inputFileName):
         self.inputFile = openInputFile(inputFileName)
-    
+
+
+    def outputWaypointsToFile(self, outputFilename):
+        outputFile = open(outputFilename,'w')
+        outputFile.write('{\n')
+        isFirstWaypoint = True
+        for waypoint,nodelist in self.waypoints.items():
+            if not isFirstWaypoint:
+                outputFile.write(',\n')
+            isFirstWaypoint = False
+            outputFile.write('"'+waypoint+'":[\n')
+            isFirstNode = True
+            for node in nodelist:
+                if not isFirstNode:
+                    outputFile.write(',\n')
+                isFirstNode = False    
+                outputFile.write(str(node))
+            outputFile.write('\n]')
+        outputFile.write('\n}\n')
 
     def process(self):
         currentWaypoint = None
@@ -45,12 +64,21 @@ class TweeToLLJSConverter:
                 if thisNode:
                     if thisNode.type == SequenceNodeType.waypoint:
                         if currentWaypoint:
-                            print(currentWaypoint)
+
+                            #here check for duplicated waypoints
+
+                            if currentWaypoint in self.waypoints.keys():
+                                raise (DUPLICATEWAYPOINT,currentWaypoint,"exists twice")
+                            
+                            self.waypoints[currentWaypoint] = [node.javascriptOutputString() for node in waypointNodes]
+                            
+                            #print(currentWaypoint)
                             for node in waypointNodes:
-                                print(node.javascriptOutputString())
+                                #print(node.javascriptOutputString())
                                 if node.type == SequenceNodeType.choice:
                                     #print category
-                                    print(node.category)
+     #                               print(node.category)
+                                    self.categories[node.category.identifier] = node.category
                                     
 
                                     
@@ -71,6 +99,8 @@ class TweeToLLJSConverter:
                 #print('%s for:\t\t %s'%(thisNode, token))
     
 
+        print('End of parse..%d waypoints, %d categories'%(len(self.waypoints),len(self.categories)))
+                
 
         
 
@@ -79,7 +109,7 @@ def main(inputFileName):
     converter = TweeToLLJSConverter()
     converter.setInputFile(inputFileName)
     converter.process()
-    
+    converter.outputWaypointsToFile("waypoints.converted.txt")
         
 def openInputFile(inputFileName):
     #do some error checking here.. some day
@@ -198,29 +228,7 @@ def breakUpStringIntoListOfTwineParts(inputString):
             
     
     return returnList
-            
-            
-
-            
-        
-
-
-
-
-        
-    #find first command character
-    #is link/choice at start?
-    #are there any other control characters at start..
-    #find next command token regex
-    commandsOut = commandTokenGeneralRegex.split(inputString)
-
     
-    
-    
-
-    
-
-
 if __name__ == '__main__':
     import sys
     inputFile = "StoryData_en.txt"
