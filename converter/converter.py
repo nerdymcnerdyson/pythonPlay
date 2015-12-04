@@ -12,7 +12,7 @@ class TweeToLLJSConverter:
         self.waypointNodes = []
         self.categories = {}
 
-        self.nodeClassList = [WaypointNode, SilentlyNode, SetNode, EndSilentlyNode, ChoiceNode, IfStartNode, ElseIfNode, LinkNode]    
+        self.nodeClassList = [WaypointNode, SilentlyNode, SetNode, EndSilentlyNode, ChoiceNode, IfStartNode, ElseIfNode,ElseNode,EndIfNode, LinkNode]    
         
     def setInputFile(self, inputFileName):
         self.inputFile = openInputFile(inputFileName)
@@ -51,7 +51,9 @@ class TweeToLLJSConverter:
                                 if node.type == SequenceNodeType.choice:
                                     #print category
                                     print(node.category)
-                                
+                                    
+
+                                    
                         currentWaypoint = thisNode.label
                         waypointNodes = []
                     else: #if this node type is waypoint
@@ -61,11 +63,11 @@ class TweeToLLJSConverter:
                         
                         
                 else:
-                    node = TextNode.tryIsNodeType(line)
+                    node = TextNode.tryIsNodeType(token)
                     waypointNodes.append(node)
 
-                if not thisNode:
-                    thisNode = TextNode.tryIsNodeType(token)
+                #if not thisNode:
+                #    thisNode = TextNode.tryIsNodeType(token)
                 #print('%s for:\t\t %s'%(thisNode, token))
     
 
@@ -78,66 +80,11 @@ def main(inputFileName):
     converter.setInputFile(inputFileName)
     converter.process()
     
-    sys.exit()
-    
-    inputFile = openInputFile(inputFileName)
-
-    currentWaypoint = None
-    waypointNodes = []
-    categories = {}
-    
-    nodeClassList = [WaypointNode, SilentlyNode, SetNode, EndSilentlyNode, ChoiceNode, IfStartNode, ElseIfNode]    
-    for line in inputFile:
-        line = line.strip()
-        #print ('line processing:', line)
-        tokenList = breakUpStringIntoListOfTwineParts(line)
-        for token in tokenList:
-            if len(line) <= 0:
-                continue
-            for nodeClass in nodeClassList:
-                thisNode = nodeClass.tryIsNodeType(line)
-                if thisNode:
-                    break
-            
-            if thisNode:
-                if thisNode.type == SequenceNodeType.waypoint:
-                #print ('found waypoint: ', thisNode.type, thisNode.label)
-                    if currentWaypoint:
-                    #print('ending currentWaypoint', currentWaypoint)
-                        print(currentWaypoint)
-                        for node in waypointNodes:
-                            print(node.javascriptOutputString())
-                        
-                    currentWaypoint = thisNode.label
-                    waypointNodes = []
-                else: #if this node type is waypoint
-                    if thisNode.type == SequenceNodeType.choice:
-                        categories[thisNode.identifier] = thisNode.category
-                        waypointNodes.append(thisNode)
-            else:
-                node = TextNode.tryIsNodeType(line)
-                waypointNodes.append(node)
-
-            
-
-        
-        
-
-    print(currentWaypoint)
-    for node in waypointNodes:
-        print(node.javascriptOutputString())
-
-    print('\n\n\n and categories')
-    for key,value in categories.items():
-        print('\tkey', key)
-        for action in value.actions:
-            print('\t\t', action.title, action.target)
         
 def openInputFile(inputFileName):
     #do some error checking here.. some day
     return open(inputFileName, 'r')
     
-
 
 controlTokens = ["[[","<<", ">>","]]","::"]
 
@@ -202,12 +149,6 @@ def breakUpStringIntoListOfTwineParts(inputString):
         #print('position is:', position)
         returnList.append(inputString[:position])
         inputString = inputString[position:]
-
-
-
-    #post process
-
-    #look for variable nodes specifically
 
     keepGoing = True
     while keepGoing:

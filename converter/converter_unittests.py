@@ -54,6 +54,11 @@ class TestDoNotSplitVariablesFromTextNodes(unittest.TestCase):
         breakUp = breakUpStringIntoListOfTwineParts(sampleLine)
         self.assertEqual(sampleAnswer, breakUp)
 
+    def test_splitElse(self):
+        sampleLine = "<<else>>It really WAS scary."
+        sampleAnswer = ["<<else>>","It really WAS scary."]
+        breakUp = breakUpStringIntoListOfTwineParts(sampleLine)
+        self.assertEqual(sampleAnswer, breakUp)
 
 
 class TestStringMethods(unittest.TestCase):

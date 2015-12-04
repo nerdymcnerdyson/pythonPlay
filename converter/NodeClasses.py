@@ -21,9 +21,13 @@ variableInTextRegex = re.compile('<<(\$[\w]+)>>')
 outwardWaypointRegex = re.compile('\[\[\s*(\w+)\]\]')
 choiceRegex = re.compile('\[\[[\W|\S]*?\|\s*(\w+)\s*\]\]')
 
+elseRegex   = re.compile('<<else>>')
+
 silentRegex   = re.compile('<<silently>>')
 endSilentRegex   = re.compile('<<endsilently>>')
 setRegex         = re.compile('<<[\s]*set[\s]*\$([\S]+)[\s]*=[\s]*([\S]+)[\s]*>>')
+
+endIfRegex = re.compile('<<endif>>')
 
 ifRegex = re.compile('<<if([\s\S]*?)>>([\s\S]*)')
 elseIfRegex = re.compile('<<elseif([\s\S]*?)>>([\s\S]*)')
@@ -49,7 +53,8 @@ class SequenceNodeType(Enum):
     ifElse = 8,
     endIf = 9,
     elseBlock = 10,
-    link = 11
+    link = 11,
+    elseNode = 12
 
 class SequenceNode:
     def __init__(self):
@@ -111,6 +116,10 @@ class Category:
         self.actions = actions
         self.identifier = identifier
 
+    def __str__(self):
+        return "%s->%s"%(self.identifier, self.actions)
+
+
 class Action:
     def __init__(self, target, full, title, short):
         self.target = target
@@ -118,6 +127,9 @@ class Action:
         self.title = title
         self.short = short
 
+    def __repr__(self):
+        return "%s:%s"%(self.target,self.title)
+        
 class EitherNode(SequenceNode):
     def __init__(self, targetList):
         self.type = SequenceNodeType.either
@@ -300,6 +312,14 @@ class SetNode(SequenceNode):
         return '{"type":"void", "js":"gGameData.story.'+self.varName +' = '+self.varValue+';"}'
 
 
+    # {"type": "if_block", "js": "gameData.story.hasknife == 1;"},
+    # {"type": "text", "js": "\"I'll use my knife!\""},
+    # {"type": "else_if_block", "js" : "gameData.story.hasspoon == 1;"},
+    # {"type": "text", "js": "\"What can I do with a spoon?\""},
+    # {"type": "else_block"},
+    # {"type": "text", "js": "\"Oh no I didn't bring any cutlery with me!\""},
+    # {"type": "endif_block"},
+    
 
 class IfStartNode(SequenceNode):
     def __init__(self, conditional, remainder):
@@ -314,7 +334,7 @@ class IfStartNode(SequenceNode):
         
     #instance method
     def javascriptOutputString(self):
-        return 'if conditional: %s remainder: %s'%(self.conditional, self.remainder)
+        return '{"type": "if_block, "js":"%s"}'%self.conditional
 
 class ElseIfNode(SequenceNode):
     def __init__(self, conditional, remainder):
@@ -329,10 +349,33 @@ class ElseIfNode(SequenceNode):
         
     #instance method
     def javascriptOutputString(self):
-        return 'ifelse conditional: %s remainder: %s'%(self.conditional, self.remainder)
+        return '{"type": "if_else_block, "js":"%s"}'%self.conditional
 
-    
-    
+#else node
+class ElseNode(SequenceNode):
+    def __init__(self):
+        self.type = SequenceNodeType.elseNode
+    @staticmethod
+    def tryIsNodeType(inputString):
+        result = elseRegex.match(inputString)
+        if result:
+            return ElseNode()
+    def javascriptOutputString(self):
+        return '{"type": "else_block"}'
+
+#endif node
+class EndIfNode(SequenceNode):
+    def __init__(self):
+        self.type = SequenceNodeType.endIf
+    @staticmethod
+    def tryIsNodeType(inputString):
+        result = endIfRegex.match(inputString)
+        if result:
+            return EndIfNode()
+    def javascriptOutputString(self):
+        return '{"type": "endif_block"}'
+
+
     
 class WaypointNode(SequenceNode):
     def __init__(self, waypointLabel):
