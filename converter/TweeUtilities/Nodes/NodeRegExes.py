@@ -1,5 +1,9 @@
 import re
 
+# class NodeRegExes:
+#     def __init__(self):
+#         return
+
 eitherRegex = re.compile('\[\[either\(("[\w|_|,|:]",?)+\)\]\]')
 
 

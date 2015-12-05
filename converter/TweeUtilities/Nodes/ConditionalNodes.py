@@ -1,4 +1,4 @@
-from NodeRegexes import *
+from NodeRegExes import *
 from NodeBase import *
 from Utilities import *
 

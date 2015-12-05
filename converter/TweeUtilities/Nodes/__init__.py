@@ -1,7 +1,15 @@
+from . import EndSilentlyNode
+from . import ConditionalNodes
+from . import EitherNode
+from . import LinkNode
+from . import SetNode
+from . import SilentlyNode
+from . import TextNode
+from . import WaypointNode
 
+from EndSilentlyNode import *
 from ConditionalNodes import *
 from EitherNode import *
-from EndSilentlyNode import *
 from LinkNode import *
 from SetNode import *
 from SilentlyNode import *
