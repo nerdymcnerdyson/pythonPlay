@@ -19,7 +19,7 @@ class TweeToLLJSConverter:
         # self.logger.debug('debug message')
         # self.logger.info('info message')
         # self.logger.warn('warn message')
-        # self.logger.error('error message')
+        # self.logger.error('error message)
         # self.logger.critical('critical message')
         
         # self.logger.debug('boooooga')
@@ -65,6 +65,7 @@ class TweeToLLJSConverter:
         outputFile.close()
 
     def process(self):
+        self.logger.info("start processing")
         currentWaypoint = None
         for line in self.inputFile:
             line = line.strip()
@@ -126,7 +127,7 @@ class TweeToLLJSConverter:
                 #print('%s for:\t\t %s'%(thisNode, token))
     
 
-        print('End of parse..%d waypoints, %d categories'%(len(self.waypoints),len(self.categories)))
+        self.logger.info('End of parse..%d waypoints, %d categories'%(len(self.waypoints),len(self.categories)))
 
 
         

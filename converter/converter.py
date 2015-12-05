@@ -8,9 +8,12 @@ from TweeToLLJSConverter import *
 logging.config.fileConfig('ConverterLogging.conf')
 
 def main(inputFileName):
+    logger = logging.getLogger(__name__)
     converter = TweeToLLJSConverter()
     converter.setInputFile(inputFileName)
+    logger.info('beginning processing')
     converter.process()
+    logger.info('writing to file')
     converter.outputWaypointsToFile("waypoints.converted.txt")
     converter.outputCategoriesToFile("categories.converted.txt")
     
