@@ -1,21 +1,21 @@
 from . import NodeBase
 from . import NodeRegExes
 
-from NodeRegExes import *
-from NodeBase import *
+#from NodeRegExes import *
+#from NodeBase import *
     
-class EndSilentlyNode(SequenceNode):
+class EndSilentlyNode(NodeBase.SequenceNode):
     def __init__(self):
         #node variables here
         super().__init__()
-        self.type = SequenceNodeType.endsilently
+        self.type = NodeBase.SequenceNodeType.endsilently
         self.typeString = "void"
         
         
     #factory method.. returns instance of class or None
     @staticmethod
     def tryIsNodeType(inputString):
-        result = endSilentRegex.match(inputString)
+        result = NodeRegExes.endSilentRegex.match(inputString)
         if result:
             return EndSilentlyNode()
 
