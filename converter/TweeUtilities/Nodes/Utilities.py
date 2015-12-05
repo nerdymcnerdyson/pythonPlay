@@ -1,3 +1,5 @@
+from . import NodeRegExes
+
 from NodeRegExes import *
 import re
 

@@ -1,3 +1,5 @@
+from . import NodeBase
+
 from NodeBase import *
 
 class EitherNode(SequenceNode):

@@ -1,3 +1,7 @@
+from . import NodeBase
+from . import NodeRegExes
+from . import Utilities
+
 from NodeRegExes import *
 from NodeBase import *
 from Utilities import *
