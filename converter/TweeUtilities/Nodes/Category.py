@@ -1,5 +1,3 @@
-from . import Action
-from Action import *
 
 class Category:
     def __init__(self, identifier, actions):
