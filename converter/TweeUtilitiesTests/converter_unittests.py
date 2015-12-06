@@ -2,7 +2,11 @@
 
 import unittest
 
-from converter import *
+import sys
+sys.path.append('..')
+
+from TweeUtilities import *
+from TweeUtilities.TweeToLLJSConverter import *
 
 import choiceNode_unittests
 import stringTokenizer_unittests

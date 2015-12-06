@@ -2,7 +2,10 @@
 
 
 import logging
-from NodeClasses import *
+#from .. import Nodes
+
+from TweeUtilities.Nodes import *
+
 
 class TweeToLLJSConverter:
     def __init__(self):
@@ -11,7 +14,18 @@ class TweeToLLJSConverter:
         self.categories = {}
         self.waypoints = {} # waypointName->nodelist
         
-        self.nodeClassList = [WaypointNode, SilentlyNode, SetNode, EndSilentlyNode, ChoiceNode, IfStartNode, ElseIfNode,ElseNode,EndIfNode, LinkNode]
+        self.nodeClassList = [
+            WaypointNode,
+            SilentlyNode,
+            SetNode,
+            EndSilentlyNode,
+            ChoiceNode,
+            ConditionalNodes.IfStartNode,
+            ConditionalNodes.ElseIfNode,
+            ConditionalNodes.ElseNode,
+            ConditionalNodes.EndIfNode,
+            LinkNode
+        ]
         # create logger
         self.logger = logging.getLogger(__name__+"."+(type(self).__name__))
 
@@ -203,7 +217,7 @@ def breakUpStringIntoListOfTwineParts(inputString):
     keepGoing = True
     while keepGoing:
         keepGoing = False
-        waypoints = [waypoint for waypoint in returnList if LinkTokenRegex.match(waypoint)]
+        waypoints = [waypoint for waypoint in returnList if NodeRegExes.LinkTokenRegex.match(waypoint)]
         for waypoint in waypoints:
             
             waypointIndex = returnList.index(waypoint)
@@ -220,7 +234,7 @@ def breakUpStringIntoListOfTwineParts(inputString):
                                       returnList[nextPointIndex+1:])
                         break
     
-    variables = [item for item in returnList if variableInTextRegex.match(item)]
+    variables = [item for item in returnList if NodeRegExes.variableInTextRegex.match(item)]
 
     if len(variables):
         for variable in variables:

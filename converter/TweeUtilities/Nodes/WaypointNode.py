@@ -1,14 +1,13 @@
-from . import NodeBase
-from . import NodeRegExes
+#from . import NodeBase
+#from . import NodeRegExes
 
-from NodeRegExes import *
-from NodeBase import *
+from TweeUtilities.Nodes import *
 
 class WaypointNode(SequenceNode):
     def __init__(self, waypointLabel):
         super().__init__()
         self.label = waypointLabel
-        self.type = SequenceNodeType.waypoint
+        self.type = NodeBase.SequenceNodeType.waypoint
         
     @staticmethod
     def tryIsNodeType(inputString):

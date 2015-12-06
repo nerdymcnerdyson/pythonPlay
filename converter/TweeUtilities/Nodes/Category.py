@@ -1,4 +1,4 @@
-
+import logging
 class Category:
     def __init__(self, identifier, actions):
         self.actions = actions

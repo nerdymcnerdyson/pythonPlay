@@ -1,5 +1,5 @@
-from . import Nodes
-from . import TweeToLLJSConverter
+from TweeUtilities.Nodes import *
+from TweeUtilities.TweeToLLJSConverter import TweeToLLJSConverter
 
 
-__all__ = [Nodes, TweeToLLJSConverter]
+

@@ -1,14 +1,11 @@
-from . import NodeBase
-from . import NodeRegExes
-
-from NodeRegExes import *
-from NodeBase import *
-    
-class SilentlyNode(SequenceNode):
+#from . import NodeBase
+#from . import NodeRegExes
+from TweeUtilities.Nodes import *    
+class SilentlyNode(NodeBase.SequenceNode):
     def __init__(self):
         #node variables here
         super().__init__()
-        self.type = SequenceNodeType.silently
+        self.type = NodeBase.SequenceNodeType.silently
         self.typeString = "void"
         
         

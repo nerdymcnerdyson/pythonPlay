@@ -1,15 +1,21 @@
 #!/usr/bin/python3.4
 
+import sys
+
+sys.path.append('..')
+
 
 import logging
 import logging.config
-from TweeToLLJSConverter import *
 
-logging.config.fileConfig('ConverterLogging.conf')
+
+from TweeUtilities import *
+
+logging.config.fileConfig('../TweeUtilities/DefaultLogging.conf')
 
 def main(inputFileName):
     logger = logging.getLogger(__name__)
-    converter = TweeToLLJSConverter()
+    converter = TweeToLLJSConverter.TweeToLLJSConverter()
     converter.setInputFile(inputFileName)
     logger.info('beginning processing')
     converter.process()
@@ -19,7 +25,7 @@ def main(inputFileName):
     
 if __name__ == '__main__':
     import sys
-    inputFile = "StoryData_en.txt"
+    inputFile = "../inputFiles/StoryData_en.txt"
     if len(sys.argv) >= 2:
         inputFile = sys.argv[1]
     main(inputFile)

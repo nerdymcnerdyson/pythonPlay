@@ -1,20 +1,22 @@
-from . import EndSilentlyNode
-from . import ConditionalNodes
-from . import EitherNode
-from . import LinkNode
-from . import SetNode
-from . import SilentlyNode
-from . import TextNode
-from . import WaypointNode
+from TweeUtilities.Nodes.Utilities import *
 
-from EndSilentlyNode import *
-from ConditionalNodes import *
-from EitherNode import *
-from LinkNode import *
-from SetNode import *
-from SilentlyNode import *
-from TextNode import *
-from WaypointNode import *
+from TweeUtilities.Nodes.NodeBase import *
+from TweeUtilities.Nodes.NodeRegExes import *
+
+from TweeUtilities.Nodes.Action import *
+from TweeUtilities.Nodes.Category import *
+
+from TweeUtilities.Nodes.ChoiceNode import *
+from TweeUtilities.Nodes.EndSilentlyNode import *
+from TweeUtilities.Nodes.ConditionalNodes import *
+from TweeUtilities.Nodes.EitherNode import *
+from TweeUtilities.Nodes.LinkNode import *
+from TweeUtilities.Nodes.SetNode import *
+from TweeUtilities.Nodes.SilentlyNode import *
+from TweeUtilities.Nodes.TextNode import *
+from TweeUtilities.Nodes.WaypointNode import *
+
+
 
 # class SequenceNodeTemplate:
 #     def __init__(self):

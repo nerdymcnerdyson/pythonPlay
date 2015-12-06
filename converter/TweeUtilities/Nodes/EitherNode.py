@@ -1,8 +1,8 @@
 from . import NodeBase
 
-from NodeBase import *
 
-class EitherNode(SequenceNode):
+
+class EitherNode(NodeBase.SequenceNode):
     def __init__(self, targetList):
         self.type = SequenceNodeType.either
         self.targetList = targetList

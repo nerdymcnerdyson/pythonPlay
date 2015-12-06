@@ -1,16 +1,13 @@
-from . import NodeBase
-from . import NodeRegExes
-
-from NodeRegExes import *
-from NodeBase import *
-
+#from . import NodeBase
+#from . import NodeRegExes
+from TweeUtilities.Nodes import *
 import re
 
-class SetNode(SequenceNode):
+class SetNode(NodeBase.SequenceNode):
     def __init__(self, varName, varValue):
         #node variables here
         super().__init__()
-        self.type = SequenceNodeType.setter
+        self.type = NodeBase.SequenceNodeType.setter
 
         self.varName = re.sub(variableNameReplacementRegEx,variableReplaceWith,varName)
 #        print('varvalue:', varValue, varName)

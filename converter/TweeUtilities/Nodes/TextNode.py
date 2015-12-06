@@ -1,14 +1,11 @@
 from . import NodeBase
 from . import NodeRegExes
 
-from NodeRegExes import *
-from NodeBase import *
-
-class TextNode(SequenceNode):
+class TextNode(NodeBase.SequenceNode):
     def __init__(self, inputString):
         #node variables here
         super().__init__()
-        self.type = SequenceNodeType.text
+        self.type = NodeBase.SequenceNodeType.text
         self.typeString = "text"
         self.content = inputString
 #factory method.. returns instance of class or None

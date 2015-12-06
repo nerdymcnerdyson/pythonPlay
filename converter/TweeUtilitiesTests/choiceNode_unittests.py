@@ -2,7 +2,9 @@
 
 import unittest
 
-from converter import *
+
+from TweeUtilities import *
+from TweeUtilities.TweeToLLJSConverter import *
 
 class TestDoNotSplitVariablesFromTextNodes(unittest.TestCase):
     def id(self):
